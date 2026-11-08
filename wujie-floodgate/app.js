@@ -130,6 +130,27 @@
   }
   document.querySelectorAll('.film').forEach((f) => players[f.dataset.filmId] = makePlayer(f));
 
+  // ---------- 第8頁：整理參數計算式（自動短暫顯示，點「整理參數」可再看） ----------
+  let calcTimers = [];
+  const CALC_SEC = 12;
+  function calcShow(root, sec = CALC_SEC) {
+    const pop = root.querySelector('.calcpop'); if (!pop) return;
+    calcTimers.forEach(clearTimeout); calcTimers = [];
+    pop.style.setProperty('--calc', sec + 's');
+    pop.classList.remove('show'); void pop.offsetWidth; pop.classList.add('show');
+    calcTimers.push(setTimeout(() => pop.classList.remove('show'), sec * 1000));
+  }
+  function calcHide(root) { calcTimers.forEach(clearTimeout); calcTimers = []; const p = root.querySelector('.calcpop'); if (p) p.classList.remove('show'); }
+  document.querySelectorAll('.slide[data-calc]').forEach((root) => {
+    const pop = root.querySelector('.calcpop');
+    if (pop && !pop.querySelector('.timer')) pop.insertAdjacentHTML('beforeend', '<div class="timer"><i></i></div>');
+    root.querySelector('.calc-trigger').addEventListener('click', () => (pop.classList.contains('show') ? calcHide(root) : calcShow(root)));
+    pop.addEventListener('click', () => calcHide(root));
+  });
+  // 工具說明頁的影片
+  const slideVideo = (s) => s && s.dataset.video ? s.querySelector('video') : null;
+  document.querySelectorAll('.slide[data-video] video').forEach((v) => { v.addEventListener('play', emit); v.addEventListener('pause', emit); });
+
   // ---------- 換頁 ----------
   function stepsOf(s) { return Math.max(0, ...[...s.querySelectorAll('[data-step]')].map((e) => +e.dataset.step)); }
   function applySteps(s) { s.querySelectorAll('[data-step]').forEach((e) => e.classList.toggle('shown', +e.dataset.step <= step)); }
@@ -141,6 +162,8 @@
       prev.classList.remove('active');
       if (prev.dataset.model) unmountModel(prev);
       if (prev.dataset.film) players[prev.dataset.film].pause();
+      if (prev.dataset.calc) calcHide(prev);
+      const pv = slideVideo(prev); if (pv) pv.pause();
     }
     cur = n; step = toStep;
     const s = slides[cur];
@@ -151,6 +174,8 @@
     if (s.dataset.autoStory) story(s);
     if (s.dataset.carousel) carousel(s); else clearInterval(carTimer);
     if (s.dataset.model) mountModel(s);
+    if (s.dataset.calc) calcTimers.push(setTimeout(() => { if (slides[cur] === s) calcShow(s); }, 3200));
+    const sv = slideVideo(s); if (sv) { sv.currentTime = 0; setTimeout(() => { if (slides[cur] === s) sv.play().catch(() => {}); }, 900); }
     if (s.dataset.film) { const p = players[s.dataset.film]; p.reset(); setTimeout(() => { if (slides[cur] === s) p.play(); }, 700); }
     hud.querySelector('.sec').textContent = s.dataset.sec || '';
     hud.querySelector('.pg').textContent = `${cur + 1} / ${slides.length}`;
@@ -171,9 +196,9 @@
       case 'prev': prev(); break;
       case 'first': go(0); break;
       case 'last': go(slides.length - 1); break;
-      case 'play': if (film) film.toggle(); break;
+      case 'play': { const v = slideVideo(slides[cur]); if (film) film.toggle(); else if (v) { v.paused ? v.play().catch(() => {}) : v.pause(); } } break;
       case 'cc': if (film) { film.el.classList.toggle('nocc'); emit(); } break;
-      case 'restart': if (film) film.restart(); break;
+      case 'restart': { const v = slideVideo(slides[cur]); if (film) film.restart(); else if (v) { v.currentTime = 0; v.play().catch(() => {}); } } break;
       case 'notes': notes.classList.toggle('show'); emit(); break;
       case 'help': help.classList.toggle('show'); emit(); break;
       case 'close': help.classList.remove('show'); notes.classList.remove('show'); emit(); break;
@@ -188,7 +213,8 @@
     if (/^d$/.test(k)) { jumpBuf += k; return; }
     if (k === 'Enter' && jumpBuf) { go(+jumpBuf - 1); jumpBuf = ''; return; }
     jumpBuf = '';
-    if (film && (k === ' ' || k === 'k')) { e.preventDefault(); act('play'); return; }
+    if ((film || slideVideo(slides[cur])) && (k === ' ' || k === 'k')) { e.preventDefault(); act('play'); return; }
+    if (slideVideo(slides[cur]) && (k === 'r' || k === 'R')) { act('restart'); return; }
     if (film && (k === 'c' || k === 'C')) { act('cc'); return; }
     if (film && (k === 'r' || k === 'R')) { act('restart'); return; }
     if (['ArrowRight', 'PageDown', ' ', 'ArrowDown'].includes(k)) { e.preventDefault(); act('next'); }
@@ -210,6 +236,6 @@
   const fromHash = () => Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1);
   addEventListener("hashchange", () => { if (fromHash() !== cur) go(fromHash()); });
   go(fromHash());
-  const state = () => { const f = curFilm(); return { h: cur, total: slides.length, step, steps: stepsOf(slides[cur]), film: !!f, playing: f ? !f.paused : false, cc: f ? !f.el.classList.contains('nocc') : false, notes: notes.classList.contains('show'), help: help.classList.contains('show'), reduced: document.body.classList.contains('reduced') }; };
+  const state = () => { const f = curFilm(), v = slideVideo(slides[cur]); return { h: cur, total: slides.length, step, steps: stepsOf(slides[cur]), film: !!(f || v), playing: f ? !f.paused : v ? !v.paused : false, cc: f ? !f.el.classList.contains('nocc') : false, notes: notes.classList.contains('show'), help: help.classList.contains('show'), reduced: document.body.classList.contains('reduced') }; };
   window.DECK = { go, next, prev, act, state, players, get cur() { return cur; }, slides };
 })();

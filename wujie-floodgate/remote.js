@@ -14,6 +14,12 @@
     try { new QRCode(el, { text: url, width: size, height: size, colorDark: '#000000', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.H }); } catch (e) { console.warn('QR failed', e); }
   });
 
+  // 工具說明頁：開啟 APP 的 QR
+  document.querySelectorAll('.qrlink').forEach((el) => {
+    const size = +el.dataset.size || 150;
+    try { new QRCode(el, { text: el.dataset.url, width: size, height: size, colorDark: '#000000', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M }); } catch (e) {}
+  });
+
   let ch = null, client = null, idleTimer = null;
   const light = document.getElementById('hostconn');
   const setConn = (on) => { light.textContent = on ? '📱 手機已連線' : '📱 手機未連線'; light.classList.toggle('on', !!on); };

@@ -6,7 +6,7 @@
 
 | 簡報 | 網址 | 資料夾 |
 |---|---|---|
-| 五結防潮閘門改善工程：從工程查核到 AI 風險驗證（動態簡報，含 2 個 3D 模型、2 支旁白影片） | https://ymguan3-boop.github.io/ai-slides/wujie-floodgate/ | `wujie-floodgate/` |
+| 五結防潮閘門改善工程：從工程查核到 AI 風險驗證（動態簡報，含 2 個 3D 模型、2 支旁白影片、2 個 AI 自製工具介紹） | https://ymguan3-boop.github.io/ai-slides/wujie-floodgate/ | `wujie-floodgate/` |
 | 運用生成式 AI 加強道路管理維護查核（115 年創新提案） | https://ymguan3-boop.github.io/ai-slides/road-audit-ai/ | `road-audit-ai/` |
 
 ## 手機遙控
