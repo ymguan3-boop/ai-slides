@@ -66,8 +66,8 @@
     fb.style.backgroundImage = `url("${root.dataset.fallback}")`;
     fb.dataset.msg = '模型載入中…';
     // 本機（埠號 8770 的三站）或 GitHub Pages（相對路徑）
-    const local = /^(127\.0\.0\.1|localhost)$/.test(location.hostname) && location.port === '8770';
-    const url = local ? `${location.protocol}//${location.hostname}:${root.dataset.model}${root.dataset.modelPath}` : root.dataset.modelRel;
+    // 與簡報同源（本機 server.mjs 與 GitHub Pages 皆提供 models/），手機才能遙控模型
+    const url = root.dataset.modelRel;
     const f = document.createElement('iframe');
     f.title = root.querySelector('.kicker').textContent;
     f.allow = 'fullscreen';
@@ -76,6 +76,31 @@
     f.onload = () => { ok = true; f.classList.add('ready'); };
     setTimeout(() => { if (!ok) fb.dataset.msg = '模型未能載入，目前顯示預錄截圖'; }, 9000);
     wrap.appendChild(f);
+  }
+  // ---------- 手機遙控 3D 模型（同源 iframe：直接操作模型自身的按鈕；旋轉／縮放以模擬滑鼠） ----------
+  function modelCmd(m) {
+    const s = slides[cur]; if (!s.dataset.model || !m) return false;
+    const f = s.querySelector('.modelwrap iframe'); if (!f) return false;
+    let doc, win; try { doc = f.contentDocument; win = f.contentWindow; } catch (e) { return false; }
+    if (!doc) return false;
+    const btn = (label) => [...doc.querySelectorAll('button')].find((b) => (b.getAttribute('aria-label') || '').trim() === label || b.textContent.trim() === label);
+    const canvas = doc.querySelector('canvas');
+    if (m.t === 'btn') { const b = btn(m.label); if (b) b.click(); return !!b; }
+    if (m.t === 'sel') { const el = [...doc.querySelectorAll('select')].find((x) => x.getAttribute('aria-label') === m.label); if (!el) return false; el.value = m.value; el.dispatchEvent(new win.Event('change', { bubbles: true })); el.dispatchEvent(new win.Event('input', { bubbles: true })); return true; }
+    if (m.t === 'cp') { const row = doc.querySelectorAll('#risk-table-body tr')[m.i]; const td = row && row.querySelector('td'); if (td) td.click(); return !!td; }
+    if (!canvas) return false;
+    const r = canvas.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    if (m.t === 'zoom') { canvas.dispatchEvent(new win.WheelEvent('wheel', { deltaY: m.dir > 0 ? -240 : 240, clientX: cx, clientY: cy, bubbles: true, cancelable: true })); return true; }
+    if (m.t === 'rot') {
+      canvas.setPointerCapture = () => {}; canvas.releasePointerCapture = () => {}; canvas.hasPointerCapture = () => true;
+      const ev = (type, x, y, buttons) => new win.PointerEvent(type, { pointerId: 77, pointerType: 'mouse', isPrimary: true, button: 0, buttons, clientX: x, clientY: y, bubbles: true, cancelable: true, view: win });
+      const dx = Math.max(-260, Math.min(260, m.dx)), dy = Math.max(-200, Math.min(200, m.dy));
+      canvas.dispatchEvent(ev('pointerdown', cx, cy, 1));
+      for (let k = 1; k <= 4; k++) { canvas.dispatchEvent(ev('pointermove', cx + dx * k / 4, cy + dy * k / 4, 1)); }
+      canvas.dispatchEvent(ev('pointerup', cx + dx, cy + dy, 0));
+      return true;
+    }
+    return false;
   }
   function unmountModel(root) { root.querySelectorAll('.modelwrap iframe').forEach((f) => { f.src = 'about:blank'; f.remove(); }); }
 
@@ -236,6 +261,6 @@
   const fromHash = () => Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1);
   addEventListener("hashchange", () => { if (fromHash() !== cur) go(fromHash()); });
   go(fromHash());
-  const state = () => { const f = curFilm(), v = slideVideo(slides[cur]); return { h: cur, total: slides.length, step, steps: stepsOf(slides[cur]), film: !!(f || v), playing: f ? !f.paused : v ? !v.paused : false, cc: f ? !f.el.classList.contains('nocc') : false, notes: notes.classList.contains('show'), help: help.classList.contains('show'), reduced: document.body.classList.contains('reduced') }; };
-  window.DECK = { go, next, prev, act, state, players, get cur() { return cur; }, slides };
+  const state = () => { const f = curFilm(), v = slideVideo(slides[cur]); return { h: cur, total: slides.length, step, steps: stepsOf(slides[cur]), film: !!(f || v), playing: f ? !f.paused : v ? !v.paused : false, cc: f ? !f.el.classList.contains('nocc') : false, notes: notes.classList.contains('show'), help: help.classList.contains('show'), reduced: document.body.classList.contains('reduced'), model: slides[cur].dataset.model === '8771' ? 'risk' : slides[cur].dataset.model === '8772' ? 'audit' : null }; };
+  window.DECK = { go, next, prev, act, state, modelCmd, players, get cur() { return cur; }, slides };
 })();

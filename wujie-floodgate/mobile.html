@@ -35,6 +35,17 @@
   .item.active { background: rgba(63,208,201,.16); border-color: rgba(63,208,201,.6); }
   .item.active .num { background: #3fd0c9; color: #052026; }
   .item:active { background: rgba(63,208,201,.25); }
+  .model { display: none; background: #0b1a26; border: 1px solid rgba(63,208,201,.45); border-radius: 16px; padding: 12px; margin-bottom: 12px; }
+  .model.show { display: block; }
+  .model h2 { font-size: .9em; color: #3fd0c9; margin-bottom: 8px; letter-spacing: .06em; }
+  .pad { position: relative; height: 170px; border-radius: 14px; background: repeating-linear-gradient(45deg, #0f2633 0 12px, #0d2230 12px 24px); border: 1px dashed rgba(63,208,201,.6); display: grid; place-items: center; color: #6f8b97; font-size: .9em; touch-action: none; user-select: none; -webkit-user-select: none; margin-bottom: 8px; }
+  .pad.drag { border-style: solid; color: #3fd0c9; }
+  .zoomrow { display: flex; gap: 8px; margin-bottom: 10px; }
+  .zoomrow button { flex: 1; padding: 12px 0; border-radius: 12px; border: 1px solid rgba(120,190,210,.3); background: #0d202d; color: #eaf4f7; font-size: 1.05em; font-weight: 700; }
+  .mgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .mgrid .lbl { grid-column: 1 / -1; font-size: .72em; color: #6f8b97; margin-top: 4px; }
+  .mgrid button { padding: 11px 4px; border-radius: 10px; border: 1px solid rgba(120,190,210,.3); background: #0d202d; color: #eaf4f7; font-size: .85em; font-weight: 600; }
+  .mgrid button:active, .zoomrow button:active { background: #12474a; }
 </style>
 </head>
 <body>
@@ -50,6 +61,12 @@
     <button id="bNotes" data-c="notes">講者備註（投影）</button>
     <button id="bHelp" data-c="help">H 說明／QR</button>
     <button id="bMotion" data-c="motion">減少動態</button>
+  </div>
+  <div class="model" id="modelBox">
+    <h2 id="modelTitle">🧭 3D 模型操作</h2>
+    <div class="pad" id="pad">☝ 在此拖曳：旋轉模型</div>
+    <div class="zoomrow"><button data-z="1">＋ 放大</button><button data-z="-1">－ 縮小</button></div>
+    <div class="mgrid" id="mgrid"></div>
   </div>
   <details class="notes" id="notesBox" open><summary>本頁講稿（只在手機顯示）</summary><p id="script">—</p></details>
   <div class="list-title">點選頁面可直接跳頁</div>
@@ -80,8 +97,8 @@
       for (const id of ['bPlay', 'bRestart', 'bCc']) $(id).disabled = !s.film;
       $('bPlay').textContent = s.playing ? '❚❚ 影片 暫停' : '▶ 影片 播放';
       $('bCc').classList.toggle('on', !!(s.film && s.cc));
-      $('bNotes').classList.toggle('on', !!s.notes); $('bHelp').classList.toggle('on', !!s.help); $('bMotion').classList.toggle('on', !!s.reduced);
-      const a = document.querySelector('.item.active'); if (a) a.scrollIntoView({ block: 'nearest' });
+      $('bNotes').classList.toggle('on', !!s.notes); $('bHelp').classList.toggle('on', !!s.help); $('bMotion').classList.toggle('on', !!s.reduced); $('bMotion').textContent = s.reduced ? '已關閉進場、轉場動畫' : '減少動態';
+      renderModel(s.model);
     }
   }
   function buildList() {
@@ -94,6 +111,41 @@
     }
   }
   document.querySelectorAll('[data-c]').forEach((b) => b.onclick = () => { if (ch) { ch.publish('cmd', { c: b.dataset.c }); resetIdle(); if (navigator.vibrate) navigator.vibrate(15); } });
+
+  // ---- 3D 模型操作（指令轉給簡報，由簡報操作模型自身按鈕） ----
+  const MODEL_UI = {
+    risk: { title: '🧭 3D 淹水風險主模型', groups: [
+      ['工程條件', [['施作前', { t: 'btn', label: '切換工程施作前' }], ['施作後', { t: 'btn', label: '切換工程施作後' }]]],
+      ['Q10 流量情境', [['775 一般治理', { t: 'btn', label: 'Q10一般治理775 cms' }], ['750 關閘禦潮', { t: 'btn', label: 'Q10關閘禦潮750 cms' }], ['1088 目標年', { t: 'btn', label: 'Q10目標年1088 cms' }]]],
+      ['評估年份', [['現況 2020', { t: 'sel', label: '選擇洪峰流量評估年份', value: 'BASE_2020' }], ['目標年 2070', { t: 'sel', label: '選擇洪峰流量評估年份', value: 'TARGET_2070' }]]],
+      ['視角與展示', [['閘門近景', { t: 'btn', label: '閘門近景' }], ['垂直俯視', { t: 'btn', label: '垂直俯視' }], ['降雨情景', { t: 'btn', label: '播放強降雨情景（假設）' }], ['自由瀏覽', { t: 'btn', label: '啟用自由瀏覽' }], ['退出自由瀏覽', { t: 'btn', label: '退出自由瀏覽' }], ['收合工具列', { t: 'btn', label: '收合工具列內容' }]]],
+    ] },
+    audit: { title: '🧭 查核證據 3D 模型', groups: [
+      ['視角', [['區域', { t: 'btn', label: '區域' }], ['斜視', { t: 'btn', label: '斜視' }], ['俯視', { t: 'btn', label: '俯視' }], ['閘門', { t: 'btn', label: '閘門' }], ['聚落', { t: 'btn', label: '聚落' }], ['無人機', { t: 'btn', label: '無人機' }]]],
+      ['風險查核點', [['？1 內外水', { t: 'cp', i: 0 }], ['？2 堤岸餘裕', { t: 'cp', i: 1 }], ['？3 越波', { t: 'cp', i: 2 }], ['？4 多門失效', { t: 'cp', i: 3 }], ['？5 抽水依賴', { t: 'cp', i: 4 }], ['關閉分析卡', { t: 'btn', label: '關閉風險分析卡' }]]],
+      ['面板', [['查核點明細', { t: 'btn', label: '風險查核點明細' }], ['關閉明細', { t: 'btn', label: '關閉風險查核點明細' }], ['操作說明', { t: 'btn', label: '本模型操作說明' }]]],
+    ] },
+  };
+  let modelNow = null;
+  const sendModel = (mm) => { if (ch) { ch.publish('cmd', { c: 'model', m: mm }); resetIdle(); if (navigator.vibrate) navigator.vibrate(10); } };
+  function renderModel(kind) {
+    if (kind === modelNow) return; modelNow = kind;
+    const box = $('modelBox'); box.classList.toggle('show', !!kind); if (!kind) return;
+    const ui = MODEL_UI[kind]; $('modelTitle').textContent = ui.title; const g = $('mgrid'); g.innerHTML = '';
+    for (const [lbl, items] of ui.groups) {
+      const l = document.createElement('div'); l.className = 'lbl'; l.textContent = lbl; g.appendChild(l);
+      for (const [text, cmd] of items) { const b = document.createElement('button'); b.textContent = text; b.onclick = () => sendModel(cmd); g.appendChild(b); }
+    }
+  }
+  document.querySelectorAll('[data-z]').forEach((b) => b.onclick = () => sendModel({ t: 'zoom', dir: +b.dataset.z }));
+  (() => { // 拖曳板：累積位移，每 120ms 送出一次
+    const pad = $('pad'); let last = null, acc = [0, 0], timer = null;
+    const flush = () => { if (Math.abs(acc[0]) + Math.abs(acc[1]) > 2) sendModel({ t: 'rot', dx: Math.round(acc[0] * 1.6), dy: Math.round(acc[1] * 1.6) }); acc = [0, 0]; };
+    pad.addEventListener('pointerdown', (e) => { last = [e.clientX, e.clientY]; pad.classList.add('drag'); pad.setPointerCapture(e.pointerId); timer = setInterval(flush, 120); });
+    pad.addEventListener('pointermove', (e) => { if (!last) return; acc[0] += e.clientX - last[0]; acc[1] += e.clientY - last[1]; last = [e.clientX, e.clientY]; });
+    const end = () => { if (!last) return; last = null; pad.classList.remove('drag'); clearInterval(timer); flush(); };
+    pad.addEventListener('pointerup', end); pad.addEventListener('pointercancel', end);
+  })();
 
   fetch('speaker-notes.json').then((r) => r.json()).then((j) => { notes = j; total = j.length; buildList(); render(); }).catch(() => { buildList(); });
 

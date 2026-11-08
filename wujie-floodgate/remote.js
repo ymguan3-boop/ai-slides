@@ -33,7 +33,7 @@
       client = new Ably.Realtime({ key: ABLY_KEY, clientId: 'host-' + Date.now() });
       ch = client.channels.get('slide-remote-' + room);
       ch.subscribe('nav', (m) => { const h = m.data && m.data.h; if (typeof h === 'number') { DECK.go(h); resetIdle(); } });
-      ch.subscribe('cmd', (m) => { if (m.data && m.data.c) { DECK.act(m.data.c); resetIdle(); sync(); } });
+      ch.subscribe('cmd', (m) => { const d = m.data || {}; if (d.c === 'model') { DECK.modelCmd(d.m); resetIdle(); return; } if (d.c) { DECK.act(d.c); resetIdle(); sync(); } });
       ch.presence.subscribe('enter', (m) => { if (m.clientId && m.clientId.indexOf('mobile-') === 0) { setConn(true); sync(); resetIdle(); } });
       ch.presence.subscribe('leave', (m) => { if (m.clientId && m.clientId.indexOf('mobile-') === 0) checkMobile(); });
       client.connection.on('connected', () => {
