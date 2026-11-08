@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-09-04",
+  "version": "20260904-q10-operation-v11",
+  "scope": "Q10情境修訂與NLSC宜蘭分棟版3D介接",
+  "status": "IMPLEMENTED_RUNTIME_VERIFIED_WITH_LIMITATIONS",
+  "tests": {
+    "unit": "PASS：4個Q10情境、7組合法前後組合、750施作前為null、CSV最後兩欄來源與出處、ECEF→TWD97投影對照、三角形格網相交、合併網格逐棟點選／染色／隱藏",
+    "browser": "Codex瀏覽器 http://127.0.0.1:8768/",
+    "nearView": {
+      "loadedModelCount": 197,
+      "dry": {
+        "offset": -0.5,
+        "risk": 0,
+        "redRendered": 0,
+        "activeFloodCells": 0
+      },
+      "plan775": {
+        "before": {
+          "waterLevel": 2.91,
+          "risk": 90,
+          "redRendered": 90
+        },
+        "after": {
+          "waterLevel": 2.79,
+          "risk": 87,
+          "redRendered": 87
+        }
+      },
+      "operation750": {
+        "base": {
+          "waterLevel": 2.46,
+          "risk": 81,
+          "redRendered": 81
+        },
+        "animationEnd": {
+          "waterLevel": 2.96,
+          "offset": 0.5,
+          "risk": 90,
+          "redRendered": 90
+        },
+        "beforeDisabled": true
+      }
+    },
+    "picking": {
+      "officialId": "361VU6XAM5",
+      "e": 334431.633,
+      "n": 2731818.067,
+      "dtm": 2.56,
+      "modelBase": 2.13,
+      "modelHeight": 3.43,
+      "BUILD_NO": "1",
+      "MDATE": "202408",
+      "M_MDATE": "202504",
+      "status": "實點可關閉資訊窗及本棟圖磚連結"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "quickRailDirection": "row",
+      "quickRailTop": 781,
+      "quickRailBottom": 839
+    },
+    "freeExploreRightClickExit": "PASS",
+    "consoleErrors": []
+  },
+  "limitations": [
+    "上述197為指定近景當時已載入官方模型樣本，不是全區總數，不可固定作未來分母；視角／服務更新會改變",
+    "原全景逐棟繪製曾拖慢操作，現改每圖磚合併繪製並保留逐棟狀態；全區涵蓋率與不同裝置效能仍待擴大抽查",
+    "官方3D按需線上服務，未大量下載或於網站再散布官方GLB；離線僅可另選舊版衍生備援",
+    "新官方ID尚未重算水利署SHP相交或匹配建管／實價登錄",
+    "模型垂直基準／現況時相及單棟地坪尚待測量核對；SCREENING_ONLY，不是正式水理模式",
+    "750 cms是高地入流洪峰；EL2.46為新閘門操作最高內水，不是1K+600值，不直接作前後效益或堤頂加高計算",
+    "靜態動畫仍以最低至最高水位展示，不代表6／18小時操作時序或發生年份"
+  ],
+  "publicDeployment": "待使用者確認更新既有公開網站"
+}

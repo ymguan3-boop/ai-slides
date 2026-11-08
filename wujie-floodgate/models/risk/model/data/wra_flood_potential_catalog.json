@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "title": "水利署淹水潛勢圖（五結閘門AOI衍生）",
+  "checkedDate": "2026-08-28",
+  "agency": "經濟部水利署",
+  "serviceIntro": "https://gic.wra.gov.tw/Gis/Page/MapServiceIntro",
+  "officialIndex": "https://gic.wra.gov.tw/Gis/gic/API/Google/Index.aspx",
+  "officialFormat": "公開下載SHP；官方索引本組圖層未提供可用KML下載，模型KML為由官方SHP裁切後的衍生檔。",
+  "aoi": {
+    "crs": "EPSG:3826",
+    "bbox": [
+      326297.8226,
+      2723883.96675,
+      342297.8226,
+      2739883.96675
+    ],
+    "areaKm2": 256
+  },
+  "layers": [
+    {
+      "id": "150mm_6h",
+      "name": "6小時 150毫米設計降雨淹水潛勢",
+      "rainfallMm": 150,
+      "durationHours": 6,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_150mm_6hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=33&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_150mm_6hr.zip",
+      "rawSha256": "9cb815f2b0b2326efe030390208eaea8a810759c1b49a7e142af10983dc1540f",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_150mm_6h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_150mm_6h_aoi.kml",
+      "sourceFeatureCount": 1254,
+      "aoiFeatureCount": 17,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        335860.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "City",
+        "CityName",
+        "TownName"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "200mm_12h",
+      "name": "12小時 200毫米設計降雨淹水潛勢",
+      "rainfallMm": 200,
+      "durationHours": 12,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_200mm_12hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=36&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_200mm_12hr.zip",
+      "rawSha256": "3da1cae5e11247bd4d56542edee90ff0bb9b67549e116020682eeee48e1c5e63",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_200mm_12h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_200mm_12h_aoi.kml",
+      "sourceFeatureCount": 1342,
+      "aoiFeatureCount": 21,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        335860.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "CityName",
+        "TownName",
+        "Town",
+        "City"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "200mm_24h",
+      "name": "24小時 200毫米設計降雨淹水潛勢",
+      "rainfallMm": 200,
+      "durationHours": 24,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_200mm_24hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=39&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_200mm_24hr.zip",
+      "rawSha256": "fd170724eb0c9684f2ec353a22b00613c1169556548b534c378790e7a93e9ad0",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_200mm_24h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_200mm_24h_aoi.kml",
+      "sourceFeatureCount": 1204,
+      "aoiFeatureCount": 21,
+      "aoiBounds": [
+        326297.823,
+        2723980.0,
+        335860.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "CityName",
+        "TownName",
+        "City"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "250mm_6h",
+      "name": "6小時 250毫米設計降雨淹水潛勢",
+      "rainfallMm": 250,
+      "durationHours": 6,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_250mm_6hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=34&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_250mm_6hr.zip",
+      "rawSha256": "a2986c53696bf10f9d3a3be6ab5dd337feb039d0be186535c67db42e9a805ddd",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_250mm_6h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_250mm_6h_aoi.kml",
+      "sourceFeatureCount": 1651,
+      "aoiFeatureCount": 26,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        335980.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "City",
+        "CityName",
+        "TownName"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "300mm_12h",
+      "name": "12小時 300毫米設計降雨淹水潛勢",
+      "rainfallMm": 300,
+      "durationHours": 12,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_300mm_12hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=37&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_300mm_12hr.zip",
+      "rawSha256": "1ea8dd8d1dbde0928d9824367c94e914e1356f39021618fc2f5dad22a8b05c4f",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_300mm_12h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_300mm_12h_aoi.kml",
+      "sourceFeatureCount": 1692,
+      "aoiFeatureCount": 25,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        335980.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "CityName",
+        "TownName",
+        "City"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "350mm_24h",
+      "name": "24小時 350毫米設計降雨淹水潛勢",
+      "rainfallMm": 350,
+      "durationHours": 24,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_350mm_24hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=40&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_350mm_24hr.zip",
+      "rawSha256": "dc17bf66638a131e51bbc1ce756ade5976185a54ad25e09bb0be42dbe23faba3",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_350mm_24h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_350mm_24h_aoi.kml",
+      "sourceFeatureCount": 1739,
+      "aoiFeatureCount": 24,
+      "aoiBounds": [
+        326297.823,
+        2723940.0,
+        335980.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "CityName",
+        "TownName",
+        "City"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "350mm_6h",
+      "name": "6小時 350毫米設計降雨淹水潛勢",
+      "rainfallMm": 350,
+      "durationHours": 6,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_350mm_6hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=35&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_350mm_6hr.zip",
+      "rawSha256": "1f081dabeae8f85b164c3f801d02c667b29c6012807348a803390082f2694d57",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_350mm_6h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_350mm_6h_aoi.kml",
+      "sourceFeatureCount": 2038,
+      "aoiFeatureCount": 30,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        336060.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "City",
+        "CityName",
+        "TownName"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "400mm_12h",
+      "name": "12小時 400毫米設計降雨淹水潛勢",
+      "rainfallMm": 400,
+      "durationHours": 12,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_400mm_12hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=38&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_400mm_12hr.zip",
+      "rawSha256": "4bfa7b78b77e1a5e4fd85371c54eede1dcc34bb61980e7d829c766a103774d4d",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_400mm_12h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_400mm_12h_aoi.kml",
+      "sourceFeatureCount": 1977,
+      "aoiFeatureCount": 27,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        336060.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "CityName",
+        "TownName",
+        "City"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "500mm_24h",
+      "name": "24小時 500毫米設計降雨淹水潛勢",
+      "rainfallMm": 500,
+      "durationHours": 24,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_500mm_24hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=41&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_500mm_24hr.zip",
+      "rawSha256": "213122d087102e7f8af6976042234b3f64fbc6c23510eb10a9ef18f3b7716617",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_500mm_24h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_500mm_24h_aoi.kml",
+      "sourceFeatureCount": 2050,
+      "aoiFeatureCount": 32,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        336060.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "CityName",
+        "TownName",
+        "City"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    },
+    {
+      "id": "650mm_24h",
+      "name": "24小時 650毫米設計降雨淹水潛勢",
+      "rainfallMm": 650,
+      "durationHours": 24,
+      "officialBuildDate": "2019-12-30",
+      "platformUploadDate": "2022-08-15",
+      "crs": "EPSG:3826",
+      "officialDownload": "https://gic.wra.gov.tw/Gis/gic/API/Google/DownLoad.aspx?fname=flood_650mm_24hr&filetype=SHP",
+      "sourceMetadata": "https://gic.wra.gov.tw/Gis/gic/DataIndex/MetaData/ShowDetail.aspx?MD_ID=42&type=SHP",
+      "rawZip": "data/wra-flood-potential/raw/flood_650mm_24hr.zip",
+      "rawSha256": "c10efb4bbf66e45671516e26cd19e25ef8b2e74ab985fed5dc4d46078151beeb",
+      "aoiGeoJson": "data/wra-flood-potential/derived/wra_flood_650mm_24h_aoi.geojson",
+      "aoiKml": "data/wra-flood-potential/derived/wra_flood_650mm_24h_aoi.kml",
+      "sourceFeatureCount": 2356,
+      "aoiFeatureCount": 36,
+      "aoiBounds": [
+        326297.823,
+        2723883.967,
+        336100.0,
+        2739883.967
+      ],
+      "fields": [
+        "flood_dept",
+        "Class",
+        "Town",
+        "CityName",
+        "TownName",
+        "City"
+      ],
+      "depthField": "flood_dept",
+      "limitation": "水利署模型產製之淹水潛勢參考圖；非本案正式1D/2D重算，深度級距具不確定性。"
+    }
+  ],
+  "method": "以建物模型足跡與各官方淹水潛勢多邊形相交判斷參考暴露；水利署圖層不與本案情境水深相加，兩者分開呈現，供正式1D/2D模式校核。",
+  "limitations": [
+    "資料由水利署設計降雨、地形與水理模型產製，具有模型不確定性；非本案工程效益驗證。",
+    "建物足跡含BUILDX衍生LOD1及工程細部LOD0，非地籍界線或測量建物。",
+    "本次AOI為閘門置中16×16公里互動初篩範圍，不替代110.52平方公里冬山河集水區正式模式。"
+  ],
+  "downloadedRawFileCount": 10,
+  "buildingAssessmentCsv": "data/wra_building_risk_reanalysis.csv",
+  "runtimeAssessment": "data/wra_flood_potential_building_assessment.min.json"
+}

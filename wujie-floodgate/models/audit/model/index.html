@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#07131b" />
+    <title>五結防潮閘門｜工程設計風險 3D 模型</title>
+    <link rel="icon" href="data:," />
+    <script type="module" crossorigin src="assets/index-Bqtpx-5k.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-CNQuNHNI.css">
+  </head>
+  <body>
+    <main id="app" aria-label="五結防潮閘門工程設計風險3D模型">
+      <header class="app-header">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">五結</div>
+          <div class="brand-copy">
+            <p class="eyebrow">WUJIE FLOODGATE · 3D RISK MODEL</p>
+            <h1>五結防潮閘門工程設計風險3D模型</h1>
+          </div>
+        </div>
+        <div class="header-tools" aria-label="模型快捷工具列">
+          <nav class="view-switcher" aria-label="視角與巡查模式">
+            <button type="button" data-view="overview" title="查看區域模型">區域</button>
+            <button type="button" data-view="oblique" class="active" title="由斜上方查看工程主體">斜視</button>
+            <button type="button" data-view="top" title="由正上方查看配置">俯視</button>
+            <button type="button" data-view="near" title="靠近查看閘門構造">閘門</button>
+            <button type="button" data-view="settlement" title="查看聚落與堤岸界面">聚落</button>
+            <button type="button" data-view="free" aria-controls="flight-telemetry" title="以方向鍵或手機控制器操控無人機">無人機</button>
+          </nav>
+          <button id="open-risk-checkpoints" class="header-tool-button" type="button" aria-controls="risk-panel">風險查核點明細</button>
+          <button id="open-model-guide" class="header-tool-button" type="button" aria-controls="guide-panel">本模型操作說明</button>
+        </div>
+      </header>
+
+      <section class="viewport-shell" aria-label="三維視窗">
+        <div id="canvas-host" data-qa="canvas-host"></div>
+        <div id="loading" class="loading-card" role="status" aria-live="polite">
+          <span class="spinner" aria-hidden="true"></span>
+          <div><strong>載入可追溯GIS場景</strong><small id="loading-detail">初始化地形與工程構造…</small></div>
+        </div>
+        <div id="error-card" class="error-card" hidden>
+          <strong id="error-heading">3D視窗無法啟動</strong>
+          <span id="error-message">請確認瀏覽器支援WebGL。</span>
+          <figure class="fallback-preview">
+            <img src="assets/floodgate_master_overview_45.png" alt="五結防潮閘門改善工程基本設計白模45度預覽">
+            <figcaption>Blender 主模型預覽｜互動巡查請改用支援 WebGL 的 Chrome、Edge 或 Firefox</figcaption>
+          </figure>
+        </div>
+        <div id="scene-labels" class="scene-labels" aria-hidden="true"></div>
+
+        <aside class="layer-panel panel-card collapsed" aria-label="圖層控制">
+          <div class="panel-title-row">
+            <div><span class="panel-kicker">LAYERS</span><h2>圖層與檢核</h2></div>
+            <button id="collapse-layers" class="layer-toggle" type="button" aria-label="展開圖層面板" aria-expanded="false">圖層</button>
+          </div>
+          <div class="panel-content">
+            <fieldset class="basemap-fieldset">
+              <legend>底圖</legend>
+              <label><input type="radio" name="basemap" value="photo" checked /><span>政府正射影像</span></label>
+              <label><input type="radio" name="basemap" value="emap" /><span>電子地圖／建物框</span></label>
+              <label><input type="radio" name="basemap" value="dtm" /><span>DTM地形設色</span></label>
+            </fieldset>
+            <div class="toggle-list">
+              <label><span><i class="swatch swatch-building"></i>既有建物</span><input type="checkbox" data-layer="buildings" checked /></label>
+              <label><span><i class="swatch swatch-existing"></i>既有閘門</span><input type="checkbox" data-layer="existingGate" checked /></label>
+              <label><span><i class="swatch swatch-design"></i>基本設計白模</span><input type="checkbox" data-layer="designGate" checked /></label>
+              <label><span><i class="swatch swatch-water"></i>影像判釋水涯</span><input type="checkbox" data-layer="river" checked /></label>
+              <label><span><i class="swatch swatch-road"></i>道路／管理橋</span><input type="checkbox" data-layer="roads" checked /></label>
+              <label><span><i class="swatch swatch-drawing"></i>工程圖說配準</span><input type="checkbox" data-layer="drawing" /></label>
+              <label><span><i class="swatch swatch-control"></i>測量控制點</span><input type="checkbox" data-layer="controls" checked /></label>
+              <label><span><i class="swatch swatch-audit"></i>風險查核點</span><input type="checkbox" data-layer="auditMarkers" checked /></label>
+            </div>
+            <div class="material-controls" role="group" aria-label="材質模式">
+              <button type="button" data-material="current" class="active">現況色＋設計白模</button>
+              <button type="button" data-material="white">全區白模檢核</button>
+            </div>
+          </div>
+        </aside>
+
+        <aside id="info-panel" class="info-panel panel-card hidden" aria-live="polite">
+          <div class="panel-title-row">
+            <div><span class="panel-kicker">OBJECT TRACE</span><h2 id="info-title">點選物件查看來源</h2></div>
+            <button id="close-info" class="icon-button" type="button" aria-label="關閉物件資訊">×</button>
+          </div>
+          <div id="info-content" class="info-content"><p class="empty-hint">可點選既有建物、既有閘門、基本設計構造、測量控制點或風險查核點。</p></div>
+        </aside>
+
+        <aside id="risk-panel" class="audit-panel panel-card hidden" aria-label="風險查核點明細">
+          <div class="panel-title-row">
+            <div><span class="panel-kicker">RISK CHECKPOINTS</span><h2>風險查核點明細</h2></div>
+            <button id="close-risk-panel" class="icon-button" type="button" aria-label="關閉風險查核點明細">×</button>
+          </div>
+          <div class="risk-panel-content">
+            <p class="tool-intro">點選列項可定位查核點；內容為既有資料與本展示模型的風險研判，不取代正式水理演算、施工查驗或竣工認定。</p>
+            <div class="risk-table-wrap">
+              <table class="risk-table">
+                <thead><tr><th>查核點</th><th>查核主題</th><th>模型分析結果</th><th>佐證附件</th><th>預擬建議事項</th></tr></thead>
+                <tbody id="risk-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </aside>
+
+        <aside id="guide-panel" class="guide-panel panel-card hidden" aria-label="本模型操作說明">
+          <div class="panel-title-row">
+            <div><span class="panel-kicker">QUICK GUIDE</span><h2>本模型操作說明</h2></div>
+            <button id="close-guide-panel" class="icon-button" type="button" aria-label="關閉本模型操作說明">×</button>
+          </div>
+          <div class="guide-content">
+            <ol>
+              <li><strong>切換視角：</strong>使用頁首「區域、斜視、俯視、閘門、聚落」快速定位。</li>
+              <li><strong>自由巡查：</strong>電腦以方向鍵前後與轉向，E／Q 上升與下降；手機直向畫面以左下搖桿與右下升降鍵操作。</li>
+              <li><strong>查看風險：</strong>點擊琥珀色「？1～？5」，或讓無人機進入感應範圍；近接時標記轉紅並顯示分析卡。</li>
+              <li><strong>離開巡查：</strong>電腦按滑鼠右鍵，或切換任一固定視角；離開感應範圍後分析卡自動關閉。</li>
+              <li><strong>資料限制：</strong>本模型用於工程設計風險展示與查核輔助，不作施工放樣、界址、竣工或防洪效益認定。</li>
+            </ol>
+          </div>
+        </aside>
+
+        <aside id="proximity-audit-card" class="proximity-audit-card" aria-live="polite" hidden>
+          <header>
+            <div><span id="proximity-audit-label">風險查核點</span><strong id="proximity-audit-title"></strong></div>
+            <button id="close-proximity-audit" class="popup-close" type="button" aria-label="關閉風險分析卡">×</button>
+          </header>
+          <div id="proximity-audit-metrics" class="risk-metrics"></div>
+          <div class="risk-popup-section"><b>模型分析結果</b><div id="proximity-audit-fact"></div></div>
+          <div class="risk-popup-section"><b>佐證附件與來源</b><div id="proximity-audit-source"></div></div>
+          <div class="risk-popup-section"><b>證據等級與限制</b><div id="proximity-audit-limitation"></div></div>
+          <div class="risk-popup-section recommendation"><b>改善／預警建議</b><div id="proximity-audit-recommendation"></div></div>
+        </aside>
+
+        <div id="mobile-flight-controls" class="mobile-flight-controls" hidden aria-label="手機無人機控制器">
+          <div id="mobile-joystick" class="mobile-joystick" aria-label="前後與方向控制"><span id="mobile-joystick-stick"></span></div>
+          <div class="mobile-altitude-controls">
+            <button type="button" data-mobile-altitude="1">上升</button>
+            <button type="button" data-mobile-altitude="-1">下降</button>
+          </div>
+        </div>
+
+        <div class="coordinate-bar" data-qa="coordinate-bar">
+          <span>EPSG:3826</span><span>TWVD2001</span><span id="cursor-coordinate">E334,300 · N2,731,950</span><span>代表區 400×400m</span>
+        </div>
+        <div id="free-hint" class="free-hint" hidden>無人機巡查中 · 方向鍵控制 · Q／E 下降／上升 · 右鍵返回</div>
+        <div id="flight-telemetry" class="flight-telemetry" aria-live="polite" hidden>
+          <span><i></i>第三人稱巡查</span><strong>高度 18.0m · 速度 0.0m/s</strong>
+        </div>
+        <div id="flight-boundary-warning" class="flight-boundary-warning" role="status" aria-live="assertive" hidden>已達模型邊界，無人機自動煞停</div>
+      </section>
+
+      <footer class="app-footer">
+        <div><strong>模型狀態</strong><span id="model-status">LOADING</span></div>
+        <div class="producer-credit">製作者　官毅明</div>
+        <div class="footer-warning"><strong>用途限制</strong><span>設計風險展示，不作正式水理、施工放樣、界址或竣工認定</span></div>
+      </footer>
+    </main>
+    <script src="assets/vendor/three.min.js"></script>
+    <script src="assets/vendor/OrbitControls.js"></script>
+  </body>
+</html>

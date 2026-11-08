@@ -1,0 +1,73 @@
+{
+  "decisionDate": "2026-08-26",
+  "gatePoint": {
+    "e": 334297.8226,
+    "n": 2731883.96675,
+    "crs": "EPSG:3826"
+  },
+  "previousInteractiveExtent": {
+    "size": "0.4×0.4 km",
+    "areaKm2": 0.16,
+    "decision": "TOO_SMALL_FOR_FLOOD_REVIEW_RETAIN_AS_LOD0"
+  },
+  "tiers": [
+    {
+      "id": "inventory",
+      "name": "政府資料盤點AOI",
+      "scope": "五結防潮閘門半徑20公里",
+      "purpose": "盤點正射、建物、DTM、河道、道路、工程、地籍、建管及水文資料"
+    },
+    {
+      "id": "formal",
+      "name": "正式1D／2D水理模式",
+      "scope": "冬山河集水區110.52 km²及下游海域邊界",
+      "purpose": "依集水區建模、納入潮位、閘門、抽水站、支流及排水系統"
+    },
+    {
+      "id": "review",
+      "name": "下游淹水檢討帶",
+      "scope": "至少涵蓋EL 2m以下逾20 km²低地，邊界須依集水區／排水分區調整",
+      "purpose": "檢討外水頂托、兩岸低地與抽排依賴"
+    },
+    {
+      "id": "interactive",
+      "name": "網站第一階段區域風險篩檢",
+      "scope": "4×4 km／16 km²；E331000–335000、N2729900–2733900",
+      "purpose": "以3,940棟區域LOD1建物、15棟細部建物及20m DTM進行河道連通式靜態水位概估；仍小於低地20餘km²"
+    },
+    {
+      "id": "detail",
+      "name": "閘門工程細部LOD0",
+      "scope": "0.4×0.4 km／0.16 km²",
+      "purpose": "工程圖說、15棟細部建物、閘門與堤防點擊查核"
+    }
+  ],
+  "officialBasis": [
+    {
+      "title": "水利署淹水潛勢圖製作手冊（112年版）",
+      "finding": "模式以集水區建置，需納入邊界、1m水理地形、堤防溢流線、抽水站、閘門與橋梁。",
+      "url": "https://www-ws.wra.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDAwL3JlbGZpbGUvODkwNC8xMDUxMzUvMzJiYzExNTgtY2RlYy00Njg4LWE4OWYtNzVhNjVkY2U1NzRkLnBkZg%3d%3d&n=5re755e95r2U5Yui5ZyW6KO95L2c5omL5YaKXzExMuW5tOeJiC5wZGY%3d"
+    },
+    {
+      "title": "7953C基本設計成果報告",
+      "finding": "冬山河排水集水面積110.52 km²；下游平原EL 2m以下面積逾20 km²。",
+      "url": "project://7953C基本設計成果報告_1091127.md"
+    },
+    {
+      "title": "109年冬山河主流規劃檢討（基本設計報告轉載）",
+      "finding": "SOBEK全流域Q10：改建前淹水1,517.44公頃、改建後1,141.60公頃、改善375.84公頃。",
+      "url": "project://7953C基本設計成果報告_1091127.md#第255至256頁"
+    },
+    {
+      "title": "宜蘭縣政府五結防潮閘門工程說明",
+      "finding": "工程位於冬山河出海口，保護範圍涉及整體冬山河排水系統。",
+      "url": "https://wres.e-land.gov.tw/cp.aspx?n=11429"
+    },
+    {
+      "title": "水利署Delft3D FM淹水模式說明",
+      "finding": "可依集水區、行政區、建物與道路配置彈性網格，都市加密、農漁區較粗。",
+      "url": "https://www.wra.gov.tw/wrap/cp.aspx?n=40302"
+    }
+  ],
+  "warning": "本版已將風險篩檢由0.16km²擴至16km²及3,955棟模型建物，但仍小於EL2m以下低地20餘km²，也不等同完成110.52km²全流域1D／2D水理重算。"
+}

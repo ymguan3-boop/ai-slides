@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 2,
+  "packageId": "WUJIE-RISK-CHECKPOINTS-20260830",
+  "title": "五結防潮閘門工程設計缺失及未來風險查核點",
+  "state": "MODEL_RISK_DISPLAY_READY",
+  "generatedAt": "2026-08-30T16:00:00+08:00",
+  "modelScope": "以109年基本設計成果、基本設計圖與可重現之展示模型進行工程設計風險辨識；不取代正式水理演算、施工查驗、現況測量或竣工認定。",
+  "evidenceGrades": [
+    { "grade": "A", "name": "直接佐證", "definition": "政府正式文件或具明確頁碼、表號、圖號之原始資料。" },
+    { "grade": "B", "name": "可重現推導", "definition": "由A級資料經公開且可重現的算式或空間程序推導。" },
+    { "grade": "C", "name": "輔助判釋", "definition": "由正射影像、模型量體與空間關聯形成的風險線索。" },
+    { "grade": "D", "name": "限制／待補證", "definition": "超出既有資料可支持範圍，不得表述為已證實成果。" }
+  ],
+  "riskCheckpoints": [
+    {
+      "id": "risk-1",
+      "internalAuditId": "AUD-01",
+      "displayLabel": "？1",
+      "title": "2070目標年內外水條件一致性",
+      "position": { "x": 44, "y": 15, "z": -111 },
+      "triggerRadiusM": 25,
+      "exitRadiusM": 31,
+      "summaryMetrics": [
+        { "label": "目標年Q10", "value": "1,088 cms" },
+        { "label": "外水條件", "value": "EL 2.66m" },
+        { "label": "敏感度條件", "value": "EL 2.89m" }
+      ],
+      "analysisLines": [
+        "基本設計目標年十年重現期洪水量採1,088 cms，下游外水位採EL 2.66m。",
+        "審查紀錄另要求比較較高外水位EL 2.89m；若目標年內水量增加而外水條件仍偏低，安全餘裕可能被高估。",
+        "本模型以條件差異標示敏感區，未執行正式一維或二維水理重算。"
+      ],
+      "attachments": [
+        { "label": "S-01 基本設計成果報告", "locator": "報告第4-41～4-44頁（PDF第119～122頁），表4-14", "evidenceId": "EV-A-TARGET" },
+        { "label": "S-01 審查意見回覆", "locator": "PDF第422頁，EL 2.66m／EL 2.89m條件比較", "evidenceId": "EV-A-TARGET" }
+      ],
+      "evidenceLevel": "A級文件事實＋C級模型風險定位",
+      "limitation": "EL 2.89m僅作敏感度警示；是否影響水位與安全餘裕仍應由正式水理模型確認。",
+      "recommendation": "建議後續細部設計或營運檢討納入較高外水位敏感度分析，統一目標年內外水條件、參數與邊界設定，並將不利情境納入預警門檻。"
+    },
+    {
+      "id": "risk-2",
+      "internalAuditId": "AUD-02",
+      "displayLabel": "？2",
+      "title": "1K+600局部堤岸安全餘裕不足",
+      "position": { "x": -124, "y": 16, "z": 83 },
+      "triggerRadiusM": 24,
+      "exitRadiusM": 30,
+      "summaryMetrics": [
+        { "label": "Q10水位", "value": "EL 2.92m" },
+        { "label": "既有堤頂", "value": "EL 3.20m" },
+        { "label": "不足量", "value": "0.22m" }
+      ],
+      "analysisLines": [
+        "基本設計於1K+600列示Q10水位EL 2.92m、既有堤頂EL 3.20m，自由高僅0.28m。",
+        "依報告採用0.50m安全餘裕，需求堤頂為EL 3.42m，現況約不足0.22m。",
+        "此處屬局部低安全餘裕與越波前兆監測重點。"
+      ],
+      "attachments": [
+        { "label": "S-01 基本設計成果報告", "locator": "報告第4-42～4-44頁（PDF第120～122頁），表4-14及相關說明", "evidenceId": "EV-A-FREEBOARD" },
+        { "label": "模型空間定位", "locator": "以基本設計河段與代表性堤岸位置標示；非現況高程複測", "evidenceId": "EV-C-SPATIAL" }
+      ],
+      "evidenceLevel": "A級表列數值＋B級差值推導＋C級代表位置",
+      "limitation": "0.22m為文件數值的算術差值；模型標記不等同最新斷面測量點。",
+      "recommendation": "建議建立1K+600局部堤岸水位、沉陷與沖刷監測指標，訂定定期複測頻率及堤頂加高啟動門檻，於颱洪前後優先巡檢。"
+    },
+    {
+      "id": "risk-3",
+      "internalAuditId": "AUD-03",
+      "displayLabel": "？3",
+      "title": "極端洪潮複合事件越波及系統界面風險",
+      "position": { "x": 72, "y": 15, "z": -58 },
+      "triggerRadiusM": 25,
+      "exitRadiusM": 31,
+      "summaryMetrics": [
+        { "label": "極端外水位", "value": "EL 3.20m" },
+        { "label": "閘頂標高", "value": "EL 3.00m" },
+        { "label": "估計越波量", "value": "約6萬m³" }
+      ],
+      "analysisLines": [
+        "審查回覆的極端情境採外水位EL 3.20m，高於閘頂EL 3.00m，估計越波約1小時、總量約60,000m³。",
+        "越波水體可能同時作用於後方堤防、道路、排水與抽水系統界面；單看閘體構造不足以代表整體韌性。",
+        "本模型以空間界面呈現可能傳遞路徑，未模擬實際淹水深度與流速。"
+      ],
+      "attachments": [
+        { "label": "S-01 審查意見回覆", "locator": "PDF第422頁，EL 3.20m、約1小時及約60,000m³", "evidenceId": "EV-A-OVERTOP" },
+        { "label": "S-04-3 基本設計圖", "locator": "BHDL-021、BHCI-001～003之閘門與周邊配置", "evidenceId": "EV-A-DRAWING" }
+      ],
+      "evidenceLevel": "A級文件情境＋C級空間界面判釋",
+      "limitation": "越波量沿用設計審查回覆；模型未建立正式淹水傳遞或排水能力計算。",
+      "recommendation": "建議將閘體、後方堤防、道路排水及抽水站視為同一防洪系統，辦理極端洪潮複合情境演練，預先設定封路、抽排與人員撤離警戒條件。"
+    },
+    {
+      "id": "risk-4",
+      "internalAuditId": "AUD-04",
+      "displayLabel": "？4",
+      "title": "閘門多門失效與共同原因失效風險",
+      "position": { "x": -8, "y": 17, "z": -66 },
+      "triggerRadiusM": 23,
+      "exitRadiusM": 29,
+      "summaryMetrics": [
+        { "label": "1門失效", "value": "EL 2.69m" },
+        { "label": "2門失效", "value": "EL 3.10m" },
+        { "label": "3門失效", "value": "EL 3.70m" }
+      ],
+      "analysisLines": [
+        "基本設計摘要列示：無失效EL 2.46m、1門失效EL 2.69m、2門失效EL 3.10m、3門失效EL 3.70m。",
+        "兩門以上失效已接近或超過EL 3.00m設計標高，三門失效並伴隨明顯越波風險。",
+        "停電、控制系統、通訊中斷或漂流物堵塞可能造成共同原因失效，不能只以單門故障評估。"
+      ],
+      "attachments": [
+        { "label": "S-01 基本設計成果報告", "locator": "PDF第26頁摘要表2；第8章閘門失效情境", "evidenceId": "EV-A-GATEFAIL" },
+        { "label": "S-04-3 基本設計圖", "locator": "BHCI-001～003與BHCI-011，六門配置及控制構造", "evidenceId": "EV-A-DRAWING" }
+      ],
+      "evidenceLevel": "A級文件情境＋C級共同原因風險研判",
+      "limitation": "失效水位為基本設計情境值；實際結果受事件流量、潮位、操作時序及維護狀態影響。",
+      "recommendation": "建議建立多門失效及共同原因失效壓力測試，納入雙迴路供電、手動啟閉、通訊備援、漂流物清除及定期聯合演練。"
+    },
+    {
+      "id": "risk-5",
+      "internalAuditId": "AUD-05",
+      "displayLabel": "？5",
+      "title": "閘門與抽水站聯合操作依賴風險",
+      "position": { "x": 103, "y": 16, "z": 16 },
+      "triggerRadiusM": 25,
+      "exitRadiusM": 31,
+      "summaryMetrics": [
+        { "label": "需降低抽排量", "value": "25 cms" },
+        { "label": "預降水位幅度", "value": "0.12～0.29m" },
+        { "label": "預降容量", "value": "59.3～171萬m³" }
+      ],
+      "analysisLines": [
+        "基本設計指出閘門關閉期間，區內抽水站合計需降低抽排量25 cms；整體安全高度依賴跨設施協同操作。",
+        "報告表8-7列示預降容量約59.3～171萬m³，水位降低約0.12～0.29m。",
+        "預降時機、潮汐窗口、通訊與指令到位時間若不同步，可能削弱原設計預期的緩衝。"
+      ],
+      "attachments": [
+        { "label": "S-01 基本設計成果報告", "locator": "報告第3-22頁（PDF第66頁），抽水量降低25 cms", "evidenceId": "EV-A-JOINTOPS" },
+        { "label": "S-01 基本設計成果報告", "locator": "PDF第245～247頁，表8-6及表8-7預降分析", "evidenceId": "EV-A-JOINTOPS" }
+      ],
+      "evidenceLevel": "A級文件數值＋C級操作依賴風險研判",
+      "limitation": "本模型未串接即時潮位、雨量、抽水站SCADA或實際操作紀錄。",
+      "recommendation": "建議訂定閘門與抽水站聯合操作SOP，明定預降啟動、潮位窗口、通報鏈、備援通訊及逾時警戒門檻，並以演練結果滾動修正。"
+    }
+  ],
+  "evidence": [
+    { "id": "EV-A-TARGET", "grade": "A", "source": "S-01_基本設計成果報告(送署修訂版)全_1091127.pdf", "locator": "報告第4-41～4-44頁；PDF第119～122及422頁", "fact": "目標年Q10 1,088 cms；外水位EL 2.66m；審查比較EL 2.89m。" },
+    { "id": "EV-A-FREEBOARD", "grade": "A", "source": "S-01_基本設計成果報告(送署修訂版)全_1091127.pdf", "locator": "報告第4-42～4-44頁", "fact": "1K+600水位EL 2.92m、堤頂EL 3.20m、需求EL 3.42m。" },
+    { "id": "EV-A-OVERTOP", "grade": "A", "source": "S-01_基本設計成果報告(送署修訂版)全_1091127.pdf", "locator": "PDF第422頁", "fact": "極端外水位EL 3.20m，估計越波約1小時、約60,000m³。" },
+    { "id": "EV-A-GATEFAIL", "grade": "A", "source": "S-01_基本設計成果報告(送署修訂版)全_1091127.pdf", "locator": "PDF第26頁摘要表2及第8章", "fact": "0至3門失效水位依序EL 2.46、2.69、3.10、3.70m。" },
+    { "id": "EV-A-JOINTOPS", "grade": "A", "source": "S-01_基本設計成果報告(送署修訂版)全_1091127.pdf", "locator": "報告第3-22頁；PDF第245～247頁", "fact": "閘門關閉時抽水量需降低25 cms；預降容量59.3～171萬m³、水位降低0.12～0.29m。" },
+    { "id": "EV-A-DRAWING", "grade": "A", "source": "S-04-3_7953C基本設計圖成果圖修訂版V1_1091123.pdf", "locator": "BHDL-021、BHCI-001、BHCI-002、BHCI-003、BHCI-011", "fact": "閘門、船閘、管理橋與控制構造之基本設計配置。" },
+    { "id": "EV-C-SPATIAL", "grade": "C", "source": "本案GIS 3D展示模型", "locator": "EPSG:3826代表性場景與查核點", "fact": "依圖說配準、公開圖資與風險主題作空間提示。" }
+  ]
+}

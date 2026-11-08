@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-09-04T04:46:04.725Z",
+  "registryVersion": "3.1.0",
+  "sourcePage": "https://3dmaps.nlsc.gov.tw/NLSC/Entrance",
+  "serviceList": "https://3dtiles.nlsc.gov.tw/tiles3d/Service",
+  "endpoint": "https://3dtiles.nlsc.gov.tw/building/tiles3d/36/tileset.json",
+  "accessTier": "OPEN_WMTS",
+  "serviceType": "3DTILES",
+  "serviceName": "宜蘭縣分棟版建物模型",
+  "rootStatus": 200,
+  "rootCors": "*",
+  "asset": {
+    "version": "1.1"
+  },
+  "rootLoadMs": 1015,
+  "aoiCandidateLeafTiles": 27327,
+  "nearestTile": "https://3dtiles.nlsc.gov.tw/building/tiles3d/36/0_1_2_3_3_1_0_0_3_1_0__0.glb",
+  "nearestSphere": {
+    "sphere": [
+      -3058415.66566427,
+      4926190.76194711,
+      2648044.5262595,
+      12.5336196481535
+    ]
+  },
+  "contentStatus": 200,
+  "contentCors": "*",
+  "contentBytes": 205212,
+  "gltfAsset": {
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "EXT_structural_metadata",
+    "EXT_texture_bound",
+    "EXT_mesh_features"
+  ],
+  "restrictions": "僅線上按需載入，不整批下載、快取或轉供；官方高度基礎與本案DTM需另作垂直QA",
+  "qaStatus": "FORMAT_INSPECTION_ONLY",
+  "currentRiverAndCensusReview": {
+    "checkedAt": "2026-09-04",
+    "status": "NEEDS_FIX_INDEPENDENT_RIVER_ALIGNMENT",
+    "crs": "EPSG:3826",
+    "sourceCode": "tools/prepare_regional_scene.py: river_candidate / morphologyEx / main_river",
+    "findings": [
+      "EMAP5影像水域分類→40m格網→人工中心線320m走廊→3×3閉合與8鄰域連通，並非正式河川面向量。",
+      "100%一致率是同來源水域分類比對，不是與PHOTO2獨立控制點驗證。",
+      "舊河道面和洪水同組且隨水位抬升，河道QA格還額外抬高4.8m；斜視另有視差。本次已分組、預設關閉、貼近地形0.15m。"
+    ],
+    "notCompleted": [
+      "沒有移動河岸去迎合影像；尚未取得正式河川面或水涯測量",
+      "尚未完成河岸最大偏差、獨立檢核點或逐格位置修正",
+      "不能稱空間QA已通過"
+    ],
+    "officialSources": [
+      {
+        "url": "https://maps.nlsc.gov.tw/S09SOA/pro/Wfs_ajax_main.jsp",
+        "layers": [
+          "WFS:EMAP_RIVERA",
+          "WFS:EMAP_RIVERL",
+          "WFS:EMAP_WATERA"
+        ],
+        "accessTier": "REQUIRES_PERMISSION",
+        "result": "官方清單均有需申請標示；未呼叫受限WFS"
+      },
+      {
+        "url": "https://data.gov.tw/dataset/25781",
+        "metadataUrl": "https://opendata.wra.gov.tw/api/v2/718138bb-7997-4235-ae94-6eae18756dd7?format=JSON&sort=_importdate+asc",
+        "download": "https://gic.wra.gov.tw/gis/gic/API/Google/DownLoad.aspx?fname=RIVERPOLY&filetype=SHP",
+        "accessTier": "OPEN_DATA",
+        "statisticalYear": 2000,
+        "result": "確認官方目錄；未下載或作最新河岸替代"
+      },
+      {
+        "url": "https://www.nlsc.gov.tw/cp.aspx?n=16733",
+        "pageUpdated": "2026-09-02",
+        "result": "免申請線上3D服務；小範圍樣本下载需憑證登入，不等於全AOI整批取得"
+      }
+    ],
+    "buildingCensus": {
+      "status": "PARTIAL_NOT_AOI_CENSUS",
+      "officialTotal": null,
+      "missingCount": null,
+      "scope": "閘門中心向四向各8公里，16×16公里矩形；非正式集水區",
+      "implemented": "固定BUILD_ID樣本、跨視角保留分析母體、樣本JSON保存及匯回。未批次下載3D。",
+      "required": "向NLSC取得本範圍合法3D實體成果／完整BUILD_ID屬性清冊、版本、LOD、高程基準及涵蓋率說明"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "version": "20260906-flow-v16",
+  "quality": "USER_ASSUMED_SCREENING",
+  "confirmedAt": "2026-09-06",
+  "userInstruction": "採用超過750 cms即溢堤，淹水到達時間請用推估的",
+  "newGateAssumedOverflowThresholdCms": 750,
+  "isOfficialGateCapacity": false,
+  "initialFlowCms": 100,
+  "initialFlowQuality": "展示起點假設；不是報告或實測正常流量",
+  "flowTimeline": [{"hours":0,"cms":100},{"hours":2,"cms":750},{"hours":3,"cms":775},{"hours":6,"cms":1088}],
+  "peakHold": "達1088後維持峰值，直到最遠網格估计到達；不模擬退水",
+  "travelSpeedMps": 0.5,
+  "travelSpeedQuality": "情境假設，未以觀測率定",
+  "arrivalFormula": "起淹時刻=到達需求流量時刻+格網連通距離/(0.5*3600)；距離單位m，時間h",
+  "waterLevelFormula": "於(100,1.0)、(750,H750)、(775,H775)、(1088,H1088)間分段線性換算；Q單位cms，H為m",
+  "afterLevels": [1.0,2.46,2.79,2.92],
+  "beforeLevels": [1.0,2.889233226837061,2.91,3.17],
+  "limitation": "750操作峰與775一般通洪工況不同，分段曲線只是使用者指定假設之展示換算，不是報告率定H-Q關係；未解算動量或水量守恆，無雨量-逕流轉換，不是1D/2D動力水理預報。既有閘門未指定容量，以舊版水位與地形篩檢。",
+  "reportSource": "7953C基本設計成果報告（送署修訂版）1091127：第1-6頁、表4-13、4-14、圖8-2、表8-5",
+  "methodReference": "https://www.hec.usace.army.mil/confluence/rasdocs/ras1dtechref/6.5/basic-data-requirements/unsteady-flow-data/boundary-conditions1",
+  "methodReferenceRole": "正式非恆定流所需邊界條件說明，並非本版0.5m/s或6小時假設之數值依據"
+}

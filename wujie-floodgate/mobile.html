@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- 簡報手機遙控頁（slides-qr-remote 協定：nav／sync，另加 cmd 指令）。與簡報部署在同一資料夾。 -->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>簡報遙控器｜五結防潮閘門</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif; background: #061019; color: #eaf4f7; min-height: 100vh; padding: 14px 14px 40px; display: flex; flex-direction: column; align-items: center; }
+  .wrap { width: 100%; max-width: 420px; }
+  .header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .header h1 { font-size: 1.15em; color: #3fd0c9; }
+  .room { font-size: .7em; color: #6f8b97; }
+  .status { font-size: .8em; color: #6f8b97; margin-bottom: 12px; }
+  .status.connected { color: #6fd38f; } .status.disconnected { color: #f2b84b; }
+  .now { background: #0d202d; border: 1px solid rgba(120,190,210,.25); border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; }
+  .now .pg { font-size: .8em; color: #f2b84b; font-weight: 700; }
+  .now .tt { font-size: 1.1em; font-weight: 700; margin-top: 4px; line-height: 1.4; }
+  .nav { display: flex; gap: 12px; margin-bottom: 12px; }
+  .nav button { flex: 1; padding: 22px 0; border: 0; border-radius: 16px; font-size: 1.25em; font-weight: 800; color: #fff; }
+  .nav .prev { background: #b9711a; } .nav .next { background: #138a55; }
+  .nav button:active { transform: scale(.96); }
+  .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .tools button { padding: 14px 8px; border-radius: 12px; border: 1px solid rgba(120,190,210,.3); background: #0d202d; color: #eaf4f7; font-size: .95em; font-weight: 600; }
+  .tools button.on { background: #12474a; border-color: #3fd0c9; color: #3fd0c9; }
+  .tools button:disabled { opacity: .3; }
+  .tools button:active:not(:disabled) { transform: scale(.96); }
+  .notes { background: #0d202d; border: 1px solid rgba(242,184,75,.35); border-radius: 14px; padding: 12px 14px; margin-bottom: 12px; font-size: .92em; line-height: 1.7; color: #f5e7c8; }
+  .notes summary { cursor: pointer; color: #f2b84b; font-weight: 700; font-size: .85em; letter-spacing: .08em; }
+  .notes p { margin-top: 8px; white-space: pre-line; }
+  .list-title { font-size: .75em; color: #6f8b97; margin: 6px 2px; }
+  .item { display: flex; gap: 10px; align-items: center; padding: 11px 12px; margin-bottom: 6px; border-radius: 10px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); font-size: .9em; }
+  .item .num { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: .8em; font-weight: 700; background: rgba(63,208,201,.18); color: #3fd0c9; }
+  .item.active { background: rgba(63,208,201,.16); border-color: rgba(63,208,201,.6); }
+  .item.active .num { background: #3fd0c9; color: #052026; }
+  .item:active { background: rgba(63,208,201,.25); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header"><h1>📱 簡報遙控器</h1><div class="room" id="room"></div></div>
+  <div class="status" id="status">連線中…</div>
+  <div class="now"><div class="pg" id="pg">- / -</div><div class="tt" id="tt">等待簡報…</div></div>
+  <div class="nav"><button class="prev" data-c="prev">◀ 上一步</button><button class="next" data-c="next">下一步 ▶</button></div>
+  <div class="tools">
+    <button id="bPlay" data-c="play" disabled>▶ 影片 播放／暫停</button>
+    <button id="bRestart" data-c="restart" disabled>⟲ 影片 從頭</button>
+    <button id="bCc" data-c="cc" disabled>字幕 開／關</button>
+    <button id="bNotes" data-c="notes">講者備註（投影）</button>
+    <button id="bHelp" data-c="help">H 說明／QR</button>
+    <button id="bMotion" data-c="motion">減少動態</button>
+  </div>
+  <details class="notes" id="notesBox" open><summary>本頁講稿（只在手機顯示）</summary><p id="script">—</p></details>
+  <div class="list-title">點選頁面可直接跳頁</div>
+  <div id="list"></div>
+</div>
+
+<script src="https://cdn.ably.com/lib/ably.min-2.js"></script>
+<script>
+  const ABLY_KEY = 'y9S__A.igJ5VQ:OI-7oLz4u4V4NdOoTRK90nUxJLhPo5s6KpQxKnWdFdc';
+  const room = new URLSearchParams(location.search).get('room') || 'unknown';
+  document.getElementById('room').textContent = room;
+  const $ = (id) => document.getElementById(id);
+  let notes = [], total = 17, cur = 0, hostOnline = false, ch = null, client = null, idleTimer = null;
+  const IDLE = 10 * 60 * 1000;
+
+  function setStatus(t, c) { const e = $('status'); e.textContent = t; e.className = 'status' + (c ? ' ' + c : ''); }
+  function resetIdle() { clearTimeout(idleTimer); idleTimer = setTimeout(() => { setStatus('⏱ 閒置逾 10 分鐘，已自動斷線', 'disconnected'); leave(); }, IDLE); }
+  function leave() { try { ch.presence.leave(); } catch (e) {} try { client.close(); } catch (e) {} }
+
+  function render(s) {
+    if (s) { cur = s.h; total = s.total || total; }
+    $('pg').textContent = (cur + 1) + ' / ' + total + (s && s.steps ? '　（逐步 ' + s.step + '/' + s.steps + '）' : '');
+    const n = notes[cur];
+    $('tt').textContent = n ? n.title : '第 ' + (cur + 1) + ' 頁';
+    $('script').textContent = n ? n.script + (n.points.length ? '\n' + n.points.map((p) => '・' + p).join('\n') : '') : '—';
+    document.querySelectorAll('.item').forEach((e, i) => e.classList.toggle('active', i === cur));
+    if (s) {
+      for (const id of ['bPlay', 'bRestart', 'bCc']) $(id).disabled = !s.film;
+      $('bPlay').textContent = s.playing ? '❚❚ 影片 暫停' : '▶ 影片 播放';
+      $('bCc').classList.toggle('on', !!(s.film && s.cc));
+      $('bNotes').classList.toggle('on', !!s.notes); $('bHelp').classList.toggle('on', !!s.help); $('bMotion').classList.toggle('on', !!s.reduced);
+      const a = document.querySelector('.item.active'); if (a) a.scrollIntoView({ block: 'nearest' });
+    }
+  }
+  function buildList() {
+    const L = $('list'); L.innerHTML = '';
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('div'); d.className = 'item';
+      d.innerHTML = '<div class="num">' + (i + 1) + '</div><div></div>'; d.lastChild.textContent = notes[i] ? notes[i].title : '第 ' + (i + 1) + ' 頁';
+      d.onclick = () => { if (ch) { ch.publish('nav', { h: i }); cur = i; render(); resetIdle(); } };
+      L.appendChild(d);
+    }
+  }
+  document.querySelectorAll('[data-c]').forEach((b) => b.onclick = () => { if (ch) { ch.publish('cmd', { c: b.dataset.c }); resetIdle(); if (navigator.vibrate) navigator.vibrate(15); } });
+
+  fetch('speaker-notes.json').then((r) => r.json()).then((j) => { notes = j; total = j.length; buildList(); render(); }).catch(() => { buildList(); });
+
+  function setHost(on) { hostOnline = on; if (!on) { setStatus('✖ 簡報已關閉，已斷線', 'disconnected'); leave(); } }
+  try {
+    client = new Ably.Realtime({ key: ABLY_KEY, clientId: 'mobile-' + Date.now() });
+    ch = client.channels.get('slide-remote-' + room);
+    ch.subscribe('sync', (m) => { if (m.data && typeof m.data.h === 'number') { render(m.data); resetIdle(); } });
+    ch.presence.subscribe('enter', (m) => { if (m.clientId && m.clientId.indexOf('host-') === 0) { setHost(true); resetIdle(); } });
+    ch.presence.subscribe('leave', (m) => { if (m.clientId && m.clientId.indexOf('host-') === 0) setHost(false); });
+    client.connection.on('connected', () => {
+      setStatus('✅ 已連線', 'connected'); try { ch.presence.enter(); } catch (e) {} resetIdle();
+      ch.presence.get((err, members) => { if (err) return; const hosts = members.filter((x) => x.clientId && x.clientId.indexOf('host-') === 0); if (hosts.length) { hostOnline = true; ch.publish('cmd', { c: 'noop' }); } else setStatus('⚠️ 找不到簡報，請確認簡報已開啟並重新掃 QR', 'disconnected'); });
+    });
+    client.connection.on('connecting', () => setStatus('⏳ 連線中…'));
+    client.connection.on('disconnected', () => setStatus('⚠️ 連線中斷，重連中…', 'disconnected'));
+    client.connection.on('suspended', () => setStatus('⛔ 連線已暫停', 'disconnected'));
+    client.connection.on('closed', () => setStatus('✖ 連線已關閉', 'disconnected'));
+    client.connection.on('failed', () => setStatus('❌ 連線失敗', 'disconnected'));
+  } catch (e) { setStatus('❌ ' + e.message, 'disconnected'); }
+  buildList(); render();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>五結防潮閘門｜3D 淹水風險互動模型</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/style.css?v=20260907-rain-ui-v18b">
+</head>
+<body>
+  <main id="app">
+    <canvas id="scene-canvas" aria-label="五結防潮閘門工區三維場景"></canvas>
+    <button id="toolbar-toggle" class="toolbar-toggle glass" type="button" aria-controls="unified-toolbar" aria-expanded="true">☰ 工具</button>
+
+    <aside id="unified-toolbar" class="unified-toolbar glass" aria-label="模型整合工具列">
+      <header class="toolbar-brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="brand-copy"><p class="eyebrow">宜蘭縣｜冬山河出口</p><div class="brand-title-row"><h1>五結防潮閘門</h1><span class="model-author">製作者 官毅明</span></div><p class="subtitle">3D 淹水風險互動模型</p></div>
+        <div class="toolbar-header-actions"><button id="collapse-controls" class="icon-button" type="button" aria-label="收合工具列內容" aria-expanded="true">−</button></div>
+        <span class="status-dot rejected"><i></i>v16 假設流量情境／部分範圍 X／Y</span>
+      </header>
+
+      <div id="control-content" class="toolbar-scroll">
+        <details class="tool-section" open>
+          <summary><span>Q10流量與操作情境</span><small>SCENARIOS</small></summary>
+          <div class="analysis-year-control scope-control"><span>展示／計算範圍</span><strong class="scope-fixed-label">閘門置中 16×16 km／256 km²</strong><input id="analysis-scope" type="hidden" value="regional"><small id="analysis-scope-note">固定256平方公里展示與篩檢範圍；矩形含海域與集水區外土地，非報告完整影響區或正式1D／2D成果。靠近工程請使用閘門視角或縮放，不改變統計範圍。</small></div>
+          <label class="analysis-year-control construction-control" for="construction-state"><span>工程條件</span><select id="construction-state" aria-label="切換工程施作前後條件"><option value="before">工程施作前／既有閘門</option><option value="after" selected>工程施作後／改善閘門</option></select><small id="construction-state-note">同一洪峰下比較既有閘門與改善閘門；改善後設計白模會隨選項顯示。</small></label>
+          <label class="analysis-year-control" for="analysis-year"><span>評估年份</span><select id="analysis-year" aria-label="選擇洪峰流量評估年份"></select><small id="analysis-year-note"></small></label>
+          <div id="scenario-list" class="scenario-list" role="list" aria-label="情境選擇"></div>
+          <p id="scenario-operating-note" class="micro-note" aria-live="polite"></p>
+          <section class="metric-card" aria-live="polite">
+            <div><span>展示水位（非平均潮位）</span><strong id="metric-level">EL 2.79 m</strong></div>
+            <p id="metric-level-basis" class="micro-note metric-explanation"></p>
+            <button id="open-risk-statistics" class="metric-detail-button" type="button" aria-label="查看風險建物分子與分母統計口徑"><span id="metric-building-label">報告影響範圍風險 X／Y｜點擊看定義</span><strong id="metric-buildings">X 待核算／Y 待核算</strong></button>
+            <p id="metric-sample" class="micro-note metric-explanation">樣本載入量不是報告範圍Y。</p>
+            <div><span>風險建物平均概估淹水深度</span><strong id="metric-mean-depth">樣本待建立</strong></div>
+            <div><span>本次範圍最大概估水深</span><strong id="metric-depth">樣本待建立</strong></div>
+          </section>
+          <section class="impact-comparison-card" aria-live="polite">
+            <header><strong>同一洪峰工程前後比較</strong><small id="comparison-quality">—</small></header>
+            <div class="comparison-grid"><div><span>施作前水位／風險棟數</span><strong id="comparison-before">—</strong></div><div><span>施作後水位／風險棟數</span><strong id="comparison-after">—</strong></div><div><span>概估風險變化</span><strong id="comparison-change">—</strong></div><div><span>目前出水高</span><strong id="comparison-freeboard">—</strong></div></div>
+            <button id="open-hydraulic-basis" type="button">查看洪峰公式、輸洪能力與排洪量依據</button>
+          </section>
+          <div class="scenario-actions"><button id="show-advice" type="button">審計／技師改善建議</button><button id="open-verification" type="button">洪峰推估驗證</button><button id="export-current" type="button">匯出暫存樣本風險 CSV（非全區）</button><button id="export-matrix" type="button">匯出暫存樣本六組情境矩陣</button></div>
+        </details>
+
+        <details class="tool-section">
+          <summary><span>全區建物資料與統計</span><small>OFFLINE CENSUS</small></summary>
+          <p class="micro-note">本次依您確認，先計目前可取得並固定的建物 X／Y；報告全區清冊另外待補。點擊 X／Y 可看兩種範圍及補件需求。線上幾何仍按需載入，固定的是統計資料，非完整離線模型包。</p>
+          <button id="open-offline-census" class="wide-button" type="button">全區範圍、資料缺件與 X／Y 說明</button>
+          <label class="micro-note">匯入已驗證完整資料包（同時選取 census.json、positions.bin）<input id="import-offline-package" type="file" multiple accept=".json,.bin"></label>
+          <p id="offline-package-status" class="micro-note" aria-live="polite">完整資料尚未匯入。既有線上白模暫留供空間核對；不是全區統計清冊。</p>
+        </details>
+
+        <details class="tool-section">
+          <summary><span>流量歷程與地形</span><small>WATER</small></summary>
+          <div class="water-row" hidden><button id="water-minus" class="round-button" type="button" aria-label="水位降低0.05公尺">−</button><input id="water-slider" type="range" min="-0.5" max="0.5" step="0.01" value="0" aria-label="水位偏移量"><button id="water-plus" class="round-button" type="button" aria-label="水位提高0.05公尺">＋</button><output id="water-offset" for="water-slider">+0.00 m</output></div>
+          <p class="micro-note">動畫以流量驅動，不再使用水位滑桿。假設起始100 cms，第2／3／6小時達750／775／1088 cms，再維持峰值供連通網格傳播；不是實測降雨歷線。新閘門通洪門檻假設750 cms，超過即啟動外溢；非核定容量。估計傳播速度0.5m/s，詳見「限制與模型說明」。</p>
+          <label class="inline-select">垂直誇張<select id="vertical-scale" aria-label="場景垂直誇張倍率"><option value="1" selected>1×</option><option value="2">2×</option><option value="3">3×</option></select></label>
+        </details>
+
+        <details class="tool-section">
+          <summary><span>視角與自由瀏覽</span><small>CAMERA</small></summary>
+          <button id="toggle-free-explore" class="wide-button" type="button" aria-pressed="false">啟用自由瀏覽</button>
+          <p id="free-explore-note" class="micro-note">固定視角仍可旋轉與縮放；啟用後以左鍵點選任一位置重設視角中心，按滑鼠右鍵直接退出，再點擊所有建物／工程查看資訊。</p>
+        </details>
+
+        <details class="tool-section">
+          <summary><span>圖層與渲染</span><small>LAYERS</small></summary>
+          <div class="toggle-grid">
+            <label><input id="toggle-basemap" type="checkbox" checked><span>影像底圖</span></label><label><input id="toggle-building-reference" type="checkbox"><span>NLSC建物框</span></label>
+            <label><input id="toggle-drawing" type="checkbox"><span>工程圖說</span></label><label><input id="toggle-cadastral" type="checkbox" disabled><span>地籍（待取得）</span></label>
+            <label><input id="toggle-buildings" type="checkbox" checked><span>3D建物</span></label><label><input id="toggle-dikes" type="checkbox" checked><span>工程設施</span></label>
+            <label><input id="toggle-flood" type="checkbox" checked><span>淹水網格</span></label><label><input id="toggle-labels" type="checkbox" checked><span>場景標籤</span></label>
+            <label><input id="toggle-river-surface" type="checkbox"><span>概化河道藍色面（參考）</span></label><label><input id="toggle-river-qa" type="checkbox"><span>河道40m檢核格（待校正）</span></label>
+            <label><input id="toggle-wireframe" type="checkbox"><span>DTM網格</span></label>
+            <label><input id="toggle-report-watershed" type="checkbox"><span>紅線：集水區概化</span></label><label><input id="toggle-report-lowland" type="checkbox"><span>紅線：EL2m低地</span></label>
+            <label><input id="toggle-report-q10-before" type="checkbox" checked><span>紅線：Q10改建前</span></label><label><input id="toggle-report-q10-after" type="checkbox"><span>紅線：Q10改建後</span></label>
+          </div>
+          <label class="inline-select" for="building-source">建物來源<select id="building-source"><option value="official" selected>NLSC官方3D（線上白模）</option><option value="legacy">原BUILDX衍生量體（離線備援）</option></select></label>
+          <p id="nlsc-building-status" class="micro-note" aria-live="polite">連線NLSC官方三維服務…</p><button id="retry-nlsc-buildings" type="button">重試官方3D服務</button>
+          <label><input id="toggle-building-contours" type="checkbox" checked>官方3D建物輪廓線</label>
+          <p id="building-census-status" class="micro-note" aria-live="polite">固定樣本尚未建立；全區清冊待取得。</p>
+          <button id="capture-building-census" type="button">擴充本次清冊：納入新載入建物</button>
+          <button id="export-building-census" type="button" disabled>保存本次固定清冊JSON（非全區）</button>
+          <label class="micro-note">匯入先前保存的本次清冊JSON<input id="import-building-census" type="file" accept=".json,application/json"></label>
+          <label class="inline-select" for="basemap-source">政府底圖<select id="basemap-source"><option value="nlsc" selected>NLSC PHOTO2 正射影像（衛星圖類）</option><option value="emap5">NLSC 臺灣通用電子地圖</option><option value="dtm">NLSC 20m DTM 地形設色</option></select></label>
+          <small id="basemap-source-note" class="micro-note">NLSC PHOTO2正射影像；無道路、地名與POI文字註記。</small>
+          <fieldset class="label-category-controls"><legend>場景標籤分類</legend><div class="toggle-grid compact">
+            <label><input id="toggle-label-buildings" type="checkbox" checked><span>建物標籤</span></label><label><input id="toggle-label-roads" type="checkbox" checked><span>道路標籤</span></label>
+            <label><input id="toggle-label-engineering" type="checkbox" checked><span>工程／公設標籤</span></label><label><input id="toggle-label-rivers" type="checkbox" checked><span>河道標籤</span></label>
+            <label><input id="toggle-label-places" type="checkbox" checked><span>景點／地標標籤</span></label>
+          </div></fieldset>
+          <label class="inline-select" for="render-mode">模型渲染<select id="render-mode"><option value="current">底圖逐棟取色＋新建白模</option><option value="white" selected>全區白模（官方3D固定白模）</option></select></label>
+        </details>
+
+        <details class="tool-section">
+          <summary><span>物件資訊</span><small>INSPECTOR</small></summary>
+          <div class="object-summary"><div class="object-summary-title"><strong id="info-title">尚未選取物件</strong><span id="info-badge" class="risk-badge neutral">待選取</span></div><div id="info-default"><p id="info-summary">點選建物、閘門、堤防或工程設施，可檢視基本資料與來源。</p></div><button id="open-object-info" class="wide-button" type="button" disabled>查看完整物件資訊</button></div>
+          <div class="risk-legend" aria-label="淹水風險圖例"><span><i class="depth-none"></i>無</span><span><i class="depth-low"></i>低</span><span><i class="depth-medium"></i>中</span><span><i class="depth-high"></i>高</span><span><i class="depth-extreme"></i>極高</span><span class="affected-building"><i></i>受影響建物一律呈紅色，深淺表示風險程度</span><span class="report-boundary-key"><i></i>粗紅線＝報告圖面概化</span></div>
+        </details>
+
+        <details class="tool-section">
+          <summary><span>資料與檢討範圍</span><small>DATA</small></summary>
+          <div class="data-actions"><button id="open-review-scope" type="button">查看淹水檢討範圍判定</button><button id="open-gov-data" type="button">查看政府公開資料清冊</button><button id="open-model-notes" type="button">查看限制與模型說明</button></div>
+          <p class="micro-note">資料名稱、定義、年份、來源與限制平時隱藏；點擊後在可捲動視窗完整顯示。</p>
+        </details>
+      </div>
+    </aside>
+
+    <div id="rain-effect" aria-hidden="true"></div>
+    <section id="flow-event-status" class="flow-event-status glass" aria-label="假設流量動畫狀態">
+      <strong id="event-flow">750 cms</strong><span id="event-time">情境預覽</span>
+      <span id="event-spill">未啟動外溢</span><span id="event-risk">建物清冊載入中</span>
+    </section>
+    <nav id="quick-action-rail" class="quick-action-rail glass" aria-label="工程前後、洪峰情境與視角快捷控制">
+      <button class="quick-action-button" type="button" data-construction-state="before" title="工程施作前／既有閘門" aria-label="切換工程施作前">前</button>
+      <button class="quick-action-button" type="button" data-construction-state="after" title="工程施作後／改善閘門" aria-label="切換工程施作後">後</button>
+      <span class="quick-action-divider" aria-hidden="true"></span>
+      <button class="quick-action-button" type="button" data-quick-scenario="PLAN2020_Q10_775" title="Q10一般治理775 cms，工程前後比較" aria-label="Q10一般治理775 cms">775</button>
+      <button class="quick-action-button" type="button" data-quick-scenario="OPERATION2020_Q10_750" title="Q10高地750 cms：前為通洪推估、後為禦潮操作" aria-label="Q10關閘禦潮750 cms">750</button>
+      <button class="quick-action-button" type="button" data-quick-scenario="TARGET2070_Q10" title="目標年2070 Q10 1088 cms" aria-label="Q10目標年1088 cms">1088</button>
+      <span class="quick-action-divider" aria-hidden="true"></span>
+      <button id="quick-water-play" class="quick-action-button" type="button" title="播放強降雨情景（假設歷程）" aria-label="播放強降雨情景（假設歷程）">▶</button>
+      <span class="quick-action-divider" aria-hidden="true"></span>
+      <button class="quick-action-button" type="button" data-view="top" title="垂直俯視" aria-label="垂直俯視">俯</button>
+      <button class="quick-action-button" type="button" data-view="gate" title="閘門近景" aria-label="閘門近景">閘</button>
+      <button id="quick-free-explore" class="quick-action-button" type="button" title="啟用自由瀏覽：左鍵重設中心、右鍵退出" aria-label="啟用自由瀏覽">游</button>
+      <button id="quick-free-exit" class="quick-action-button stop" type="button" title="取消鎖定自由視角並恢復點選物件" aria-label="退出自由瀏覽">退</button>
+    </nav>
+
+    <div class="north-arrow glass" aria-label="指北針"><span>N</span><i></i></div>
+
+    <div id="object-modal" class="modal-backdrop" hidden>
+      <section class="content-dialog glass" role="dialog" aria-modal="true" aria-labelledby="object-modal-title">
+        <div class="panel-heading"><div><p class="eyebrow">OBJECT INSPECTOR</p><h2 id="object-modal-title">完整物件資訊</h2></div><button id="close-object-modal" class="icon-button" type="button" aria-label="關閉物件資訊">×</button></div>
+        <div id="info-detail" class="modal-scroll" hidden>
+          <dl class="detail-grid">
+            <div><dt>物件類型</dt><dd id="detail-type">—</dd></div><div><dt>物件編號</dt><dd id="detail-id">—</dd></div><div><dt>地面高程</dt><dd id="detail-ground">—</dd></div><div><dt>TWD97 座標</dt><dd id="detail-coordinates">—</dd></div>
+            <div><dt>建物足跡（地面平面輪廓）／樓層狀態</dt><dd id="detail-dimensions">—</dd></div><div><dt>概估水深</dt><dd id="detail-depth">—</dd></div><div><dt>風險分數</dt><dd id="detail-score">—</dd></div><div><dt>距新閘門</dt><dd id="detail-distance">—</dd></div><div><dt>起淹流量／到達時間／最終水深（估計）</dt><dd id="detail-event">—</dd></div>
+            <div><dt>關聯地籍</dt><dd id="detail-parcel">—</dd></div><div><dt>正式樓層／建管</dt><dd id="detail-management">—</dd></div><div><dt>材質／渲染</dt><dd id="detail-material">—</dd></div><div><dt>內政部不動產資訊</dt><dd id="detail-real-estate">—</dd></div>
+            <div class="detail-wide footprint-explainer"><dt>「建物足跡」說明</dt><dd id="detail-footprint-note">建物足跡是建物垂直投影至地面的平面輪廓與占地範圍，不是腳印、產權界線或室內面積。</dd></div><div class="detail-wide"><dt>不動產資料匹配狀態</dt><dd id="detail-real-estate-status">—</dd></div><div class="detail-wide"><dt>開始風險條件</dt><dd id="detail-condition">—</dd></div>
+          </dl>
+          <p id="detail-description" class="detail-description"></p><div class="source-block"><span>資料依據</span><p id="detail-source"></p><div id="detail-source-links" class="source-links"></div></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="knowledge-modal" class="modal-backdrop" hidden>
+      <section class="content-dialog glass" role="dialog" aria-modal="true" aria-labelledby="knowledge-title"><div class="panel-heading"><div><p id="knowledge-eyebrow" class="eyebrow">MODEL INFORMATION</p><h2 id="knowledge-title">模型資訊</h2></div><button id="close-knowledge" class="icon-button" type="button" aria-label="關閉模型資訊">×</button></div><div id="knowledge-content" class="modal-scroll"></div></section>
+    </div>
+
+    <div id="advice-modal" class="modal-backdrop" hidden>
+      <section class="advice-dialog glass" role="dialog" aria-modal="true" aria-labelledby="advice-title">
+        <div class="panel-heading"><div><p class="eyebrow">DECISION SUPPORT</p><h2 id="advice-title">情境改善建議</h2></div><button id="close-advice" class="icon-button" type="button" aria-label="關閉改善建議">×</button></div>
+        <div class="advice-summary"><strong id="advice-scenario"></strong><span id="advice-basis"></span><em id="advice-quality"></em></div><div class="advice-columns"><article><h3>審計人員觀點</h3><ul id="audit-advice"></ul></article><article><h3>土木工程技師觀點</h3><ul id="hydraulic-advice"></ul></article></div><p class="modal-source" id="advice-source"></p>
+      </section>
+    </div>
+
+    <div id="verification-modal" class="modal-backdrop" hidden>
+      <section class="verification-dialog glass" role="dialog" aria-modal="true" aria-labelledby="verification-title">
+        <div class="panel-heading"><div><p class="eyebrow">PEAK FLOW VERIFICATION</p><h2 id="verification-title">洪峰推估驗證與敏感度比較</h2></div><button id="close-verification" class="icon-button" type="button" aria-label="關閉洪峰推估驗證">×</button></div>
+        <div class="verification-scroll modal-scroll">
+          <p class="knowledge-intro">本面板檢查數值來源、可重現性、校正、敏感度與資料時效；不以3D畫面直接宣稱基本設計正確。</p>
+          <div id="verification-status" class="verification-status" aria-live="polite"></div>
+          <section class="verification-section">
+            <h3>目前情境證據鏈</h3>
+            <dl class="verification-evidence">
+              <div><dt>情境／洪峰</dt><dd id="verify-scenario">—</dd></div><div><dt>工程條件</dt><dd id="verify-construction">—</dd></div>
+              <div><dt>洪峰公式／品質</dt><dd id="verify-peak-formula">—</dd></div><div><dt>水位公式／品質</dt><dd id="verify-level-basis">—</dd></div>
+              <div><dt>閘門排洪量依據</dt><dd id="verify-gate-discharge">—</dd></div><div><dt>數值來源</dt><dd id="verify-source">—</dd></div><div><dt>邊界與限制</dt><dd id="verify-boundary">—</dd></div>
+            </dl>
+          </section>
+          <section class="verification-section">
+            <h3>設計值／敏感度試算</h3>
+            <div class="sensitivity-controls">
+              <label>洪峰變動<select id="verify-flow-factor"><option value="-0.2">−20%</option><option value="-0.1">−10%</option><option value="0" selected>設計值</option><option value="0.1">＋10%</option><option value="0.2">＋20%</option></select></label>
+              <label>水位／外水位偏移<select id="verify-water-delta"><option value="-0.4">−0.40m</option><option value="-0.2">−0.20m</option><option value="0" selected>±0.00m</option><option value="0.2">＋0.20m</option><option value="0.4">＋0.40m</option></select></label>
+              <button id="apply-verification-water" type="button">套用水位偏移至場景</button><button id="reset-verification-water" type="button">恢復設計水位</button>
+            </div>
+            <div class="verification-metrics"><div><span>試算洪峰</span><strong id="verify-flow">—</strong></div><div><span>試算水位</span><strong id="verify-level">—</strong></div><div><span>1K+600出水高</span><strong id="verify-freeboard">—</strong></div><div><span>達0.5m尚需加高</span><strong id="verify-raise">—</strong></div><div><span>目前範圍風險建物</span><strong id="verify-risk-count">—</strong></div></div>
+            <p class="knowledge-warning">洪峰百分比僅顯示輸入量敏感度；未取得正式流量—水位關係、HEC-RAS／SEC-HY21模型前，不會把洪峰變動擅自換算成洪水位。水位偏移為情境篩檢，非正式水理重算。</p>
+          </section>
+          <section class="verification-section">
+            <h3>流量口徑對照</h3>
+            <div class="definition-table-wrap"><table class="definition-table"><thead><tr><th>流量／頻率</th><th>數值或公式</th><th>定義／品質</th></tr></thead><tbody><tr><td>治理計畫Q10</td><td>775 cms</td><td>表4-13閘門改建前後輸洪比較之核心設計流量</td></tr><tr><td>目標年2070 Q10</td><td>1,088 cms</td><td>表4-14正式設計情境；改建前／後EL3.17／2.92m</td></tr><tr><td>Q10高地操作</td><td>750 cms</td><td>關閘禦潮／洩水操作；內水歷程峰EL2.46m，抽水站合計減排25 cms；圖8-2、表8-5</td></tr><tr><td>閘門排洪</td><td>Q=Cd·A·√(2gΔH)</td><td>報告列單道安全200 cms、6道全開1,088 cms；缺Cd、A、逐時水頭，故不冒算額外容量</td></tr></tbody></table></div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <div id="loading" class="loading-screen" aria-live="polite"><div class="loader-ring"></div><p>載入閘門置中16公里政府GIS區域層與細部工程模型…</p></div>
+    <div id="webgl-error" class="error-card" hidden><h2>無法啟動 3D 場景</h2><p>瀏覽器未提供 WebGL。請改用最新版 Chrome、Edge 或 Firefox。</p></div>
+  </main>
+  <script src="assets/startup-status.js?v=20260907-rain-ui-v18b"></script>
+  <script src="assets/rain-ripples.js?v=20260907-rain-ui-v18b"></script>
+  <script src="assets/vendor/three.min.js?v=20260907-rain-ui-v18b"></script><script src="assets/vendor/OrbitControls.js?v=20260907-rain-ui-v18b"></script>
+  <script src="assets/model-data.js?v=20260907-rain-ui-v18b"></script><script src="assets/regional-data.js?v=20260907-rain-ui-v18b"></script><script src="assets/public-data-catalog.js?v=20260907-rain-ui-v18b"></script><script src="assets/building-deduplication.js?v=20260907-rain-ui-v18b"></script><script src="assets/nlsc-buildings.js?v=20260907-rain-ui-v18b"></script><script src="assets/building-census.js?v=20260907-rain-ui-v18b"></script><script src="assets/offline-data-context.js?v=20260907-rain-ui-v18b"></script><script src="assets/offline-census.js?v=20260907-rain-ui-v18b"></script><script src="assets/flow-event.js?v=20260907-rain-ui-v18b"></script><script src="assets/app.js?v=20260907-rain-ui-v18b"></script>
+</body>
+</html>

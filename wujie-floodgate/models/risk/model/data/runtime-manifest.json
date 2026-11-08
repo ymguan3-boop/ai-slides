@@ -1,0 +1,93 @@
+{
+  "version": "20260907-rain-ui-v18b",
+  "files": [
+    {
+      "file": "index.html",
+      "sha256": "e3df71a70ea4366f29ad56b0701e430ec2caeade34b0ac4020f9c25fe0c78fbb"
+    },
+    {
+      "file": "model-manual.docx",
+      "sha256": "b742996aab5e39fa0f3af617a49a8e7f4b79613c836c3ee2746d8c7a9e2ea64f"
+    },
+    {
+      "file": "assets/style.css",
+      "sha256": "e2c9a9a5a7edfbf424fe33a5af77ea6fcce3bd2465e46803ffc64c2bf1f909ae"
+    },
+    {
+      "file": "assets/startup-status.js",
+      "sha256": "f5fec4582fcd526eee1eb7c53180152d2d9d6cea9019d63521f56ef8837534c8"
+    },
+    {
+      "file": "assets/rain-ripples.js",
+      "sha256": "86e8d4b54641be7c183fda8c9f247b05f8360bdd433da44acdc1efddfe90c3d0"
+    },
+    {
+      "file": "assets/vendor/three.min.js",
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2"
+    },
+    {
+      "file": "assets/vendor/OrbitControls.js",
+      "sha256": "02bb4ade710f3e607329e37a21f098bc3ac70eb6e33daf8a65e79f4db785e7b2"
+    },
+    {
+      "file": "assets/model-data.js",
+      "sha256": "cbbddd7e81a1cdcbd7f25ef77c9c41194f4a6d766212e14f206de314c8b8bcb7"
+    },
+    {
+      "file": "assets/regional-data.js",
+      "sha256": "c6b5e0a450eb98ad95e427916a02d8cc8394b46bedda8ce8171d233fba6fa96c"
+    },
+    {
+      "file": "assets/public-data-catalog.js",
+      "sha256": "305e18ca37d421d8b9c379ed1a560800b5921b3827e0709492d5a19dd3c0256c"
+    },
+    {
+      "file": "assets/building-deduplication.js",
+      "sha256": "e0cdd9e8df1b3b618f8dfd39f823295b91438c125b65632a15c539b1e46e3051"
+    },
+    {
+      "file": "assets/nlsc-buildings.js",
+      "sha256": "61ad40730e02efe4637ff04ef104d12772e8c9a0a91656198e74c1f2ee1b34cc"
+    },
+    {
+      "file": "assets/building-census.js",
+      "sha256": "26c24fcb6eae0b42b9e4f3717ad1d2636d2cca8753aab6ec268c2cc4fca113ee"
+    },
+    {
+      "file": "assets/offline-data-context.js",
+      "sha256": "63b11563dbac02fd022e37b99d613b02013bc4db54471c42cd882f279192d8a1"
+    },
+    {
+      "file": "assets/offline-census.js",
+      "sha256": "6e0c31ea7414390996b2905907cfebfadbfab500c624259d89f03fdd2f97bebe"
+    },
+    {
+      "file": "assets/flow-event.js",
+      "sha256": "8197d90fb0da5915517afa6542fa9be27d1bd3f6bd5d6a076bb0be5188bcb3d3"
+    },
+    {
+      "file": "assets/app.js",
+      "sha256": "a82c56bbdbf7533c4b243f857d0b02c4e3d4e253737226b78848bf322ce748f5"
+    },
+    {
+      "file": "data/report_impact_scope.json",
+      "sha256": "e304512f9a4d372f945f58b9713458b622033d52390d6154d2db5d2017f94d5b"
+    },
+    {
+      "file": "data/flow_event_assumptions.json",
+      "sha256": "a4caf9538f61071bbc72c5370c9716855f29ac8cc1f32842771e3cd10ab5d892"
+    },
+    {
+      "file": "data/government_layer_catalog.json",
+      "sha256": "33a8a3b6e290cbba84fef35a22128edda8ddc22a9343dcee20d9f73d14411a3b"
+    },
+    {
+      "file": "data/scenarios.json",
+      "sha256": "5d41cfdf899fad8b504ab0ebf6ffe655f641902511053ed76a657ca9687e1bb4"
+    },
+    {
+      "file": "data/NLSC_CAPABILITY_AUDIT.json",
+      "sha256": "377e14b07c3eedd3f2a214cbec9852230ed0d192c36bd197df85725670685728"
+    }
+  ]
+}

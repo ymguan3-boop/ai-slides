@@ -1,0 +1,1 @@
+window.WUJIE_BUILDING_DEDUP = {"schemaVersion":1,"checkedDate":"2026-08-28","removedIds":[],"canonicalCount":16883,"rule":"跨LOD以足跡IoU≥0.25或重心距離≤8m且空間相交候選判為重複；LOD0優先保留。","source":"data/building_deduplication.json"};

@@ -1,0 +1,3995 @@
+{
+  "schemaVersion": 1,
+  "sceneVersion": "20260829-base-model-only",
+  "state": "BASE_3D_MODELING",
+  "title": "五結防潮閘門基本設計GIS 3D基礎模型",
+  "extent": {
+    "xmin": 334100.0,
+    "ymin": 2731750.0,
+    "xmax": 334500.0,
+    "ymax": 2732150.0
+  },
+  "center": {
+    "e": 334300.0,
+    "n": 2731950.0
+  },
+  "crs": "EPSG:3826",
+  "verticalDatum": "TWVD2001",
+  "terrain": {
+    "sourceEdition": "2025年版全臺灣20公尺網格數值地形模型－宜蘭縣分幅",
+    "sourceDataset": "https://data.gov.tw/dataset/176927",
+    "sourceFiles": [
+      "97222023dem.grd",
+      "97222024dem.grd"
+    ],
+    "surveyDateFromTileHeader": "2022-07-12",
+    "tilePublicationFromHeader": "2023-01-19",
+    "crs": "EPSG:3826",
+    "verticalDatum": "TWVD2001",
+    "cellSizeM": 20.0,
+    "extent": {
+      "xmin": 334100.0,
+      "ymin": 2731750.0,
+      "xmax": 334500.0,
+      "ymax": 2732150.0
+    },
+    "rows": 21,
+    "cols": 21,
+    "heightsSouthToNorth": [
+      [
+        0.17,
+        0.12,
+        0.18,
+        0.11,
+        0.17,
+        0.16,
+        0.34,
+        -0.04,
+        0.03,
+        3.71,
+        0.93,
+        0.69,
+        0.76,
+        0.77,
+        1.67,
+        2.04,
+        2.29,
+        2.44,
+        2.69,
+        4.22,
+        4.19
+      ],
+      [
+        0.15,
+        0.11,
+        0.22,
+        0.18,
+        0.13,
+        0.24,
+        0.23,
+        0.03,
+        0.14,
+        0.2,
+        1.07,
+        3.1,
+        0.79,
+        0.83,
+        1.52,
+        2.4,
+        2.28,
+        2.36,
+        2.45,
+        5.01,
+        4.84
+      ],
+      [
+        0.13,
+        0.14,
+        0.13,
+        0.11,
+        0.14,
+        0.25,
+        0.17,
+        0.07,
+        0.13,
+        0.24,
+        0.24,
+        0.24,
+        3.49,
+        0.8,
+        2.03,
+        2.25,
+        2.19,
+        2.28,
+        2.34,
+        5.51,
+        4.77
+      ],
+      [
+        0.14,
+        0.17,
+        0.17,
+        0.12,
+        0.18,
+        0.16,
+        0.14,
+        0.14,
+        0.17,
+        0.24,
+        0.23,
+        0.24,
+        0.24,
+        3.58,
+        2.45,
+        2.71,
+        2.56,
+        2.67,
+        3.48,
+        5.59,
+        5.23
+      ],
+      [
+        0.12,
+        0.16,
+        0.16,
+        0.17,
+        0.11,
+        0.12,
+        0.15,
+        0.17,
+        0.2,
+        0.24,
+        0.24,
+        0.24,
+        0.24,
+        0.24,
+        3.51,
+        3.17,
+        2.48,
+        2.66,
+        3.71,
+        4.78,
+        4.83
+      ],
+      [
+        0.15,
+        0.14,
+        0.17,
+        0.13,
+        0.13,
+        0.16,
+        0.15,
+        0.17,
+        0.21,
+        0.24,
+        0.24,
+        0.24,
+        0.23,
+        0.19,
+        3.12,
+        3.16,
+        3.61,
+        2.23,
+        3.69,
+        3.45,
+        3.66
+      ],
+      [
+        0.16,
+        0.15,
+        0.17,
+        0.14,
+        0.14,
+        0.14,
+        0.2,
+        0.2,
+        0.19,
+        0.23,
+        0.24,
+        0.24,
+        0.24,
+        -0.08,
+        0.07,
+        0.25,
+        2.38,
+        1.78,
+        1.42,
+        1.09,
+        2.65
+      ],
+      [
+        0.15,
+        0.16,
+        0.15,
+        0.16,
+        0.21,
+        0.12,
+        0.2,
+        0.19,
+        0.19,
+        0.23,
+        0.24,
+        0.23,
+        -0.13,
+        0.06,
+        0.06,
+        0.08,
+        0.05,
+        3.05,
+        1.36,
+        1.35,
+        2.33
+      ],
+      [
+        0.16,
+        0.15,
+        0.15,
+        0.15,
+        0.15,
+        0.18,
+        0.16,
+        0.16,
+        0.14,
+        0.22,
+        0.24,
+        0.96,
+        1.08,
+        0.07,
+        0.05,
+        0.07,
+        0.06,
+        0.04,
+        2.99,
+        1.58,
+        2.69
+      ],
+      [
+        2.9,
+        2.88,
+        2.29,
+        0.14,
+        0.14,
+        0.18,
+        0.13,
+        0.12,
+        0.16,
+        0.16,
+        1.1,
+        0.08,
+        0.07,
+        0.07,
+        0.07,
+        0.06,
+        0.05,
+        0.07,
+        0.06,
+        2.93,
+        4.0
+      ],
+      [
+        2.55,
+        2.83,
+        2.93,
+        3.13,
+        2.88,
+        0.13,
+        0.14,
+        0.14,
+        0.15,
+        0.64,
+        0.02,
+        0.08,
+        0.07,
+        0.07,
+        0.05,
+        0.14,
+        0.24,
+        0.24,
+        0.24,
+        0.25,
+        3.01
+      ],
+      [
+        3.04,
+        2.81,
+        2.78,
+        2.95,
+        3.22,
+        2.14,
+        0.14,
+        0.14,
+        0.33,
+        0.88,
+        0.12,
+        0.07,
+        0.07,
+        0.07,
+        0.02,
+        0.06,
+        0.24,
+        0.25,
+        0.25,
+        0.25,
+        0.75
+      ],
+      [
+        3.05,
+        2.61,
+        2.64,
+        3.35,
+        2.87,
+        3.34,
+        2.81,
+        0.05,
+        0.26,
+        0.25,
+        0.12,
+        0.06,
+        0.07,
+        0.07,
+        0.06,
+        0.07,
+        0.06,
+        0.11,
+        0.23,
+        0.25,
+        0.32
+      ],
+      [
+        3.02,
+        2.46,
+        2.49,
+        1.89,
+        2.34,
+        3.15,
+        3.23,
+        3.36,
+        0.25,
+        0.24,
+        0.16,
+        0.1,
+        0.07,
+        0.07,
+        0.08,
+        0.06,
+        0.06,
+        0.07,
+        0.09,
+        0.25,
+        0.18
+      ],
+      [
+        1.34,
+        0.53,
+        1.34,
+        1.42,
+        1.98,
+        2.26,
+        2.59,
+        2.42,
+        3.31,
+        0.25,
+        0.12,
+        0.05,
+        0.06,
+        0.06,
+        0.06,
+        0.07,
+        0.06,
+        0.07,
+        0.11,
+        0.25,
+        0.24
+      ],
+      [
+        1.23,
+        0.56,
+        1.39,
+        1.02,
+        1.46,
+        1.69,
+        1.88,
+        1.86,
+        1.61,
+        3.52,
+        0.08,
+        0.1,
+        0.08,
+        0.02,
+        0.06,
+        0.07,
+        0.06,
+        0.08,
+        0.18,
+        0.22,
+        0.26
+      ],
+      [
+        1.29,
+        1.26,
+        1.27,
+        1.32,
+        1.4,
+        1.19,
+        1.08,
+        0.71,
+        1.03,
+        1.3,
+        3.2,
+        0.09,
+        0.08,
+        0.07,
+        0.06,
+        0.07,
+        0.07,
+        0.06,
+        0.08,
+        0.1,
+        0.07
+      ],
+      [
+        1.67,
+        1.68,
+        1.29,
+        1.25,
+        1.18,
+        1.32,
+        1.47,
+        0.99,
+        1.41,
+        1.68,
+        3.61,
+        1.28,
+        0.07,
+        0.07,
+        0.06,
+        0.08,
+        0.07,
+        0.06,
+        0.07,
+        0.06,
+        0.08
+      ],
+      [
+        1.58,
+        0.62,
+        0.52,
+        0.58,
+        1.44,
+        1.58,
+        1.7,
+        1.09,
+        1.29,
+        1.37,
+        3.62,
+        1.01,
+        0.08,
+        0.08,
+        0.07,
+        0.07,
+        0.07,
+        0.06,
+        0.06,
+        0.03,
+        0.18
+      ],
+      [
+        1.3,
+        0.77,
+        0.56,
+        0.7,
+        1.63,
+        1.21,
+        1.2,
+        1.02,
+        1.13,
+        1.43,
+        3.62,
+        1.05,
+        1.23,
+        0.08,
+        0.08,
+        0.08,
+        0.07,
+        0.06,
+        0.07,
+        0.09,
+        0.07
+      ],
+      [
+        1.37,
+        0.91,
+        1.72,
+        1.09,
+        0.85,
+        0.95,
+        1.12,
+        1.51,
+        1.11,
+        1.33,
+        3.62,
+        1.44,
+        1.13,
+        0.06,
+        0.06,
+        0.07,
+        0.09,
+        0.08,
+        0.07,
+        0.08,
+        0.1
+      ]
+    ],
+    "limitations": "20m DTM供地形骨架；不得作單棟門檻、室內地坪或堤頂細部高程。",
+    "status": "SOURCE_ACQUIRED"
+  },
+  "buildings": [
+    {
+      "id": "PB001",
+      "name": "代表區建物 01",
+      "e": 334272.417,
+      "n": 2732145.689,
+      "footprint": [
+        [
+          334277.836,
+          2732149.339
+        ],
+        [
+          334278.244,
+          2732148.254
+        ],
+        [
+          334278.245,
+          2732145.362
+        ],
+        [
+          334278.537,
+          2732145.035
+        ],
+        [
+          334278.381,
+          2732143.256
+        ],
+        [
+          334269.733,
+          2732142.068
+        ],
+        [
+          334266.596,
+          2732142.224
+        ],
+        [
+          334266.437,
+          2732148.244
+        ],
+        [
+          334272.86,
+          2732148.843
+        ],
+        [
+          334273.013,
+          2732149.138
+        ],
+        [
+          334275.011,
+          2732149.143
+        ],
+        [
+          334275.188,
+          2732149.436
+        ],
+        [
+          334277.836,
+          2732149.339
+        ]
+      ],
+      "areaM2": 74.9,
+      "groundElev": 1.33,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#756b75",
+      "facadeColor": "#9c9597",
+      "basemapUsablePixels": 1701,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB002",
+      "name": "代表區建物 02",
+      "e": 334270.545,
+      "n": 2732134.874,
+      "footprint": [
+        [
+          334274.9,
+          2732138.499
+        ],
+        [
+          334275.174,
+          2732131.353
+        ],
+        [
+          334265.922,
+          2732131.468
+        ],
+        [
+          334266.037,
+          2732138.276
+        ],
+        [
+          334274.9,
+          2732138.499
+        ]
+      ],
+      "areaM2": 63.2,
+      "groundElev": 1.33,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#b4b3ae",
+      "facadeColor": "#c1bfb8",
+      "basemapUsablePixels": 1391,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB003",
+      "name": "代表區建物 03",
+      "e": 334274.073,
+      "n": 2732088.661,
+      "footprint": [
+        [
+          334266.189,
+          2732102.533
+        ],
+        [
+          334278.524,
+          2732102.79
+        ],
+        [
+          334278.344,
+          2732090.053
+        ],
+        [
+          334283.517,
+          2732089.57
+        ],
+        [
+          334282.869,
+          2732071.769
+        ],
+        [
+          334273.948,
+          2732071.684
+        ],
+        [
+          334274.0,
+          2732085.134
+        ],
+        [
+          334266.37,
+          2732085.139
+        ],
+        [
+          334266.097,
+          2732088.85
+        ],
+        [
+          334262.1,
+          2732089.105
+        ],
+        [
+          334262.092,
+          2732097.007
+        ],
+        [
+          334266.116,
+          2732097.57
+        ],
+        [
+          334266.383,
+          2732098.548
+        ],
+        [
+          334266.189,
+          2732102.533
+        ]
+      ],
+      "areaM2": 393.9,
+      "groundElev": 1.68,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 6.5,
+      "modelStoreys": 2,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#596165",
+      "facadeColor": "#8c8f8e",
+      "basemapUsablePixels": 7544,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB004",
+      "name": "代表區建物 04",
+      "e": 334292.83,
+      "n": 2732086.87,
+      "footprint": [
+        [
+          334290.117,
+          2732090.064
+        ],
+        [
+          334294.152,
+          2732090.159
+        ],
+        [
+          334296.282,
+          2732089.727
+        ],
+        [
+          334296.017,
+          2732084.746
+        ],
+        [
+          334295.719,
+          2732084.502
+        ],
+        [
+          334295.585,
+          2732083.502
+        ],
+        [
+          334289.263,
+          2732084.005
+        ],
+        [
+          334289.236,
+          2732085.852
+        ],
+        [
+          334290.117,
+          2732090.064
+        ]
+      ],
+      "areaM2": 41.3,
+      "groundElev": 3.61,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#a6a7ac",
+      "facadeColor": "#b8b8b7",
+      "basemapUsablePixels": 879,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB005",
+      "name": "代表區建物 05",
+      "e": 334292.295,
+      "n": 2732076.512,
+      "footprint": [
+        [
+          334290.507,
+          2732081.075
+        ],
+        [
+          334292.306,
+          2732081.173
+        ],
+        [
+          334295.715,
+          2732080.225
+        ],
+        [
+          334295.529,
+          2732077.422
+        ],
+        [
+          334294.939,
+          2732076.135
+        ],
+        [
+          334294.087,
+          2732072.057
+        ],
+        [
+          334288.95,
+          2732072.223
+        ],
+        [
+          334289.041,
+          2732074.82
+        ],
+        [
+          334289.338,
+          2732075.152
+        ],
+        [
+          334289.534,
+          2732076.989
+        ],
+        [
+          334289.832,
+          2732077.22
+        ],
+        [
+          334290.507,
+          2732081.075
+        ]
+      ],
+      "areaM2": 47.6,
+      "groundElev": 3.61,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#425256",
+      "facadeColor": "#7e8685",
+      "basemapUsablePixels": 1012,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB006",
+      "name": "代表區建物 06",
+      "e": 334110.294,
+      "n": 2732075.743,
+      "footprint": [
+        [
+          334112.391,
+          2732085.569
+        ],
+        [
+          334115.898,
+          2732084.466
+        ],
+        [
+          334116.035,
+          2732082.493
+        ],
+        [
+          334114.958,
+          2732079.944
+        ],
+        [
+          334114.466,
+          2732077.785
+        ],
+        [
+          334113.883,
+          2732076.907
+        ],
+        [
+          334113.392,
+          2732074.368
+        ],
+        [
+          334112.807,
+          2732073.677
+        ],
+        [
+          334112.318,
+          2732071.146
+        ],
+        [
+          334111.826,
+          2732070.733
+        ],
+        [
+          334111.247,
+          2732068.223
+        ],
+        [
+          334110.472,
+          2732066.863
+        ],
+        [
+          334110.462,
+          2732065.968
+        ],
+        [
+          334108.469,
+          2732065.801
+        ],
+        [
+          334108.037,
+          2732066.3
+        ],
+        [
+          334104.616,
+          2732067.189
+        ],
+        [
+          334104.473,
+          2732069.072
+        ],
+        [
+          334104.763,
+          2732069.227
+        ],
+        [
+          334104.772,
+          2732070.162
+        ],
+        [
+          334105.842,
+          2732072.208
+        ],
+        [
+          334106.237,
+          2732074.265
+        ],
+        [
+          334106.633,
+          2732074.496
+        ],
+        [
+          334107.214,
+          2732077.196
+        ],
+        [
+          334107.702,
+          2732077.604
+        ],
+        [
+          334107.993,
+          2732079.339
+        ],
+        [
+          334108.773,
+          2732080.611
+        ],
+        [
+          334109.362,
+          2732083.445
+        ],
+        [
+          334109.854,
+          2732083.68
+        ],
+        [
+          334110.147,
+          2732085.309
+        ],
+        [
+          334112.391,
+          2732085.569
+        ]
+      ],
+      "areaM2": 124.5,
+      "groundElev": 1.68,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#e9e2de",
+      "facadeColor": "#dfdad4",
+      "basemapUsablePixels": 1731,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB007",
+      "name": "代表區建物 07",
+      "e": 334217.056,
+      "n": 2732069.099,
+      "footprint": [
+        [
+          334208.67,
+          2732073.259
+        ],
+        [
+          334211.531,
+          2732073.46
+        ],
+        [
+          334211.866,
+          2732073.167
+        ],
+        [
+          334213.684,
+          2732073.166
+        ],
+        [
+          334214.021,
+          2732072.868
+        ],
+        [
+          334221.395,
+          2732071.897
+        ],
+        [
+          334223.449,
+          2732071.897
+        ],
+        [
+          334223.625,
+          2732071.595
+        ],
+        [
+          334226.123,
+          2732071.301
+        ],
+        [
+          334225.792,
+          2732065.085
+        ],
+        [
+          334220.592,
+          2732065.115
+        ],
+        [
+          334220.343,
+          2732065.412
+        ],
+        [
+          334213.273,
+          2732065.896
+        ],
+        [
+          334213.094,
+          2732066.197
+        ],
+        [
+          334208.343,
+          2732066.691
+        ],
+        [
+          334208.181,
+          2732069.733
+        ],
+        [
+          334208.67,
+          2732073.259
+        ]
+      ],
+      "areaM2": 119.5,
+      "groundElev": 1.08,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#a2a5a6",
+      "facadeColor": "#b6b7b3",
+      "basemapUsablePixels": 2749,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB008",
+      "name": "代表區建物 08",
+      "e": 334122.176,
+      "n": 2732068.54,
+      "footprint": [
+        [
+          334127.963,
+          2732075.018
+        ],
+        [
+          334127.751,
+          2732072.035
+        ],
+        [
+          334126.969,
+          2732070.564
+        ],
+        [
+          334126.482,
+          2732068.226
+        ],
+        [
+          334125.894,
+          2732067.336
+        ],
+        [
+          334125.408,
+          2732065.004
+        ],
+        [
+          334124.392,
+          2732062.602
+        ],
+        [
+          334122.632,
+          2732062.578
+        ],
+        [
+          334116.118,
+          2732064.671
+        ],
+        [
+          334116.094,
+          2732066.432
+        ],
+        [
+          334116.677,
+          2732067.702
+        ],
+        [
+          334116.979,
+          2732069.479
+        ],
+        [
+          334117.28,
+          2732069.623
+        ],
+        [
+          334117.893,
+          2732072.359
+        ],
+        [
+          334119.75,
+          2732072.383
+        ],
+        [
+          334123.22,
+          2732071.352
+        ],
+        [
+          334123.228,
+          2732071.918
+        ],
+        [
+          334124.001,
+          2732073.178
+        ],
+        [
+          334124.303,
+          2732074.948
+        ],
+        [
+          334124.729,
+          2732075.386
+        ],
+        [
+          334126.574,
+          2732075.412
+        ],
+        [
+          334127.963,
+          2732075.018
+        ]
+      ],
+      "areaM2": 94.5,
+      "groundElev": 1.26,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#bbb6ba",
+      "facadeColor": "#c5c0bf",
+      "basemapUsablePixels": 2065,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB009",
+      "name": "代表區建物 09",
+      "e": 334196.753,
+      "n": 2732068.505,
+      "footprint": [
+        [
+          334188.357,
+          2732075.014
+        ],
+        [
+          334206.029,
+          2732074.217
+        ],
+        [
+          334205.466,
+          2732062.134
+        ],
+        [
+          334200.284,
+          2732062.087
+        ],
+        [
+          334187.426,
+          2732063.089
+        ],
+        [
+          334187.282,
+          2732066.118
+        ],
+        [
+          334188.357,
+          2732075.014
+        ]
+      ],
+      "areaM2": 220.2,
+      "groundElev": 1.19,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#b2b4af",
+      "facadeColor": "#bfbfb9",
+      "basemapUsablePixels": 4342,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB010",
+      "name": "代表區建物 10",
+      "e": 334130.42,
+      "n": 2732067.262,
+      "footprint": [
+        [
+          334130.55,
+          2732077.771
+        ],
+        [
+          334132.445,
+          2732077.852
+        ],
+        [
+          334132.681,
+          2732077.561
+        ],
+        [
+          334133.552,
+          2732077.548
+        ],
+        [
+          334133.685,
+          2732077.256
+        ],
+        [
+          334135.493,
+          2732076.967
+        ],
+        [
+          334136.155,
+          2732076.373
+        ],
+        [
+          334135.958,
+          2732072.833
+        ],
+        [
+          334135.667,
+          2732072.667
+        ],
+        [
+          334135.664,
+          2732071.751
+        ],
+        [
+          334134.883,
+          2732069.502
+        ],
+        [
+          334134.101,
+          2732064.425
+        ],
+        [
+          334133.514,
+          2732063.05
+        ],
+        [
+          334132.238,
+          2732057.205
+        ],
+        [
+          334130.532,
+          2732057.209
+        ],
+        [
+          334130.126,
+          2732057.595
+        ],
+        [
+          334129.164,
+          2732057.6
+        ],
+        [
+          334127.694,
+          2732058.381
+        ],
+        [
+          334125.052,
+          2732058.873
+        ],
+        [
+          334124.644,
+          2732059.36
+        ],
+        [
+          334123.806,
+          2732059.559
+        ],
+        [
+          334123.81,
+          2732061.361
+        ],
+        [
+          334124.885,
+          2732063.129
+        ],
+        [
+          334125.18,
+          2732064.884
+        ],
+        [
+          334126.251,
+          2732067.221
+        ],
+        [
+          334126.448,
+          2732068.689
+        ],
+        [
+          334127.038,
+          2732069.582
+        ],
+        [
+          334128.306,
+          2732074.164
+        ],
+        [
+          334128.591,
+          2732074.305
+        ],
+        [
+          334128.6,
+          2732075.437
+        ],
+        [
+          334129.056,
+          2732075.892
+        ],
+        [
+          334129.988,
+          2732075.99
+        ],
+        [
+          334130.55,
+          2732077.771
+        ]
+      ],
+      "areaM2": 158.1,
+      "groundElev": 1.27,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#b7a9a6",
+      "facadeColor": "#c2b9b3",
+      "basemapUsablePixels": 3652,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB011",
+      "name": "代表區建物 11",
+      "e": 334197.814,
+      "n": 2732053.921,
+      "footprint": [
+        [
+          334203.847,
+          2732056.071
+        ],
+        [
+          334203.751,
+          2732053.207
+        ],
+        [
+          334198.756,
+          2732052.519
+        ],
+        [
+          334196.262,
+          2732051.752
+        ],
+        [
+          334195.838,
+          2732051.253
+        ],
+        [
+          334194.056,
+          2732050.857
+        ],
+        [
+          334192.446,
+          2732050.862
+        ],
+        [
+          334191.686,
+          2732051.614
+        ],
+        [
+          334191.691,
+          2732053.768
+        ],
+        [
+          334192.142,
+          2732054.212
+        ],
+        [
+          334192.813,
+          2732054.222
+        ],
+        [
+          334193.223,
+          2732054.703
+        ],
+        [
+          334195.222,
+          2732054.991
+        ],
+        [
+          334195.365,
+          2732055.287
+        ],
+        [
+          334196.068,
+          2732055.296
+        ],
+        [
+          334198.399,
+          2732056.364
+        ],
+        [
+          334200.109,
+          2732056.37
+        ],
+        [
+          334200.274,
+          2732056.661
+        ],
+        [
+          334203.434,
+          2732056.857
+        ],
+        [
+          334203.847,
+          2732056.071
+        ]
+      ],
+      "areaM2": 45.3,
+      "groundElev": 1.19,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#d0c4b6",
+      "facadeColor": "#d1c9bd",
+      "basemapUsablePixels": 924,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB012",
+      "name": "代表區建物 12",
+      "e": 334166.785,
+      "n": 2732022.915,
+      "footprint": [
+        [
+          334166.385,
+          2732028.823
+        ],
+        [
+          334168.298,
+          2732028.923
+        ],
+        [
+          334170.139,
+          2732027.844
+        ],
+        [
+          334170.137,
+          2732026.148
+        ],
+        [
+          334169.651,
+          2732025.724
+        ],
+        [
+          334169.647,
+          2732024.967
+        ],
+        [
+          334169.065,
+          2732023.8
+        ],
+        [
+          334168.575,
+          2732020.485
+        ],
+        [
+          334168.267,
+          2732020.318
+        ],
+        [
+          334167.492,
+          2732017.068
+        ],
+        [
+          334165.708,
+          2732017.068
+        ],
+        [
+          334163.65,
+          2732017.664
+        ],
+        [
+          334163.652,
+          2732021.117
+        ],
+        [
+          334164.148,
+          2732021.55
+        ],
+        [
+          334164.534,
+          2732023.571
+        ],
+        [
+          334165.218,
+          2732024.75
+        ],
+        [
+          334165.803,
+          2732027.672
+        ],
+        [
+          334166.293,
+          2732028.091
+        ],
+        [
+          334166.385,
+          2732028.823
+        ]
+      ],
+      "areaM2": 50.2,
+      "groundElev": 1.42,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#bcaea4",
+      "facadeColor": "#c5bcb2",
+      "basemapUsablePixels": 1055,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB013",
+      "name": "代表區建物 13",
+      "e": 334147.966,
+      "n": 2732008.324,
+      "footprint": [
+        [
+          334145.977,
+          2732011.159
+        ],
+        [
+          334150.386,
+          2732010.818
+        ],
+        [
+          334150.271,
+          2732005.668
+        ],
+        [
+          334145.61,
+          2732005.686
+        ],
+        [
+          334145.584,
+          2732009.388
+        ],
+        [
+          334145.977,
+          2732011.159
+        ]
+      ],
+      "areaM2": 24.9,
+      "groundElev": 2.49,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#a5867c",
+      "facadeColor": "#b8a59b",
+      "basemapUsablePixels": 492,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB014",
+      "name": "代表區建物 14",
+      "e": 334450.14,
+      "n": 2731823.705,
+      "footprint": [
+        [
+          334455.078,
+          2731830.686
+        ],
+        [
+          334455.767,
+          2731827.924
+        ],
+        [
+          334456.072,
+          2731827.768
+        ],
+        [
+          334456.077,
+          2731826.844
+        ],
+        [
+          334456.366,
+          2731826.691
+        ],
+        [
+          334456.65,
+          2731824.895
+        ],
+        [
+          334456.951,
+          2731824.741
+        ],
+        [
+          334456.956,
+          2731823.862
+        ],
+        [
+          334457.733,
+          2731822.591
+        ],
+        [
+          334457.718,
+          2731820.052
+        ],
+        [
+          334451.405,
+          2731817.952
+        ],
+        [
+          334450.672,
+          2731817.946
+        ],
+        [
+          334450.522,
+          2731817.658
+        ],
+        [
+          334449.64,
+          2731817.653
+        ],
+        [
+          334448.571,
+          2731817.073
+        ],
+        [
+          334447.788,
+          2731817.067
+        ],
+        [
+          334447.006,
+          2731816.584
+        ],
+        [
+          334445.246,
+          2731816.599
+        ],
+        [
+          334444.819,
+          2731818.463
+        ],
+        [
+          334444.514,
+          2731818.618
+        ],
+        [
+          334444.509,
+          2731819.542
+        ],
+        [
+          334444.221,
+          2731819.692
+        ],
+        [
+          334444.216,
+          2731820.617
+        ],
+        [
+          334443.928,
+          2731820.767
+        ],
+        [
+          334443.923,
+          2731821.691
+        ],
+        [
+          334443.635,
+          2731821.841
+        ],
+        [
+          334443.63,
+          2731822.765
+        ],
+        [
+          334443.341,
+          2731822.917
+        ],
+        [
+          334442.859,
+          2731825.71
+        ],
+        [
+          334442.558,
+          2731825.953
+        ],
+        [
+          334442.575,
+          2731827.701
+        ],
+        [
+          334449.614,
+          2731829.495
+        ],
+        [
+          334449.771,
+          2731829.803
+        ],
+        [
+          334450.695,
+          2731829.808
+        ],
+        [
+          334450.845,
+          2731830.096
+        ],
+        [
+          334451.731,
+          2731830.1
+        ],
+        [
+          334453.002,
+          2731830.684
+        ],
+        [
+          334455.078,
+          2731830.686
+        ]
+      ],
+      "areaM2": 153.5,
+      "groundElev": 3.71,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#cec0af",
+      "facadeColor": "#d0c6b9",
+      "basemapUsablePixels": 3570,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    },
+    {
+      "id": "PB015",
+      "name": "代表區建物 15",
+      "e": 334453.716,
+      "n": 2731815.334,
+      "footprint": [
+        [
+          334458.502,
+          2731819.456
+        ],
+        [
+          334458.9,
+          2731816.887
+        ],
+        [
+          334459.194,
+          2731816.743
+        ],
+        [
+          334459.395,
+          2731815.646
+        ],
+        [
+          334459.262,
+          2731813.682
+        ],
+        [
+          334451.535,
+          2731811.419
+        ],
+        [
+          334451.102,
+          2731810.918
+        ],
+        [
+          334449.227,
+          2731811.053
+        ],
+        [
+          334448.329,
+          2731814.685
+        ],
+        [
+          334447.929,
+          2731815.114
+        ],
+        [
+          334448.159,
+          2731817.079
+        ],
+        [
+          334456.078,
+          2731819.246
+        ],
+        [
+          334456.316,
+          2731819.549
+        ],
+        [
+          334458.502,
+          2731819.456
+        ]
+      ],
+      "areaM2": 68.3,
+      "groundElev": 3.71,
+      "groundElevBasis": "2025版宜蘭20m DTM最近網格；僅粗估",
+      "modelHeightM": 4.2,
+      "modelStoreys": 1,
+      "modelStoreysClass": "VISUAL_GEOMETRY_ONLY",
+      "officialStoreys": null,
+      "officialStoreysStatus": "PENDING_NLSC_BUILD_NO_OR_BUILDING_LICENSE_MATCH",
+      "officialStoreysBasis": "待取得NLSC三維建物BUILD_NO／NO_SOURCE或可空間綁定之建照、使照資料",
+      "heightBasis": "模型造型暫定高度；不得解讀為真實樓層或建管紀錄",
+      "roofColor": "#735b64",
+      "facadeColor": "#9b8c8d",
+      "basemapUsablePixels": 1484,
+      "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+      "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT",
+      "materialBasis": "既有屋頂色逐棟取自目前顯示之NLSC PHOTO2 2023底圖足跡內像素中位色；立面色由同棟屋頂色明化衍生",
+      "footprintSource": "NLSC BUILDX z20公開展示圖層向量化",
+      "geometryClass": "REFERENCE_DERIVED",
+      "legalBoundary": false,
+      "managementStatus": "官方樓層未綁定；待NLSC BUILD_NO或建照／使照逐棟核對",
+      "source": "空間：內政部國土測繪中心BUILDX、PHOTO2 2023；材質：目前顯示之NLSC PHOTO2底圖逐棟足跡取色；模型樓層僅造型",
+      "citation": "NLSC BUILDX https://wmts.nlsc.gov.tw/wmts/BUILDX；NLSC PHOTO2 https://wmts.nlsc.gov.tw/wmts/PHOTO2；材質取樣詳data/material_palette.json",
+      "status": "SPATIAL_QA_PASS_FOOTPRINT_OFFICIAL_STOREYS_PENDING",
+      "parcelRef": "地籍參考圖層尚待合法服務取得／逐筆核對",
+      "buildingManagement": "尚未取得／待建照或使照逐棟核對",
+      "realPriceMatch": "無可靠逐棟匹配鍵，不顯示鄰近交易",
+      "cadastralReference": "尚待合法服務取得；僅供參考，不作界址認定"
+    }
+  ],
+  "buildingCensus": {
+    "source": "NLSC BUILDX z20 public visualization raster",
+    "extent": {
+      "xmin": 334100.0,
+      "ymin": 2731750.0,
+      "xmax": 334500.0,
+      "ymax": 2732150.0
+    },
+    "closedReferenceFootprints": 15,
+    "modeledBuildings": 15,
+    "missingClosedFootprints": 0,
+    "extraModeledBuildings": 0,
+    "riverIntersectionCheck": "PASS",
+    "limitations": "Extent-edge partial footprints are excluded from the closed-footprint census.",
+    "status": "SPATIAL_QA_PASS_FOOTPRINT_ONLY",
+    "riverIntersectionCount": 0,
+    "riverIntersectionIds": []
+  },
+  "infrastructure": {
+    "riverPolygon": [
+      [
+        334499.805,
+        2732150.0
+      ],
+      [
+        334348.828,
+        2732150.0
+      ],
+      [
+        334348.047,
+        2732140.039
+      ],
+      [
+        334344.141,
+        2732136.328
+      ],
+      [
+        334344.141,
+        2732118.555
+      ],
+      [
+        334340.625,
+        2732116.992
+      ],
+      [
+        334333.594,
+        2732101.172
+      ],
+      [
+        334332.812,
+        2732096.289
+      ],
+      [
+        334329.688,
+        2732093.75
+      ],
+      [
+        334329.297,
+        2732089.258
+      ],
+      [
+        334326.562,
+        2732088.086
+      ],
+      [
+        334325.977,
+        2732081.836
+      ],
+      [
+        334323.828,
+        2732080.664
+      ],
+      [
+        334323.242,
+        2732075.0
+      ],
+      [
+        334320.508,
+        2732071.484
+      ],
+      [
+        334320.508,
+        2732069.141
+      ],
+      [
+        334316.602,
+        2732069.141
+      ],
+      [
+        334305.469,
+        2732055.469
+      ],
+      [
+        334300.391,
+        2732052.148
+      ],
+      [
+        334294.922,
+        2732051.367
+      ],
+      [
+        334293.75,
+        2732054.297
+      ],
+      [
+        334291.797,
+        2732053.906
+      ],
+      [
+        334291.797,
+        2732048.047
+      ],
+      [
+        334285.156,
+        2732038.672
+      ],
+      [
+        334260.742,
+        2732014.648
+      ],
+      [
+        334258.984,
+        2732010.938
+      ],
+      [
+        334255.273,
+        2732009.375
+      ],
+      [
+        334248.438,
+        2732002.539
+      ],
+      [
+        334246.289,
+        2732002.539
+      ],
+      [
+        334247.266,
+        2731998.242
+      ],
+      [
+        334250.195,
+        2731998.047
+      ],
+      [
+        334250.195,
+        2731995.117
+      ],
+      [
+        334247.656,
+        2731994.531
+      ],
+      [
+        334242.773,
+        2731987.5
+      ],
+      [
+        334269.531,
+        2731958.398
+      ],
+      [
+        334272.07,
+        2731957.422
+      ],
+      [
+        334272.656,
+        2731955.273
+      ],
+      [
+        334274.023,
+        2731955.469
+      ],
+      [
+        334274.219,
+        2731958.594
+      ],
+      [
+        334279.492,
+        2731959.57
+      ],
+      [
+        334280.469,
+        2731955.859
+      ],
+      [
+        334290.039,
+        2731948.242
+      ],
+      [
+        334292.188,
+        2731943.359
+      ],
+      [
+        334296.484,
+        2731941.797
+      ],
+      [
+        334297.266,
+        2731935.938
+      ],
+      [
+        334294.531,
+        2731932.617
+      ],
+      [
+        334296.875,
+        2731931.641
+      ],
+      [
+        334300.0,
+        2731926.953
+      ],
+      [
+        334298.828,
+        2731922.461
+      ],
+      [
+        334296.094,
+        2731922.461
+      ],
+      [
+        334243.164,
+        2731977.93
+      ],
+      [
+        334237.305,
+        2731982.422
+      ],
+      [
+        334219.922,
+        2731969.336
+      ],
+      [
+        334216.016,
+        2731963.281
+      ],
+      [
+        334203.711,
+        2731951.172
+      ],
+      [
+        334200.391,
+        2731950.0
+      ],
+      [
+        334201.367,
+        2731947.656
+      ],
+      [
+        334202.344,
+        2731949.414
+      ],
+      [
+        334205.078,
+        2731949.414
+      ],
+      [
+        334205.664,
+        2731945.508
+      ],
+      [
+        334202.148,
+        2731945.312
+      ],
+      [
+        334202.344,
+        2731940.82
+      ],
+      [
+        334197.656,
+        2731940.039
+      ],
+      [
+        334195.312,
+        2731936.914
+      ],
+      [
+        334195.312,
+        2731935.352
+      ],
+      [
+        334198.438,
+        2731933.594
+      ],
+      [
+        334197.852,
+        2731926.953
+      ],
+      [
+        334192.383,
+        2731928.711
+      ],
+      [
+        334192.188,
+        2731932.812
+      ],
+      [
+        334193.945,
+        2731934.961
+      ],
+      [
+        334191.992,
+        2731934.961
+      ],
+      [
+        334190.234,
+        2731937.109
+      ],
+      [
+        334186.328,
+        2731933.203
+      ],
+      [
+        334182.812,
+        2731932.812
+      ],
+      [
+        334182.422,
+        2731927.539
+      ],
+      [
+        334179.102,
+        2731927.344
+      ],
+      [
+        334176.758,
+        2731924.219
+      ],
+      [
+        334171.484,
+        2731925.195
+      ],
+      [
+        334171.094,
+        2731923.047
+      ],
+      [
+        334167.188,
+        2731920.703
+      ],
+      [
+        334158.203,
+        2731920.703
+      ],
+      [
+        334157.031,
+        2731918.555
+      ],
+      [
+        334152.148,
+        2731918.359
+      ],
+      [
+        334151.758,
+        2731926.367
+      ],
+      [
+        334144.531,
+        2731928.516
+      ],
+      [
+        334144.727,
+        2731936.523
+      ],
+      [
+        334141.992,
+        2731938.477
+      ],
+      [
+        334141.406,
+        2731935.938
+      ],
+      [
+        334138.477,
+        2731934.375
+      ],
+      [
+        334138.477,
+        2731933.203
+      ],
+      [
+        334142.578,
+        2731931.836
+      ],
+      [
+        334140.234,
+        2731918.945
+      ],
+      [
+        334145.117,
+        2731920.508
+      ],
+      [
+        334145.117,
+        2731916.406
+      ],
+      [
+        334130.469,
+        2731914.258
+      ],
+      [
+        334128.711,
+        2731919.727
+      ],
+      [
+        334126.172,
+        2731921.68
+      ],
+      [
+        334125.586,
+        2731918.75
+      ],
+      [
+        334119.141,
+        2731918.75
+      ],
+      [
+        334120.703,
+        2731911.133
+      ],
+      [
+        334118.555,
+        2731907.812
+      ],
+      [
+        334115.82,
+        2731907.812
+      ],
+      [
+        334112.695,
+        2731910.156
+      ],
+      [
+        334107.812,
+        2731910.547
+      ],
+      [
+        334108.984,
+        2731917.773
+      ],
+      [
+        334110.742,
+        2731919.531
+      ],
+      [
+        334107.422,
+        2731919.922
+      ],
+      [
+        334107.227,
+        2731922.07
+      ],
+      [
+        334100.0,
+        2731919.922
+      ],
+      [
+        334100.0,
+        2731750.195
+      ],
+      [
+        334284.375,
+        2731750.195
+      ],
+      [
+        334287.695,
+        2731755.469
+      ],
+      [
+        334294.727,
+        2731757.617
+      ],
+      [
+        334295.898,
+        2731762.695
+      ],
+      [
+        334300.391,
+        2731762.695
+      ],
+      [
+        334301.953,
+        2731761.328
+      ],
+      [
+        334305.078,
+        2731766.602
+      ],
+      [
+        334313.672,
+        2731768.945
+      ],
+      [
+        334316.211,
+        2731771.68
+      ],
+      [
+        334316.406,
+        2731774.414
+      ],
+      [
+        334321.68,
+        2731774.609
+      ],
+      [
+        334324.023,
+        2731782.227
+      ],
+      [
+        334327.539,
+        2731782.227
+      ],
+      [
+        334334.961,
+        2731790.039
+      ],
+      [
+        334339.648,
+        2731789.258
+      ],
+      [
+        334341.992,
+        2731798.633
+      ],
+      [
+        334347.07,
+        2731799.023
+      ],
+      [
+        334349.414,
+        2731803.32
+      ],
+      [
+        334354.883,
+        2731804.492
+      ],
+      [
+        334354.883,
+        2731807.617
+      ],
+      [
+        334358.008,
+        2731807.812
+      ],
+      [
+        334358.594,
+        2731813.477
+      ],
+      [
+        334364.062,
+        2731818.945
+      ],
+      [
+        334364.062,
+        2731820.898
+      ],
+      [
+        334370.117,
+        2731822.461
+      ],
+      [
+        334370.703,
+        2731825.391
+      ],
+      [
+        334379.492,
+        2731829.102
+      ],
+      [
+        334376.562,
+        2731833.594
+      ],
+      [
+        334376.758,
+        2731838.867
+      ],
+      [
+        334368.359,
+        2731846.289
+      ],
+      [
+        334367.383,
+        2731848.828
+      ],
+      [
+        334331.055,
+        2731885.938
+      ],
+      [
+        334326.367,
+        2731885.742
+      ],
+      [
+        334320.898,
+        2731891.016
+      ],
+      [
+        334319.531,
+        2731898.438
+      ],
+      [
+        334301.172,
+        2731917.383
+      ],
+      [
+        334301.172,
+        2731920.312
+      ],
+      [
+        334306.445,
+        2731920.703
+      ],
+      [
+        334324.023,
+        2731901.953
+      ],
+      [
+        334333.203,
+        2731908.984
+      ],
+      [
+        334335.938,
+        2731908.984
+      ],
+      [
+        334341.406,
+        2731904.492
+      ],
+      [
+        334343.164,
+        2731899.023
+      ],
+      [
+        334341.016,
+        2731895.898
+      ],
+      [
+        334336.523,
+        2731893.75
+      ],
+      [
+        334336.523,
+        2731891.016
+      ],
+      [
+        334334.375,
+        2731889.648
+      ],
+      [
+        334340.039,
+        2731883.594
+      ],
+      [
+        334342.188,
+        2731883.398
+      ],
+      [
+        334343.75,
+        2731879.492
+      ],
+      [
+        334370.898,
+        2731851.367
+      ],
+      [
+        334374.414,
+        2731850.781
+      ],
+      [
+        334374.414,
+        2731848.242
+      ],
+      [
+        334380.273,
+        2731842.578
+      ],
+      [
+        334384.57,
+        2731842.578
+      ],
+      [
+        334384.766,
+        2731844.922
+      ],
+      [
+        334389.844,
+        2731849.609
+      ],
+      [
+        334392.773,
+        2731849.609
+      ],
+      [
+        334397.656,
+        2731845.508
+      ],
+      [
+        334398.828,
+        2731850.977
+      ],
+      [
+        334403.32,
+        2731854.688
+      ],
+      [
+        334407.031,
+        2731855.469
+      ],
+      [
+        334413.867,
+        2731863.672
+      ],
+      [
+        334418.359,
+        2731866.211
+      ],
+      [
+        334422.07,
+        2731865.43
+      ],
+      [
+        334425.0,
+        2731869.727
+      ],
+      [
+        334426.758,
+        2731869.727
+      ],
+      [
+        334426.758,
+        2731871.68
+      ],
+      [
+        334447.656,
+        2731893.359
+      ],
+      [
+        334447.852,
+        2731895.508
+      ],
+      [
+        334449.609,
+        2731895.703
+      ],
+      [
+        334449.805,
+        2731897.656
+      ],
+      [
+        334452.93,
+        2731898.828
+      ],
+      [
+        334456.055,
+        2731902.734
+      ],
+      [
+        334455.078,
+        2731907.617
+      ],
+      [
+        334456.836,
+        2731911.133
+      ],
+      [
+        334461.523,
+        2731911.328
+      ],
+      [
+        334462.695,
+        2731909.57
+      ],
+      [
+        334473.438,
+        2731922.07
+      ],
+      [
+        334473.633,
+        2731925.781
+      ],
+      [
+        334478.711,
+        2731927.539
+      ],
+      [
+        334489.258,
+        2731938.477
+      ],
+      [
+        334489.453,
+        2731940.234
+      ],
+      [
+        334487.891,
+        2731940.234
+      ],
+      [
+        334486.523,
+        2731937.891
+      ],
+      [
+        334483.789,
+        2731937.891
+      ],
+      [
+        334483.984,
+        2731941.797
+      ],
+      [
+        334487.5,
+        2731944.141
+      ],
+      [
+        334490.234,
+        2731944.141
+      ],
+      [
+        334491.406,
+        2731942.188
+      ],
+      [
+        334495.312,
+        2731946.875
+      ],
+      [
+        334491.992,
+        2731947.07
+      ],
+      [
+        334493.359,
+        2731954.688
+      ],
+      [
+        334497.461,
+        2731954.883
+      ],
+      [
+        334498.438,
+        2731950.586
+      ],
+      [
+        334499.805,
+        2731950.586
+      ],
+      [
+        334499.805,
+        2732150.0
+      ]
+    ],
+    "riverPolygons": [
+      [
+        [
+          334499.805,
+          2732150.0
+        ],
+        [
+          334348.828,
+          2732150.0
+        ],
+        [
+          334348.047,
+          2732140.039
+        ],
+        [
+          334344.141,
+          2732136.328
+        ],
+        [
+          334344.141,
+          2732118.555
+        ],
+        [
+          334340.625,
+          2732116.992
+        ],
+        [
+          334333.594,
+          2732101.172
+        ],
+        [
+          334332.812,
+          2732096.289
+        ],
+        [
+          334329.688,
+          2732093.75
+        ],
+        [
+          334329.297,
+          2732089.258
+        ],
+        [
+          334326.562,
+          2732088.086
+        ],
+        [
+          334325.977,
+          2732081.836
+        ],
+        [
+          334323.828,
+          2732080.664
+        ],
+        [
+          334323.242,
+          2732075.0
+        ],
+        [
+          334320.508,
+          2732071.484
+        ],
+        [
+          334320.508,
+          2732069.141
+        ],
+        [
+          334316.602,
+          2732069.141
+        ],
+        [
+          334305.469,
+          2732055.469
+        ],
+        [
+          334300.391,
+          2732052.148
+        ],
+        [
+          334294.922,
+          2732051.367
+        ],
+        [
+          334293.75,
+          2732054.297
+        ],
+        [
+          334291.797,
+          2732053.906
+        ],
+        [
+          334291.797,
+          2732048.047
+        ],
+        [
+          334285.156,
+          2732038.672
+        ],
+        [
+          334260.742,
+          2732014.648
+        ],
+        [
+          334258.984,
+          2732010.938
+        ],
+        [
+          334255.273,
+          2732009.375
+        ],
+        [
+          334248.438,
+          2732002.539
+        ],
+        [
+          334246.289,
+          2732002.539
+        ],
+        [
+          334247.266,
+          2731998.242
+        ],
+        [
+          334250.195,
+          2731998.047
+        ],
+        [
+          334250.195,
+          2731995.117
+        ],
+        [
+          334247.656,
+          2731994.531
+        ],
+        [
+          334242.773,
+          2731987.5
+        ],
+        [
+          334269.531,
+          2731958.398
+        ],
+        [
+          334272.07,
+          2731957.422
+        ],
+        [
+          334272.656,
+          2731955.273
+        ],
+        [
+          334274.023,
+          2731955.469
+        ],
+        [
+          334274.219,
+          2731958.594
+        ],
+        [
+          334279.492,
+          2731959.57
+        ],
+        [
+          334280.469,
+          2731955.859
+        ],
+        [
+          334290.039,
+          2731948.242
+        ],
+        [
+          334292.188,
+          2731943.359
+        ],
+        [
+          334296.484,
+          2731941.797
+        ],
+        [
+          334297.266,
+          2731935.938
+        ],
+        [
+          334294.531,
+          2731932.617
+        ],
+        [
+          334296.875,
+          2731931.641
+        ],
+        [
+          334300.0,
+          2731926.953
+        ],
+        [
+          334298.828,
+          2731922.461
+        ],
+        [
+          334296.094,
+          2731922.461
+        ],
+        [
+          334243.164,
+          2731977.93
+        ],
+        [
+          334237.305,
+          2731982.422
+        ],
+        [
+          334219.922,
+          2731969.336
+        ],
+        [
+          334216.016,
+          2731963.281
+        ],
+        [
+          334203.711,
+          2731951.172
+        ],
+        [
+          334200.391,
+          2731950.0
+        ],
+        [
+          334201.367,
+          2731947.656
+        ],
+        [
+          334202.344,
+          2731949.414
+        ],
+        [
+          334205.078,
+          2731949.414
+        ],
+        [
+          334205.664,
+          2731945.508
+        ],
+        [
+          334202.148,
+          2731945.312
+        ],
+        [
+          334202.344,
+          2731940.82
+        ],
+        [
+          334197.656,
+          2731940.039
+        ],
+        [
+          334195.312,
+          2731936.914
+        ],
+        [
+          334195.312,
+          2731935.352
+        ],
+        [
+          334198.438,
+          2731933.594
+        ],
+        [
+          334197.852,
+          2731926.953
+        ],
+        [
+          334192.383,
+          2731928.711
+        ],
+        [
+          334192.188,
+          2731932.812
+        ],
+        [
+          334193.945,
+          2731934.961
+        ],
+        [
+          334191.992,
+          2731934.961
+        ],
+        [
+          334190.234,
+          2731937.109
+        ],
+        [
+          334186.328,
+          2731933.203
+        ],
+        [
+          334182.812,
+          2731932.812
+        ],
+        [
+          334182.422,
+          2731927.539
+        ],
+        [
+          334179.102,
+          2731927.344
+        ],
+        [
+          334176.758,
+          2731924.219
+        ],
+        [
+          334171.484,
+          2731925.195
+        ],
+        [
+          334171.094,
+          2731923.047
+        ],
+        [
+          334167.188,
+          2731920.703
+        ],
+        [
+          334158.203,
+          2731920.703
+        ],
+        [
+          334157.031,
+          2731918.555
+        ],
+        [
+          334152.148,
+          2731918.359
+        ],
+        [
+          334151.758,
+          2731926.367
+        ],
+        [
+          334144.531,
+          2731928.516
+        ],
+        [
+          334144.727,
+          2731936.523
+        ],
+        [
+          334141.992,
+          2731938.477
+        ],
+        [
+          334141.406,
+          2731935.938
+        ],
+        [
+          334138.477,
+          2731934.375
+        ],
+        [
+          334138.477,
+          2731933.203
+        ],
+        [
+          334142.578,
+          2731931.836
+        ],
+        [
+          334140.234,
+          2731918.945
+        ],
+        [
+          334145.117,
+          2731920.508
+        ],
+        [
+          334145.117,
+          2731916.406
+        ],
+        [
+          334130.469,
+          2731914.258
+        ],
+        [
+          334128.711,
+          2731919.727
+        ],
+        [
+          334126.172,
+          2731921.68
+        ],
+        [
+          334125.586,
+          2731918.75
+        ],
+        [
+          334119.141,
+          2731918.75
+        ],
+        [
+          334120.703,
+          2731911.133
+        ],
+        [
+          334118.555,
+          2731907.812
+        ],
+        [
+          334115.82,
+          2731907.812
+        ],
+        [
+          334112.695,
+          2731910.156
+        ],
+        [
+          334107.812,
+          2731910.547
+        ],
+        [
+          334108.984,
+          2731917.773
+        ],
+        [
+          334110.742,
+          2731919.531
+        ],
+        [
+          334107.422,
+          2731919.922
+        ],
+        [
+          334107.227,
+          2731922.07
+        ],
+        [
+          334100.0,
+          2731919.922
+        ],
+        [
+          334100.0,
+          2731750.195
+        ],
+        [
+          334284.375,
+          2731750.195
+        ],
+        [
+          334287.695,
+          2731755.469
+        ],
+        [
+          334294.727,
+          2731757.617
+        ],
+        [
+          334295.898,
+          2731762.695
+        ],
+        [
+          334300.391,
+          2731762.695
+        ],
+        [
+          334301.953,
+          2731761.328
+        ],
+        [
+          334305.078,
+          2731766.602
+        ],
+        [
+          334313.672,
+          2731768.945
+        ],
+        [
+          334316.211,
+          2731771.68
+        ],
+        [
+          334316.406,
+          2731774.414
+        ],
+        [
+          334321.68,
+          2731774.609
+        ],
+        [
+          334324.023,
+          2731782.227
+        ],
+        [
+          334327.539,
+          2731782.227
+        ],
+        [
+          334334.961,
+          2731790.039
+        ],
+        [
+          334339.648,
+          2731789.258
+        ],
+        [
+          334341.992,
+          2731798.633
+        ],
+        [
+          334347.07,
+          2731799.023
+        ],
+        [
+          334349.414,
+          2731803.32
+        ],
+        [
+          334354.883,
+          2731804.492
+        ],
+        [
+          334354.883,
+          2731807.617
+        ],
+        [
+          334358.008,
+          2731807.812
+        ],
+        [
+          334358.594,
+          2731813.477
+        ],
+        [
+          334364.062,
+          2731818.945
+        ],
+        [
+          334364.062,
+          2731820.898
+        ],
+        [
+          334370.117,
+          2731822.461
+        ],
+        [
+          334370.703,
+          2731825.391
+        ],
+        [
+          334379.492,
+          2731829.102
+        ],
+        [
+          334376.562,
+          2731833.594
+        ],
+        [
+          334376.758,
+          2731838.867
+        ],
+        [
+          334368.359,
+          2731846.289
+        ],
+        [
+          334367.383,
+          2731848.828
+        ],
+        [
+          334331.055,
+          2731885.938
+        ],
+        [
+          334326.367,
+          2731885.742
+        ],
+        [
+          334320.898,
+          2731891.016
+        ],
+        [
+          334319.531,
+          2731898.438
+        ],
+        [
+          334301.172,
+          2731917.383
+        ],
+        [
+          334301.172,
+          2731920.312
+        ],
+        [
+          334306.445,
+          2731920.703
+        ],
+        [
+          334324.023,
+          2731901.953
+        ],
+        [
+          334333.203,
+          2731908.984
+        ],
+        [
+          334335.938,
+          2731908.984
+        ],
+        [
+          334341.406,
+          2731904.492
+        ],
+        [
+          334343.164,
+          2731899.023
+        ],
+        [
+          334341.016,
+          2731895.898
+        ],
+        [
+          334336.523,
+          2731893.75
+        ],
+        [
+          334336.523,
+          2731891.016
+        ],
+        [
+          334334.375,
+          2731889.648
+        ],
+        [
+          334340.039,
+          2731883.594
+        ],
+        [
+          334342.188,
+          2731883.398
+        ],
+        [
+          334343.75,
+          2731879.492
+        ],
+        [
+          334370.898,
+          2731851.367
+        ],
+        [
+          334374.414,
+          2731850.781
+        ],
+        [
+          334374.414,
+          2731848.242
+        ],
+        [
+          334380.273,
+          2731842.578
+        ],
+        [
+          334384.57,
+          2731842.578
+        ],
+        [
+          334384.766,
+          2731844.922
+        ],
+        [
+          334389.844,
+          2731849.609
+        ],
+        [
+          334392.773,
+          2731849.609
+        ],
+        [
+          334397.656,
+          2731845.508
+        ],
+        [
+          334398.828,
+          2731850.977
+        ],
+        [
+          334403.32,
+          2731854.688
+        ],
+        [
+          334407.031,
+          2731855.469
+        ],
+        [
+          334413.867,
+          2731863.672
+        ],
+        [
+          334418.359,
+          2731866.211
+        ],
+        [
+          334422.07,
+          2731865.43
+        ],
+        [
+          334425.0,
+          2731869.727
+        ],
+        [
+          334426.758,
+          2731869.727
+        ],
+        [
+          334426.758,
+          2731871.68
+        ],
+        [
+          334447.656,
+          2731893.359
+        ],
+        [
+          334447.852,
+          2731895.508
+        ],
+        [
+          334449.609,
+          2731895.703
+        ],
+        [
+          334449.805,
+          2731897.656
+        ],
+        [
+          334452.93,
+          2731898.828
+        ],
+        [
+          334456.055,
+          2731902.734
+        ],
+        [
+          334455.078,
+          2731907.617
+        ],
+        [
+          334456.836,
+          2731911.133
+        ],
+        [
+          334461.523,
+          2731911.328
+        ],
+        [
+          334462.695,
+          2731909.57
+        ],
+        [
+          334473.438,
+          2731922.07
+        ],
+        [
+          334473.633,
+          2731925.781
+        ],
+        [
+          334478.711,
+          2731927.539
+        ],
+        [
+          334489.258,
+          2731938.477
+        ],
+        [
+          334489.453,
+          2731940.234
+        ],
+        [
+          334487.891,
+          2731940.234
+        ],
+        [
+          334486.523,
+          2731937.891
+        ],
+        [
+          334483.789,
+          2731937.891
+        ],
+        [
+          334483.984,
+          2731941.797
+        ],
+        [
+          334487.5,
+          2731944.141
+        ],
+        [
+          334490.234,
+          2731944.141
+        ],
+        [
+          334491.406,
+          2731942.188
+        ],
+        [
+          334495.312,
+          2731946.875
+        ],
+        [
+          334491.992,
+          2731947.07
+        ],
+        [
+          334493.359,
+          2731954.688
+        ],
+        [
+          334497.461,
+          2731954.883
+        ],
+        [
+          334498.438,
+          2731950.586
+        ],
+        [
+          334499.805,
+          2731950.586
+        ],
+        [
+          334499.805,
+          2732150.0
+        ]
+      ]
+    ],
+    "gates": [
+      {
+        "id": "G-EXISTING",
+        "name": "既有防潮閘門／宜22道路構造",
+        "e": 334308.0,
+        "n": 2731910.5,
+        "length": 235.0,
+        "angleDeg": 47.3,
+        "topElev": 3.0,
+        "status": "既有位置已複核／影像判釋",
+        "source": "NLSC PHOTO2 2023官方正射影像目視數化；非竣工測量",
+        "positionBasis": "OFFICIAL_ORTHOPHOTO_REFERENCE",
+        "materialBasis": "逐設施取自目前顯示之NLSC PHOTO2 2023底圖範圍內像素中位色",
+        "renderMode": "CURRENT_COLOR_REFERENCE",
+        "citation": "位置及材質：NLSC PHOTO2 2023 https://wmts.nlsc.gov.tw/wmts/PHOTO2；取樣詳data/material_palette.json",
+        "materialColors": {
+          "primary": "#a9a2a0",
+          "secondary": "#8c8184",
+          "basemapSample": "#8c8184"
+        },
+        "materialSourceClass": "DISPLAYED_NLSC_PHOTO2_FOOTPRINT_MEDIAN_COLOR",
+        "materialSpatialConfidence": "OFFICIAL_WMTS_REGISTERED_PROJECT_EXTENT"
+      },
+      {
+        "id": "G-DESIGN",
+        "name": "改善工程設計配置",
+        "e": 334297.8226,
+        "n": 2731883.96675,
+        "length": 210.0,
+        "angleDeg": 46.1879,
+        "topElev": 3.0,
+        "status": "設計位置已複核／P1-P2控制",
+        "source": "基本設計圖成果修訂版：BHDL-021、BHCI-001、BHCI-002（PDF第5、9、10頁）",
+        "positionBasis": "DESIGN_COORDINATE_CONTROLLED",
+        "axisControlPoints": [
+          {
+            "id": "P1",
+            "e": 334239.8428,
+            "n": 2731944.4019
+          },
+          {
+            "id": "P2",
+            "e": 334355.8024,
+            "n": 2731823.5316
+          }
+        ],
+        "openingLayout": "6×30.50m水門＋9.00m船閘",
+        "materialBasis": "新建／設計工程依使用者要求固定白模呈現；不由既有現況底圖推定未來材料色",
+        "renderMode": "WHITE_MODEL",
+        "materialColors": {
+          "primary": "#f7f7f5",
+          "secondary": "#e7eaeb",
+          "edge": "#c8ced1"
+        },
+        "citation": "位置與量體：基本設計圖BHDL-021、BHCI-001、BHCI-002（PDF第5、9、10頁）；材質：設計白模規則"
+      }
+    ],
+    "gateAlignmentQa": {
+      "status": "SPATIAL_QA_PASS_EXISTING_REFERENCE_DESIGN_CONTROLLED",
+      "crs": "EPSG:3826",
+      "existing": {
+        "id": "G-EXISTING",
+        "method": "NLSC PHOTO2 2023官方正射影像目視數化構造軸線",
+        "center": {
+          "e": 334308.0,
+          "n": 2731910.5
+        },
+        "endpoints": [
+          [
+            334228.3162387905,
+            2731996.85246493
+          ],
+          [
+            334387.6837612095,
+            2731824.14753507
+          ]
+        ],
+        "lengthM": 235.0,
+        "angleDegEastToSouth": 47.3,
+        "accuracy": "影像判釋參考；非竣工測量"
+      },
+      "design": {
+        "id": "G-DESIGN",
+        "method": "基本設計圖P1/P2 TWD97座標控制軸線；依總平面及整體配置尺寸建模",
+        "center": {
+          "e": 334297.8226,
+          "n": 2731883.96675
+        },
+        "axisControlPoints": [
+          {
+            "id": "P1",
+            "e": 334239.8428,
+            "n": 2731944.4019
+          },
+          {
+            "id": "P2",
+            "e": 334355.8024,
+            "n": 2731823.5316
+          }
+        ],
+        "controlPointDistanceM": 167.5,
+        "physicalLengthM": 210.0,
+        "angleDegEastToSouth": 46.1879,
+        "sourcePages": [
+          5,
+          9,
+          10
+        ],
+        "sourceSheets": [
+          "BHDL-021",
+          "BHCI-001",
+          "BHCI-002"
+        ]
+      },
+      "rejectedPreviousGeometry": {
+        "existing": {
+          "e": 334367.0,
+          "n": 2731972.0,
+          "lengthM": 268.0,
+          "angleDeg": 56.5
+        },
+        "design": {
+          "e": 334326.0,
+          "n": 2731995.0,
+          "lengthM": 192.0,
+          "angleDeg": 56.5
+        },
+        "reason": "代表性暫定軸線未使用完整設計圖P1/P2控制點，已退件。"
+      },
+      "qaImage": "assets/qa_gate_alignment_20260821.png"
+    }
+  },
+  "designSpecification": {
+    "projectObjectId": "G-DESIGN",
+    "semantic": "BASIC_DESIGN_WHITE_MODEL_NOT_AS_BUILT",
+    "centerTwd97": [
+      334297.8226,
+      2731883.96675
+    ],
+    "axisAngleDegEastToSouth": 46.1879,
+    "totalWidthM": 210.0,
+    "mainOpeningCount": 6,
+    "mainOpeningWidthM": 30.5,
+    "intermediatePierWidthM": 3.0,
+    "boatLockWidthM": 9.0,
+    "managementBridgeWidthM": 10.0,
+    "bridgeDeckElevM": 4.6,
+    "beamBottomElevM": 3.0,
+    "pierTopElevM": 3.0,
+    "foundationTopElevM": -1.0,
+    "gateDoorHeightM": 4.0,
+    "source": "S-01第163、177頁；S-04-3第9、10、11、19頁",
+    "sheets": [
+      "BHCI-001",
+      "BHCI-002",
+      "BHCI-003",
+      "BHCI-011"
+    ]
+  },
+  "surveyControl": [
+    {
+      "id": "BM",
+      "e": 334382.444,
+      "n": 2731827.142,
+      "elevation": 3.966
+    },
+    {
+      "id": "P1",
+      "e": 334239.8428,
+      "n": 2731944.4019,
+      "elevation": null
+    },
+    {
+      "id": "P2",
+      "e": 334355.8024,
+      "n": 2731823.5316,
+      "elevation": null
+    }
+  ],
+  "basemaps": [
+    {
+      "id": "PHOTO2-2023-PILOT",
+      "title": "NLSC PHOTO2代表區正射影像",
+      "asset": "assets/pilot_photo2_2023.jpg",
+      "extent": {
+        "xmin": 334100.0,
+        "ymin": 2731750.0,
+        "xmax": 334500.0,
+        "ymax": 2732150.0
+      },
+      "source": "內政部國土測繪中心PHOTO2；官方浮水印保留"
+    },
+    {
+      "id": "BUILDX-PILOT",
+      "title": "NLSC BUILDX建物框參考",
+      "asset": "assets/pilot_buildx_z20.png",
+      "extent": {
+        "xmin": 334100.0,
+        "ymin": 2731750.0,
+        "xmax": 334500.0,
+        "ymax": 2732150.0
+      },
+      "source": "內政部國土測繪中心BUILDX公開展示圖層"
+    },
+    {
+      "id": "DHDK-001",
+      "title": "工程圖說配準參考",
+      "asset": "assets/pilot_engineering_drawing_overlay.png",
+      "extent": {
+        "xmin": 334100.0,
+        "ymin": 2731750.0,
+        "xmax": 334500.0,
+        "ymax": 2732150.0
+      },
+      "source": "DHDK-001仿射配準；獨立檢核RMS 0.202m"
+    }
+  ],
+  "analysisAuthorization": "PENDING_BASE_MODEL_USER_APPROVAL",
+  "limitations": [
+    "本成果為基本設計GIS 3D白模，不是施工圖、竣工圖、BIM或現地測量成果。",
+    "20m DTM只作地形骨架，不判定單棟門檻、堤頂細部或室內地坪。",
+    "BUILDX足跡為公開展示圖層參考衍生，不作地籍、建管或產權認定。",
+    "既有設施軸線為NLSC PHOTO2影像判釋參考，非竣工測量。",
+    "尚未取得基礎模型使用者核准，未包含水文、淹水、壓力測試或查核結論。"
+  ]
+}

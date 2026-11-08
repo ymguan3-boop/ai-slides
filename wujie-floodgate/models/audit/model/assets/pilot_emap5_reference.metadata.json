@@ -1,0 +1,27 @@
+{
+  "source": "D:\\opencode_0519\\2ndbrain\\專案處理\\品質稽察-「五結防潮閘門改善工程」\\3D淹水模型\\assets\\regional_emap5_reference.png",
+  "sourceExtent": [
+    326297.8226,
+    2723883.96675,
+    342297.8226,
+    2739883.96675
+  ],
+  "targetExtent": [
+    334100.0,
+    2731750.0,
+    334500.0,
+    2732150.0
+  ],
+  "cropPixels": [
+    1997,
+    1979,
+    2100,
+    2083
+  ],
+  "outputPixels": [
+    2048,
+    2048
+  ],
+  "sourceResolutionM": 3.90625,
+  "note": "NLSC EMAP5 16km official reference cropped to the 400m pilot extent; upscaling does not increase source spatial resolution."
+}

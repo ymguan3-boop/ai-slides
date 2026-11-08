@@ -1,0 +1,214 @@
+[
+  {
+    "id": "OPERATION2020_Q10_750",
+    "analysisYearId": "BASE_2020",
+    "analysisYear": "2020",
+    "returnPeriod": "Q10",
+    "shortName": "關閘禦潮 750",
+    "name": "Q10高地750 cms（施作前推估／施作後操作）",
+    "peakFlowCms": 750,
+    "peakQuality": "OFFICIAL_REPORTED",
+    "peakFormula": "Q10高地洪峰=750 cms（報告列值）",
+    "peakBasis": "7953C基本設計成果報告（送署修訂版）1091127第3-22頁：高低地分流，高地洪峰750 cms；關閘期間兩岸抽水站合計減排25 cms。",
+    "flowDefinition": "高地來水洪水歷程峰值；不是將775 cms按比例縮小所得的通洪工況。",
+    "section": "冬山河內水操作歷程最高值（非1K+600斷面值）",
+    "section18Comparable": false,
+    "supportedConstructionStates": [
+      "before",
+      "after"
+    ],
+    "comparableConstructionCases": false,
+    "comparisonUnavailableReason": "750施作前為一般通洪水位之外推假設，施作後為關閘洩水操作歷程峰；兩者不是相同水理邊界，禁止將水位差或紅棟差當成工程減災效益。既有閘門相同操作歷程仍未取得。",
+    "operation": {
+      "mode": "TIDAL_CLOSURE_RELEASE",
+      "initialInnerLevelM": 1,
+      "peakInnerLevelM": 2.46,
+      "maxOuterLevelM": 2.66,
+      "innerAtMaxOuterLevelM": 1.58,
+      "closedDurationHours": 6,
+      "releaseDurationHours": 18,
+      "releaseHeadDifferenceM": 0.3,
+      "releaseOpeningM": 1.5,
+      "pumpReductionCms": 25,
+      "displayMethod": "基準工況依第1-6頁正常操作無溢堤敘述，不繪製主流外溢；低地內水尚未逐棟計算。水位增加時僅展示超出報告工況的敏感度篩檢。",
+      "reportedNoOvertopping": true,
+      "noOvertoppingBasis": "7953C基本設計成果報告（送署修訂版）1091127第1-6頁（PDF第36頁）工程效益：750 cms、開度1.5m，最高內水EL2.46m以下，無溢堤；兩岸低地減少淹水時間約18小時，不代表低地完全無淹水。"
+    },
+    "constructionCases": {
+      "before": {
+        "id": "before",
+        "label": "工程施作前／既有閘門（推估）",
+        "effectiveLevel": 2.889233226837061,
+        "levelQuality": "SCREENING_ESTIMATE",
+        "section": "斷面18／1K+600（750一般通洪外推；非關閘歷程）",
+        "section18Comparable": true,
+        "levelBasis": "7953C基本設計成果報告（送署修訂版）1091127第4-41～4-44頁、表4-13與4-14；既有閘門775 cms→EL2.91m、1088 cms→EL3.17m，外水同採EL2.66m。750低於最低資料點25 cms（約3.2%），為外推而非報告列值。",
+        "levelFormula": "H前(750)=2.91+(750−775)×(3.17−2.91)/(1088−775)=2.88923m≈2.89m。假設相同河道幾何、既有閘門一般通洪與固定外水EL2.66m，局部H–Q線性延伸。",
+        "gateCondition": "既有閘門一般通洪之750 cms假設；不是全閉關閘時通過750 cms，未重建潮位與啟閉歷程。",
+        "gateDischargeBasis": "750 cms為假設入流峰，非已證實排洪能力；缺既有閘門開度、水頭、流量係數及逐時資料，故未估算關閘洩量。全閉閘門通流應為0。",
+        "boundaryNote": "SCREENING_ESTIMATE：兩點外推未經水理驗證，無可信區間。只供水位敏感度；不能與施作後內水操作峰2.46m直接計算改善效益。應由原設計單位以同一入流、外水及操作歷線重算既有閘門。",
+        "estimate": {
+          "method": "LOCAL_LINEAR_HQ_EXTRAPOLATION",
+          "qCms": 750,
+          "anchors": [
+            {
+              "qCms": 775,
+              "hM": 2.91
+            },
+            {
+              "qCms": 1088,
+              "hM": 3.17
+            }
+          ],
+          "tailwaterM": 2.66,
+          "validated": false,
+          "confidenceInterval": null
+        }
+      },
+      "after": {
+        "id": "after",
+        "label": "工程施作後／新建閘門禦潮操作",
+        "effectiveLevel": 2.46,
+        "levelQuality": "OFFICIAL_REPORTED",
+        "levelBasis": "7953C基本設計成果報告（送署修訂版）1091127第8-6至8-7頁、圖8-2及第8-10頁表8-5：無閘門失效，Q10高地入流峰750 cms，最高內水位EL2.46m；不是外水峰值EL2.66m時的同步內水EL1.58m。",
+        "levelFormula": "Hmax內=2.46m（報告操作歷程最大值；不得代入一般通洪水位內插式）",
+        "gateCondition": "關閘禦潮約6小時；內水高於外水0.3m且外水下降時，6道閘門固定開度1.5m洩水約18小時。",
+        "gateDischargeBasis": "全閉階段閘門通流為0；表8-5正常操作出流峰816 cms為洩水歷程峰值，不是全閉排洪量或固定容量。兩岸抽水站合計減排25 cms。",
+        "boundaryNote": "外水為蘭陽溪Q10與10年暴潮組合歷程；外水峰EL2.66m時內水EL1.58m，內水歷程峰EL2.46m並非同一時刻。常水位EL1.0m；圖8-2關閘起始約EL1.1m。低地內水、退水時間及抽排減量效應尚須原始模式。"
+      }
+    },
+    "effectiveLevel": 2.46,
+    "baseLevel": 2.46,
+    "levelQuality": "OFFICIAL_REPORTED",
+    "levelBasis": "7953C基本設計成果報告（送署修訂版）1091127圖8-2、表8-5最高內水位EL2.46m",
+    "source": "7953C基本設計成果報告（送署修訂版）1091127第3-22頁；第8-6～8-7頁圖8-2；第8-10頁表8-5（PDF第66、242～243、246頁）",
+    "color": "#208bef",
+    "summary": "750 cms｜新建閘門操作｜最高內水EL2.46m",
+    "auditRecommendations": [
+      "分列750 cms高地洪峰、775 cms治理計畫流量及1,088 cms目標年流量，核對各自邊界與核定版本；三者不是同一水理操作條件。",
+      "以原始水理模式、閘門啟閉與抽水站操作紀錄複核，不能把網站靜態紅棟數當成實際淹水戶數或正式減災效益。",
+      "以實測門檻、細部堤頂及歷史淹水校正本案篩檢，並保留逐筆資料來源。",
+      "調閱關閘判斷、兩岸抽水站減排25 cms協議、備援供電及操作紀錄；確認低地淹水是否轉移或延長。"
+    ],
+    "hydraulicRecommendations": [
+      "補齊逐時入流、潮位、閘門開度、抽排量及河道斷面，以正式非恆定流模式複核。",
+      "20m DTM／40m格網僅作地形連通篩檢，低地內水及堤防阻水效應須以細部地形與排水模式另行驗證。",
+      "核對內外水歷線相位及0.3m洩水啟動條件；EL2.46m為內水歷程峰值，不可與EL2.66m外水峰當成同步水頭差。"
+    ]
+  },
+  {
+    "id": "PLAN2020_Q10_775",
+    "analysisYearId": "BASE_2020",
+    "analysisYear": "2020",
+    "returnPeriod": "Q10",
+    "shortName": "一般治理 775",
+    "name": "Q10一般治理設計基準 775 cms",
+    "peakFlowCms": 775,
+    "peakQuality": "OFFICIAL_REPORTED",
+    "peakFormula": "Q10計畫洪水量=775 cms（報告列值）",
+    "peakBasis": "7953C基本設計成果報告（送署修訂版）1091127第3-22頁、圖3-12；第4-43頁表4-13",
+    "flowDefinition": "一般治理設計之Q10計畫洪水量；與750 cms高地洪峰及938 cms天然現況洪峰不同。",
+    "section": "斷面18／1K+600",
+    "section18Comparable": true,
+    "supportedConstructionStates": [
+      "before",
+      "after"
+    ],
+    "constructionCases": {
+      "before": {
+        "id": "before",
+        "label": "工程施作前／既有閘門",
+        "effectiveLevel": 2.91,
+        "levelQuality": "OFFICIAL_REPORTED",
+        "levelBasis": "7953C基本設計成果報告（送署修訂版）1091127第4-43頁表4-13，斷面18／1K+600改建前EL2.91m",
+        "levelFormula": "H=2.91m（直接引用報告列值，無內插或外推）",
+        "gateCondition": "既有閘門一般通洪；遮斷率約20.7%",
+        "gateDischargeBasis": "表4-13採775 cms計畫洪水量比較改建前後河道水位；此為一般治理通洪工況，不套用750 cms關閘禦潮操作歷程。"
+      },
+      "after": {
+        "id": "after",
+        "label": "工程施作後／改善閘門",
+        "effectiveLevel": 2.79,
+        "levelQuality": "OFFICIAL_REPORTED",
+        "levelBasis": "7953C基本設計成果報告（送署修訂版）1091127第4-43頁表4-13，斷面18／1K+600改建後EL2.79m",
+        "levelFormula": "H=2.79m（直接引用報告列值，無內插或外推）",
+        "gateCondition": "改善閘門一般通洪；遮斷率約8.6%",
+        "gateDischargeBasis": "表4-13採775 cms計畫洪水量比較改建前後河道水位；此為一般治理通洪工況，不套用750 cms關閘禦潮操作歷程。"
+      }
+    },
+    "effectiveLevel": 2.79,
+    "baseLevel": 2.79,
+    "levelQuality": "OFFICIAL_REPORTED",
+    "levelBasis": "7953C基本設計成果報告（送署修訂版）1091127表4-13，改建後EL2.79m",
+    "source": "7953C基本設計成果報告（送署修訂版）1091127第3-22頁、圖3-12及第4-43頁表4-13",
+    "color": "#36b9d4",
+    "summary": "775 cms｜一般治理｜改建前後比較",
+    "auditRecommendations": [
+      "分列750 cms高地洪峰、775 cms治理計畫流量及1,088 cms目標年流量，核對各自邊界與核定版本；三者不是同一水理操作條件。",
+      "以原始水理模式、閘門啟閉與抽水站操作紀錄複核，不能把網站靜態紅棟數當成實際淹水戶數或正式減災效益。",
+      "以實測門檻、細部堤頂及歷史淹水校正本案篩檢，並保留逐筆資料來源。",
+      "同一斷面前後水位下降0.12m；表4-13其他斷面降幅不同，不概括為全河段固定降幅。"
+    ],
+    "hydraulicRecommendations": [
+      "補齊逐時入流、潮位、閘門開度、抽排量及河道斷面，以正式非恆定流模式複核。",
+      "20m DTM／40m格網僅作地形連通篩檢，低地內水及堤防阻水效應須以細部地形與排水模式另行驗證。"
+    ]
+  },
+  {
+    "id": "TARGET2070_Q10",
+    "analysisYearId": "TARGET_2070",
+    "analysisYear": "2070",
+    "returnPeriod": "Q10",
+    "shortName": "目標年 Q10",
+    "name": "目標年 2070 Q10",
+    "peakFlowCms": 1088,
+    "peakQuality": "OFFICIAL_REPORTED",
+    "peakBasis": "基本設計目標年2070 Q10=1,088 cms。",
+    "peakFormula": "Q10=1,088 cms（報告列值）",
+    "flowDefinition": "目標年2070治理計畫Q10 1,088 cms。",
+    "effectiveLevel": 2.92,
+    "levelQuality": "OFFICIAL_REPORTED",
+    "levelBasis": "基本設計表4-13／表4-14斷面18（1K+600）改建後正式列值EL 2.92m",
+    "constructionCases": {
+      "before": {
+        "id": "before",
+        "label": "工程施作前／既有閘門",
+        "effectiveLevel": 3.17,
+        "levelQuality": "OFFICIAL_REPORTED",
+        "levelBasis": "基本設計表4-13／表4-14斷面18（1K+600）改建前正式列值EL 3.17m",
+        "levelFormula": "H前(Q)=2.91+(Q−775)×(3.17−2.91)/(1,088−775)",
+        "gateCondition": "既有46門構造；通水遮斷率約20.7%",
+        "gateDischargeBasis": "基本設計未提供可直接套用於所有頻率之既有閘門單一排洪容量；以報告改建前水位成果比較。"
+      },
+      "after": {
+        "id": "after",
+        "label": "工程施作後／改善閘門",
+        "effectiveLevel": 2.92,
+        "levelQuality": "OFFICIAL_REPORTED",
+        "levelBasis": "基本設計表4-13／表4-14斷面18（1K+600）改建後正式列值EL 2.92m",
+        "levelFormula": "H後(Q)=2.79+(Q−775)×(2.92−2.79)/(1,088−775)",
+        "gateCondition": "改善工程6道30.5m閘門＋9m船閘；通水遮斷率約8.6%",
+        "gateDischargeBasis": "基本設計載明單道安全排洪量200 cms；外水位降至EL2.0m以下且下降時，6道全開可通過1,088 cms。一般孔口式Q=Cd·A·√(2gΔH)，但Cd、有效開口及逐時水頭未完整公開，模型不冒算額外容量。"
+      }
+    },
+    "summary": "1,088 cms｜報告Q10",
+    "source": "7953C基本設計成果報告第4章表4-14（目標年2070 Q10）",
+    "color": "#36b9d4",
+    "auditRecommendations": [
+      "分列750 cms高地洪峰、775 cms治理計畫流量及1,088 cms目標年流量，核對各自邊界與核定版本；三者不是同一水理操作條件。",
+      "以原始水理模式、閘門啟閉與抽水站操作紀錄複核，不能把網站靜態紅棟數當成實際淹水戶數或正式減災效益。",
+      "以實測門檻、細部堤頂及歷史淹水校正本案篩檢，並保留逐筆資料來源。"
+    ],
+    "hydraulicRecommendations": [
+      "補齊逐時入流、潮位、閘門開度、抽排量及河道斷面，以正式非恆定流模式複核。",
+      "20m DTM／40m格網僅作地形連通篩檢，低地內水及堤防阻水效應須以細部地形與排水模式另行驗證。"
+    ],
+    "baseLevel": 2.92,
+    "section": "斷面18／1K+600",
+    "section18Comparable": true,
+    "supportedConstructionStates": [
+      "before",
+      "after"
+    ]
+  }
+]

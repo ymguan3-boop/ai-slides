@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "generatedDate": "2026-08-25",
+  "title": "宜蘭縣建管／NLSC三維建物樓層／內政部不動產資料關聯狀態",
+  "officialSources": [
+    {
+      "agency": "內政部國土測繪中心",
+      "url": "https://www.nlsc.gov.tw/cp.aspx?n=16733",
+      "fields": "三維建物模型屬性BUILD_NO（樓層數）、NO_SOURCE（樓層來源）",
+      "accessStatus": "公開瀏覽；下載或屬性供應依官方申請／憑證規定"
+    },
+    {
+      "agency": "宜蘭縣政府建設處建築管理科",
+      "url": "https://building.e-land.gov.tw/",
+      "fields": "建照／使照公開查詢",
+      "accessStatus": "尚無可合法依本模型座標批次綁定之開放空間資料"
+    },
+    {
+      "agency": "內政部地政司",
+      "url": "https://data.gov.tw/dataset/25119",
+      "downloadUrl": "https://plvr.land.moi.gov.tw/DownloadOpenData",
+      "fields": "不動產買賣申報主檔、建物、土地及車位資料",
+      "updateFrequency": "每月1、11、21日",
+      "checkedRelease": "民國115年8月21日",
+      "accessStatus": "已納入逐棟查核欄位；因模型尚無可驗證地號、門牌、建物標示、BUILD_NO或案件序號，目前沒有可靠逐棟匹配"
+    }
+  ],
+  "modelBuildingCoverage": 15,
+  "matchedOfficialStoreys": 0,
+  "matchedRealEstateRecords": 0,
+  "status": "OFFICIAL_SOURCES_IDENTIFIED_STOREYS_AND_REAL_ESTATE_RECORDS_NOT_MATCHED",
+  "rule": "正式樓層僅可由BUILD_NO／NO_SOURCE或逐棟核對建照、使照填入；modelStoreys只控制造型，不得宣稱真實樓層。",
+  "realEstateRule": "官方實價登錄交易點位採區段化／去識別化，並非標的實際中心；無可驗證識別碼時不得把鄰近交易套用至特定模型建物。只有取得主檔案件序號或可驗證地號／建物標示後，才可加入該筆欄位及逐筆網址。",
+  "privacy": "不蒐集或顯示所有權人、起造人、完整門牌或其他個人資料。",
+  "buildings": [
+    {"id":"PB001","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB002","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB003","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB004","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB005","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB006","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB007","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB008","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB009","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB010","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB011","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB012","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB013","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB014","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null},
+    {"id":"PB015","realEstateMatchStatus":"NO_RELIABLE_SPATIAL_MATCH","recordUrl":null}
+  ]
+}

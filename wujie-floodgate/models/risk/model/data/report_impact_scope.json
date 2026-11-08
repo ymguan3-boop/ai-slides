@@ -1,0 +1,37 @@
+{
+  "id": "REPORT_Q10_UNION_PENDING",
+  "status": "BOUNDARY_AND_FULL_CENSUS_PENDING",
+  "report": "7953C基本設計成果報告（送署修訂版）1091127",
+  "sourcePages": "第8-19頁表8-9、圖8-11（8-20頁）、圖8-12（8-21頁）；PDF第255–257頁",
+  "watershedAreaKm2": 110.52,
+  "beforeAreaHa": 1517.44,
+  "afterAreaHa": 1141.6,
+  "reductionAreaHa": 375.84,
+  "areaMethod": "面積直接引用報告；表8-9級距自0.3m起，不包含未列的0–0.3m面積。",
+  "boundaryDefinition": "比較母體S固定為圖8-11改建前與圖8-12改建後Q10淹水範圍的聯集，保留不連續淹水斑塊及孔洞；不得以圓、矩形、低地外包線替代。",
+  "geography": "冬山河集水區內主流及支流區域排水低地，包含五結排水、清水排水、五股排水及林和源排水等圖示淹水斑塊；不是這些排水集水區或行政區全境。",
+  "unionAreaHa": null,
+  "geometry": null,
+  "officialBuildingTotal": null,
+  "missingBuildingCount": null,
+  "unionAreaBoundsHa": [
+    1517.44,
+    2659.04
+  ],
+  "denominatorDefinition": "Y＝與S有正面積相交的NLSC官方3D建物水平投影，依BUILD_ID去重後的模型物件總數。同一服務版本，跨圖磚／LOD去重；工程前後維持同一母體。",
+  "numeratorDefinition": "X為Y中，在所選情境及水位下符合已說明風險判定的模型物件數；分子分母必須採同一空間母體。",
+  "limitation": "報告全區聯集面積、原始空間檔及完整NLSC清冊未取得，因此報告全區X/Y待算。2026-09-05依使用者確認另發布本次可取得並固定之建物集合X/Y，與完整報告母體分列；實際座標、分布外包框、投影所涉格網、清冊日期與版本由當前固定清冊計算。不得將其視為報告已確認子集或全區普查；既有概化紅線不可作正式裁切依據。報告Q10範圍不是750及2070情境各自的正式淹水線。",
+  "currentCalculationPolicy": "USER_APPROVED_AVAILABLE_FIXED_OBJECTS_ONLY",
+  "currentScopeMetadata": "匯出固定清冊JSON之currentCalculationScope及網頁X/Y說明；依每次實際固定清冊產生，不硬寫建物數。",
+  "requiredDocuments": [
+    {
+      "agency": "宜蘭縣政府水利資源處／本案設計單位",
+      "documents": "109年冬山河主流規劃檢討與基本設計圖8-11、8-12之改建前後SOBEK淹水深度網格或SHP/GeoJSON，含CRS、格網解析度、有效值/NoData、深度門檻、邊界與操作條件。"
+    },
+    {
+      "agency": "內政部國土測繪中心",
+      "documents": "確認上開淹水範圍後，取得同版本宜蘭分棟3D BUILD_ID完整索引/清冊、模型水平投影、高程/LOD/日期及涵蓋完整性說明；依官方供應規定辦理。"
+    }
+  ],
+  "checkedAt": "2026-09-05"
+}
