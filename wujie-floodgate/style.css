@@ -710,3 +710,17 @@ table.cmp3 tr:last-child td:not(:first-child) { color: #f5d9a6; background: rgba
 #s-site .copilot { top: 760px; right: 120px; width: 560px; }
 
 #s-site .copilot { top: 776px; }
+
+/* 11 頁：建議意見完整標題置頂，三項下移 */
+#s-reply .rptitle { position: absolute; left: 120px; right: 120px; top: 256px; padding: 16px 24px; border-radius: 16px; background: rgba(52,38,10,.55); border: 2px solid rgba(242,184,75,.65); }
+#s-reply .rptitle b { display: block; font-size: 22px; color: var(--amber); margin-bottom: 4px; }
+#s-reply .rptitle p { font-size: 22px; line-height: 1.55; color: #f5e7c8; }
+#s-reply .rphead { top: 410px; }
+#s-reply .rplist { top: 450px; gap: 14px; }
+#s-reply .rpq { padding: 12px 20px; }
+#s-reply .rpr { padding: 12px 20px; }
+#s-reply .rpnote { bottom: 70px; }
+
+#s-reply .rptitle { top: 274px; }
+#s-reply .rphead { top: 428px; }
+#s-reply .rplist { top: 468px; }
