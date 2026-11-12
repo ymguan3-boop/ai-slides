@@ -1,6 +1,6 @@
 # AI簡報
 
-審計部臺灣省宜蘭縣審計室　報告人 官毅明　各場合使用的 HTML 互動簡報，統一部署於 GitHub Pages。
+審計部臺灣省宜蘭縣審計室　報告人 張士賢 官毅明　各場合使用的 HTML 互動簡報，統一部署於 GitHub Pages。
 
 **總覽首頁：** https://ymguan3-boop.github.io/ai-slides/
 
