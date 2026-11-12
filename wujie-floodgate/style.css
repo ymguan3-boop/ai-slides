@@ -612,3 +612,96 @@ table.cmp3 tr:last-child td:not(:first-child) { color: #f5d9a6; background: rgba
 .rmfeat { right: 120px; }
 
 .rmfeat { right: 120px; }
+
+/* ================= v5：段落標籤放大、過場頁、大綱、五結新頁 ================= */
+.kicker.sk { display: inline-flex; align-items: center; gap: 14px; font-size: 38px; letter-spacing: .08em; color: #061019; background: var(--pc); padding: 6px 26px 6px 8px; border-radius: 14px; font-weight: 900; }
+.kicker.sk .no { color: var(--pc); background: #061019; font-size: 30px; padding: 2px 14px; border-radius: 10px; margin: 0; letter-spacing: 0; }
+.slide[data-part] .pad h2.title { margin-top: 18px; }
+.slide[data-part] .modelhead .kicker.sk { font-size: 32px; }
+/* 段落色條：每頁頂部一條同色帶，切換段落一眼可辨 */
+.slide[data-part]:not(.part-slide)::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 10px; z-index: 5; }
+.slide[data-part="1"]::before { background: #3fd0c9; } .slide[data-part="2"]::before { background: #5aa9ff; } .slide[data-part="3"]::before { background: #a99cff; } .slide[data-part="4"]::before { background: #f2b84b; } .slide[data-part="5"]::before { background: #6fd38f; }
+/* 過場頁 */
+.part-slide .pbg { position: absolute; inset: 0; background: linear-gradient(120deg, var(--pc) 0%, color-mix(in srgb, var(--pc) 55%, #061019) 46%, #061019 100%); }
+.part-slide .pnum { position: absolute; left: 140px; top: 50%; transform: translateY(-50%); width: 360px; height: 360px; border-radius: 50%; display: grid; place-items: center; font-size: 220px; font-weight: 900; color: #061019; background: rgba(255,255,255,.88); box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.slide.active .part-slide .pnum.an.zoom, .part-slide.active .pnum.an.zoom { animation-name: zoomy; }
+@keyframes zoomy { from { opacity: 0; transform: translateY(-50%) scale(.8); } to { opacity: 1; transform: translateY(-50%); } }
+.part-slide .ptxt { position: absolute; left: 600px; right: 120px; top: 50%; transform: translateY(-50%); }
+.part-slide .pkick { font-size: 30px; letter-spacing: .3em; font-weight: 800; color: #061019; opacity: .75; }
+.part-slide h2 { font-size: 110px; font-weight: 900; line-height: 1.15; margin: 10px 0 16px; color: #fff; text-shadow: 0 6px 30px rgba(0,0,0,.35); }
+.part-slide .psub { font-size: 40px; color: #eaf4f7; font-weight: 700; }
+.part-slide .pitems { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.part-slide .pitems span { font-size: 28px; padding: 10px 24px; border-radius: 999px; background: rgba(6,16,25,.55); border: 1px solid rgba(255,255,255,.35); }
+/* 大綱 */
+.agenda { position: absolute; left: 160px; right: 160px; top: 260px; display: flex; flex-direction: column; gap: 20px; }
+.ag { display: flex; align-items: center; gap: 28px; padding: 18px 28px; border-radius: 20px; background: rgba(13,32,45,.9); border-left: 0; position: relative; overflow: hidden; }
+.ag::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 12px; background: var(--pc); }
+.ag b { flex: none; width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; font-size: 52px; font-weight: 900; color: #061019; background: var(--pc); margin-left: 10px; }
+.ag h3 { font-size: 44px; font-weight: 900; }
+.ag span { font-size: 26px; color: var(--ink2); }
+/* 五結：資料梳理 */
+.docrow { position: absolute; left: 120px; right: 120px; top: 268px; display: grid; grid-template-columns: 300px 200px 1fr; gap: 20px; align-items: center; }
+.dstack { display: flex; flex-direction: column; gap: 8px; }
+.dstack span { font-size: 26px; font-weight: 800; padding: 10px 18px; border-radius: 12px; background: rgba(90,169,255,.14); border: 1px solid rgba(90,169,255,.5); }
+.darrow { text-align: center; }
+.darrow b { display: block; font-size: 26px; color: #9cc8ff; margin-bottom: 4px; }
+.opbox { padding: 20px 26px; border-radius: 18px; background: rgba(52,38,10,.55); border: 2px solid rgba(242,184,75,.65); }
+.opk { font-size: 24px; font-weight: 900; color: var(--amber); margin-bottom: 8px; }
+.opbox p { font-size: 21px; line-height: 1.6; color: #f5e7c8; }
+.aspects { position: absolute; left: 120px; right: 120px; top: 640px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.asp { position: relative; padding: 20px 26px; border-radius: 18px; background: rgba(13,32,45,.92); border-top: 6px solid var(--ac); }
+.asp .an-no { position: absolute; right: 20px; top: 12px; font-size: 40px; font-weight: 900; color: var(--ac); opacity: .4; }
+.asp h3 { font-size: 30px; color: var(--ac); margin-bottom: 10px; padding-right: 54px; line-height: 1.3; }
+.asp ul { padding-left: 1.1em; }
+.asp li { font-size: 21px; color: var(--ink2); line-height: 1.55; }
+.aspects.film3 { top: 220px; }
+.aspects.film3 .asp { padding: 30px; }
+.aspects.film3 .asp h3 { font-size: 36px; }
+.aspects.film3 .asp li { font-size: 26px; }
+/* 五結：評估與驗證 */
+.evleft { position: absolute; left: 120px; width: 900px; top: 262px; height: 600px; border-radius: 20px; overflow: hidden; border: 2px solid #5aa9ff; }
+.evimg { position: absolute; inset: 0; background-size: cover; background-position: 60% 50%; }
+.evtag { position: absolute; left: 16px; top: 14px; font-size: 21px; font-weight: 800; padding: 6px 14px; border-radius: 10px; background: rgba(4,14,20,.85); color: #9cc8ff; }
+.evnums { position: absolute; left: 16px; right: 16px; bottom: 76px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.evnums div { padding: 10px 14px; border-radius: 12px; background: rgba(4,14,20,.88); }
+.evnums span { display: block; font-size: 17px; color: var(--ink2); }
+.evnums b { font-family: var(--num); font-size: 36px; color: var(--ink); }
+.evnums b.bad { color: var(--red); }
+.evcalc { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 50px; border-radius: 12px; border: 2px solid var(--violet); background: rgba(26,23,64,.92); color: #e3ddff; font-size: 22px; font-weight: 800; cursor: pointer; font-family: var(--font); }
+.evright { position: absolute; left: 1060px; right: 120px; top: 262px; display: flex; flex-direction: column; gap: 14px; }
+.evx { padding: 16px 20px; border-radius: 16px; background: rgba(13,32,45,.92); border-left: 6px solid var(--ac); }
+.evx b { font-size: 25px; color: var(--ac); }
+.evx p { font-size: 20px; color: var(--ink2); margin: 6px 0; line-height: 1.5; }
+.evx .ok { font-size: 18px; font-weight: 800; color: var(--green); }
+.evflow { position: absolute; left: 120px; right: 120px; top: 890px; display: flex; justify-content: center; align-items: center; gap: 16px; font-size: 26px; font-weight: 800; }
+.evflow span { padding: 10px 24px; border-radius: 999px; border: 2px solid #5aa9ff; }
+.evflow span.hl { border-color: var(--green); color: var(--green); }
+.evflow i { font-style: normal; color: var(--ink3); }
+#s-eval .calcpop { top: 240px; }
+/* 五結：查核意見 ↔ 機關回覆 */
+.rphead { position: absolute; left: 120px; right: 120px; top: 262px; display: grid; grid-template-columns: 1fr 90px 1fr; font-size: 24px; font-weight: 900; }
+.rphead span:first-child { color: var(--amber); } .rphead span:last-child { grid-column: 3; color: var(--green); }
+.rplist { position: absolute; left: 120px; right: 120px; top: 306px; display: flex; flex-direction: column; gap: 18px; }
+.rprow { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: center; color: var(--ac); }
+.rpq { padding: 16px 22px; border-radius: 16px; background: rgba(13,32,45,.92); border-left: 6px solid var(--ac); }
+.rpq em { font-style: normal; display: block; font-size: 25px; font-weight: 900; color: var(--ac); }
+.rpq p { font-size: 20px; color: var(--ink2); margin-top: 6px; line-height: 1.5; }
+.rparr { justify-self: center; }
+.rpr { padding: 16px 22px; border-radius: 16px; background: rgba(111,211,143,.1); border: 1px solid rgba(111,211,143,.45); }
+.rpr p { font-size: 20px; color: #d8f3e1; line-height: 1.55; }
+.rpr p + p { margin-top: 8px; }
+.rpnote { position: absolute; left: 120px; right: 120px; bottom: 96px; text-align: center; font-size: 28px; font-weight: 800; }
+.rpnote b { color: var(--green); }
+.rplist.film3 { top: 230px; gap: 34px; }
+.rplist.film3 .rpq em { font-size: 34px; }
+.rplist.film3 .rpr p { font-size: 28px; }
+
+.docrow { top: 292px; }
+.opbox p { font-size: 22px; }
+.aspects { top: 640px; }
+.asp { padding: 22px 28px 24px; min-height: 300px; }
+.asp h3 { font-size: 32px; padding-right: 64px; }
+.asp li { font-size: 24px; line-height: 1.6; }
+.aspects.film3 .asp { min-height: 0; }
+.evleft { top: 296px; height: 570px; }
+.evright { top: 290px; }
