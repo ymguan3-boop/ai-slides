@@ -586,3 +586,25 @@ table.cmp3 tr:last-child td:not(:first-child) { color: #f5d9a6; background: rgba
 .cases { position: absolute; left: 120px; right: 120px; bottom: 100px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .cases span { font-size: 22px; padding: 8px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(13,32,45,.8); }
 #s-check .calcpop { top: 240px; }
+
+/* 12 實拍 */
+.hgrid2 { position: absolute; left: 120px; right: 120px; top: 262px; height: 560px; display: grid; grid-template-columns: 1fr 1fr 1.45fr; gap: 22px; }
+.hp { position: relative; margin: 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: #000; }
+.hp img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hp figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 16px 12px; font-size: 22px; font-weight: 700; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
+.hp.tall { height: 560px; }
+.hcol { display: grid; grid-template-rows: 1fr 1fr; gap: 22px; height: 560px; }
+.hp.mark { border: 2px solid #ff3b30; }
+.hp.mark img { object-fit: contain; background: #111; }
+/* 14 Copilot */
+.copilot { position: absolute; right: 120px; top: 74px; width: 470px; border-radius: 14px; overflow: hidden; background: #fff; border: 2px solid var(--teal); }
+.copilot img { width: 100%; height: 150px; object-fit: cover; object-position: top left; display: block; }
+.copilot span { position: absolute; right: 10px; bottom: 8px; font-size: 18px; font-weight: 800; padding: 4px 12px; border-radius: 8px; background: var(--teal); color: #052026; }
+
+.copilot { width: 620px; top: 60px; }
+.copilot img { height: 215px; }
+.qcflow .appqr span { padding: 0; border: 0; background: none; border-radius: 0; font-size: 15px; font-weight: 500; color: #46606c; }
+.qcflow .appqr b { font-size: 18px; }
+
+.copilot { width: 560px; top: 66px; }
+.copilot img { height: 168px; }
