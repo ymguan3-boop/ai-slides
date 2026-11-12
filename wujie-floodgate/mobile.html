@@ -46,6 +46,20 @@
   .mgrid .lbl { grid-column: 1 / -1; font-size: .72em; color: #6f8b97; margin-top: 4px; }
   .mgrid button { padding: 11px 4px; border-radius: 10px; border: 1px solid rgba(120,190,210,.3); background: #0d202d; color: #eaf4f7; font-size: .85em; font-weight: 600; }
   .mgrid button:active, .zoomrow button:active { background: #12474a; }
+  .live { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; border: 1px solid rgba(63,208,201,.6); touch-action: none; user-select: none; -webkit-user-select: none; margin-bottom: 8px; }
+  .live img { width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; }
+  .live .hint2 { position: absolute; left: 0; right: 0; bottom: 0; padding: 4px 8px; font-size: .72em; color: #a9c1cb; background: linear-gradient(transparent, rgba(0,0,0,.75)); pointer-events: none; }
+  .live .wait { position: absolute; inset: 0; display: grid; place-items: center; color: #6f8b97; font-size: .85em; pointer-events: none; }
+  .live.drag { border-color: #f2b84b; }
+  .closebtn { width: 100%; padding: 13px 0; margin-bottom: 10px; border-radius: 12px; border: 1px solid #ff6b5e; background: rgba(255,107,94,.14); color: #ffb3ab; font-size: 1em; font-weight: 800; }
+  .drone { display: none; margin: 4px 0 10px; padding: 12px; border-radius: 14px; background: #10202b; border: 1px solid #f2b84b; }
+  .drone.show { display: block; }
+  .drone h3 { font-size: .85em; color: #f2b84b; margin-bottom: 8px; }
+  .dpad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .dpad button, .dvert button { padding: 16px 0; border-radius: 12px; border: 1px solid rgba(242,184,75,.5); background: #1b2a33; color: #fff; font-size: 1.05em; font-weight: 800; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .dpad button.on, .dvert button.on { background: #6b4e12; }
+  .dvert { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+  .dpad .sp { visibility: hidden; }
 </style>
 </head>
 <body>
@@ -59,12 +73,18 @@
     <button id="bRestart" data-c="restart" disabled>⟲ 影片 從頭</button>
     <button id="bCc" data-c="cc" disabled>字幕 開／關</button>
     <button id="bNotes" data-c="notes">講者備註（投影）</button>
-    <button id="bHelp" data-c="help">H 說明／QR</button>
+    <button id="bHelp" data-c="help">H 說明</button>
     <button id="bMotion" data-c="motion">減少動態</button>
+    <button id="bCalc" data-c="calc" style="display:none;grid-column:1/-1">AI 輔助參數 開／關</button>
   </div>
   <div class="model" id="modelBox">
     <h2 id="modelTitle">🧭 3D 模型操作</h2>
-    <div class="pad" id="pad">☝ 在此拖曳：旋轉模型</div>
+    <div class="live" id="live"><img id="liveImg" alt=""><div class="wait" id="liveWait">連線後顯示模型即時畫面…</div><div class="hint2">拖曳：旋轉　輕點：點選畫面位置</div></div>
+    <button class="closebtn" id="bClose">✕ 關閉模型彈窗</button>
+    <div class="drone" id="drone"><h3>🚁 無人機控制器（按住移動）</h3>
+      <div class="dpad"><span class="sp"></span><button data-k="ArrowUp">▲ 前進</button><span class="sp"></span><button data-k="ArrowLeft">◀ 左轉</button><button data-k="ArrowDown">▼ 後退</button><button data-k="ArrowRight">右轉 ▶</button></div>
+      <div class="dvert"><button data-k="KeyE">⤒ 上升</button><button data-k="KeyQ">⤓ 下降</button></div>
+    </div>
     <div class="zoomrow"><button data-z="1">＋ 放大</button><button data-z="-1">－ 縮小</button></div>
     <div class="mgrid" id="mgrid"></div>
   </div>
@@ -99,6 +119,7 @@
       $('bCc').classList.toggle('on', !!(s.film && s.cc));
       $('bNotes').classList.toggle('on', !!s.notes); $('bHelp').classList.toggle('on', !!s.help); $('bMotion').classList.toggle('on', !!s.reduced); $('bMotion').textContent = s.reduced ? '已關閉進場、轉場動畫' : '減少動態';
       renderModel(s.model);
+      $('bCalc').style.display = s.calc ? '' : 'none'; $('bCalc').classList.toggle('on', !!s.calcOpen); $('bCalc').textContent = s.calcOpen ? 'AI 輔助參數（已開啟，點此關閉）' : 'AI 輔助參數 開啟';
     }
   }
   function buildList() {
@@ -130,22 +151,32 @@
   const sendModel = (mm) => { if (ch) { ch.publish('cmd', { c: 'model', m: mm }); resetIdle(); if (navigator.vibrate) navigator.vibrate(10); } };
   function renderModel(kind) {
     if (kind === modelNow) return; modelNow = kind;
-    const box = $('modelBox'); box.classList.toggle('show', !!kind); if (!kind) return;
+    const box = $('modelBox'); box.classList.toggle('show', !!kind); $('drone').classList.remove('show'); $('liveImg').removeAttribute('src'); $('liveWait').style.display = ''; if (!kind) return;
     const ui = MODEL_UI[kind]; $('modelTitle').textContent = ui.title; const g = $('mgrid'); g.innerHTML = '';
     for (const [lbl, items] of ui.groups) {
       const l = document.createElement('div'); l.className = 'lbl'; l.textContent = lbl; g.appendChild(l);
-      for (const [text, cmd] of items) { const b = document.createElement('button'); b.textContent = text; b.onclick = () => sendModel(cmd); g.appendChild(b); }
+      for (const [text, cmd] of items) { const b = document.createElement('button'); b.textContent = text; b.onclick = () => { sendModel(cmd); if (kind === 'audit' && lbl === '視角') $('drone').classList.toggle('show', text === '無人機'); }; g.appendChild(b); }
     }
   }
   document.querySelectorAll('[data-z]').forEach((b) => b.onclick = () => sendModel({ t: 'zoom', dir: +b.dataset.z }));
-  (() => { // 拖曳板：累積位移，每 120ms 送出一次
-    const pad = $('pad'); let last = null, acc = [0, 0], timer = null;
-    const flush = () => { if (Math.abs(acc[0]) + Math.abs(acc[1]) > 2) sendModel({ t: 'rot', dx: Math.round(acc[0] * 1.6), dy: Math.round(acc[1] * 1.6) }); acc = [0, 0]; };
-    pad.addEventListener('pointerdown', (e) => { last = [e.clientX, e.clientY]; pad.classList.add('drag'); pad.setPointerCapture(e.pointerId); timer = setInterval(flush, 120); });
-    pad.addEventListener('pointermove', (e) => { if (!last) return; acc[0] += e.clientX - last[0]; acc[1] += e.clientY - last[1]; last = [e.clientX, e.clientY]; });
-    const end = () => { if (!last) return; last = null; pad.classList.remove('drag'); clearInterval(timer); flush(); };
+  (() => { // 即時畫面：拖曳 → 旋轉（每 120ms 累積送出）；輕點 → 點選同位置
+    const pad = $('live'); let last = null, start = null, moved = 0, acc = [0, 0], timer = null;
+    const flush = () => { if (Math.abs(acc[0]) + Math.abs(acc[1]) > 2) sendModel({ t: 'rot', dx: Math.round(acc[0] * 2.4), dy: Math.round(acc[1] * 2.4) }); acc = [0, 0]; };
+    pad.addEventListener('pointerdown', (e) => { last = start = [e.clientX, e.clientY]; moved = 0; pad.classList.add('drag'); pad.setPointerCapture(e.pointerId); timer = setInterval(flush, 120); });
+    pad.addEventListener('pointermove', (e) => { if (!last) return; const dx = e.clientX - last[0], dy = e.clientY - last[1]; acc[0] += dx; acc[1] += dy; moved += Math.abs(dx) + Math.abs(dy); last = [e.clientX, e.clientY]; });
+    const end = (e) => {
+      if (!last) return; last = null; pad.classList.remove('drag'); clearInterval(timer);
+      if (moved < 8) { const r = pad.getBoundingClientRect(); acc = [0, 0]; sendModel({ t: 'tap', x: (start[0] - r.left) / r.width, y: (start[1] - r.top) / r.height }); } else flush();
+    };
     pad.addEventListener('pointerup', end); pad.addEventListener('pointercancel', end);
   })();
+  $('bClose').onclick = () => sendModel({ t: 'close' });
+  document.querySelectorAll('[data-k]').forEach((b) => { // 無人機：按住持續送出，放開即停
+    let t = null; const code = b.dataset.k;
+    const down = (e) => { e.preventDefault(); if (t) return; b.classList.add('on'); const send = () => ch && ch.publish('cmd', { c: 'model', m: { t: 'key', code, down: true } }); send(); t = setInterval(send, 300); if (navigator.vibrate) navigator.vibrate(10); };
+    const up = () => { if (!t) return; clearInterval(t); t = null; b.classList.remove('on'); if (ch) ch.publish('cmd', { c: 'model', m: { t: 'key', code, down: false } }); };
+    b.addEventListener('pointerdown', down); b.addEventListener('pointerup', up); b.addEventListener('pointerleave', up); b.addEventListener('pointercancel', up);
+  });
 
   fetch('speaker-notes.json').then((r) => r.json()).then((j) => { notes = j; total = j.length; buildList(); render(); }).catch(() => { buildList(); });
 
@@ -153,6 +184,7 @@
   try {
     client = new Ably.Realtime({ key: ABLY_KEY, clientId: 'mobile-' + Date.now() });
     ch = client.channels.get('slide-remote-' + room);
+    ch.subscribe('frame', (m) => { if (m.data && m.data.img && modelNow) { $('liveImg').src = m.data.img; $('liveWait').style.display = 'none'; } });
     ch.subscribe('sync', (m) => { if (m.data && typeof m.data.h === 'number') { render(m.data); resetIdle(); } });
     ch.presence.subscribe('enter', (m) => { if (m.clientId && m.clientId.indexOf('host-') === 0) { setHost(true); resetIdle(); } });
     ch.presence.subscribe('leave', (m) => { if (m.clientId && m.clientId.indexOf('host-') === 0) setHost(false); });

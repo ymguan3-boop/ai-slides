@@ -22,7 +22,8 @@
 
   let ch = null, client = null, idleTimer = null;
   const light = document.getElementById('hostconn');
-  const setConn = (on) => { light.textContent = on ? '📱 手機已連線' : '📱 手機未連線'; light.classList.toggle('on', !!on); };
+  let mobileOn = false, frameTimer = null;
+  const setConn = (on) => { mobileOn = !!on; light.textContent = on ? '📱 手機已連線' : '📱 手機未連線'; light.classList.toggle('on', !!on); };
   const resetIdle = () => { clearTimeout(idleTimer); idleTimer = setTimeout(close, IDLE); };
   function close() { setConn(false); try { ch.presence.leave(); } catch (e) {} try { client.close(); } catch (e) {} }
   const sync = () => { if (ch) try { ch.publish('sync', window.DECK.state()); } catch (e) {} };
@@ -41,8 +42,19 @@
         clearInterval(window.__presenceTimer); window.__presenceTimer = setInterval(checkMobile, 10000);
       });
       document.addEventListener('deckchange', () => { sync(); resetIdle(); });
+      frameLoop();
       addEventListener('pagehide', () => { try { ch.presence.leave(); } catch (e) {} try { client.close(); } catch (e) {} });
     } catch (e) { console.warn('Ably init failed', e); }
+  }
+  // 模型頁且手機在線時，每 0.4 秒送一張模型畫面（JPEG，控制在 Ably 單則訊息上限內）
+  function frameLoop() {
+    clearInterval(frameTimer);
+    frameTimer = setInterval(() => {
+      if (!ch || !mobileOn || !DECK.state().model) return;
+      let img = DECK.modelFrame(560, 0.5);
+      if (img && img.length > 56000) img = DECK.modelFrame(440, 0.42);
+      if (img && img.length <= 60000) try { ch.publish('frame', { img }); } catch (e) {}
+    }, 400);
   }
   function checkMobile() { if (!ch) return; ch.presence.get((err, members) => { if (!err) { const on = mobiles(members).length > 0; setConn(on); if (on) sync(); } }); }
 

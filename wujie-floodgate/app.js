@@ -91,16 +91,63 @@
     if (!canvas) return false;
     const r = canvas.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
     if (m.t === 'zoom') { canvas.dispatchEvent(new win.WheelEvent('wheel', { deltaY: m.dir > 0 ? -240 : 240, clientX: cx, clientY: cy, bubbles: true, cancelable: true })); return true; }
+    const ev = (type, x, y, buttons) => new win.PointerEvent(type, { pointerId: 77, pointerType: 'mouse', isPrimary: true, button: 0, buttons, clientX: x, clientY: y, bubbles: true, cancelable: true, view: win });
     if (m.t === 'rot') {
       canvas.setPointerCapture = () => {}; canvas.releasePointerCapture = () => {}; canvas.hasPointerCapture = () => true;
-      const ev = (type, x, y, buttons) => new win.PointerEvent(type, { pointerId: 77, pointerType: 'mouse', isPrimary: true, button: 0, buttons, clientX: x, clientY: y, bubbles: true, cancelable: true, view: win });
       const dx = Math.max(-260, Math.min(260, m.dx)), dy = Math.max(-200, Math.min(200, m.dy));
       canvas.dispatchEvent(ev('pointerdown', cx, cy, 1));
       for (let k = 1; k <= 4; k++) { canvas.dispatchEvent(ev('pointermove', cx + dx * k / 4, cy + dy * k / 4, 1)); }
       canvas.dispatchEvent(ev('pointerup', cx + dx, cy + dy, 0));
       return true;
     }
+    if (m.t === 'tap') { // 手機畫面點擊 → 模型同位置點擊
+      const x = r.left + m.x * r.width, y = r.top + m.y * r.height;
+      canvas.setPointerCapture = () => {}; canvas.releasePointerCapture = () => {};
+      canvas.dispatchEvent(ev('pointerdown', x, y, 1)); canvas.dispatchEvent(ev('pointerup', x, y, 0));
+      canvas.dispatchEvent(new win.MouseEvent('click', { clientX: x, clientY: y, bubbles: true, cancelable: true, view: win }));
+      return true;
+    }
     return false;
+  }
+  // 關閉模型內所有彈窗（物件資訊、查核點卡、明細、說明等）
+  function modelCloseAll(doc) {
+    const bs = [...doc.querySelectorAll('button')].filter((b) => /^關閉/.test((b.getAttribute('aria-label') || b.textContent || '').trim()) && b.offsetParent !== null);
+    bs.forEach((b) => b.click());
+    doc.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', code: 'Escape', bubbles: true }));
+    return bs.length;
+  }
+  // 無人機：按住方向鍵（手機持續送 down，逾時自動放開，避免卡鍵）
+  const held = {};
+  function modelKey(win, code, down) {
+    const fire = (type) => win.dispatchEvent(new win.KeyboardEvent(type, { code, key: code, bubbles: true, cancelable: true }));
+    clearTimeout(held[code]);
+    if (down) { if (!held[code]) fire('keydown'); held[code] = setTimeout(() => { fire('keyup'); delete held[code]; }, 700); }
+    else if (held[code] !== undefined) { fire('keyup'); delete held[code]; }
+  }
+  // 手機即時畫面：以 captureStream 取得 WebGL 畫面（不受 preserveDrawingBuffer 限制）
+  let frameVideo = null, frameCanvas = null;
+  function modelFrame(maxW = 560, q = 0.5) {
+    const s = slides[cur]; const f = s && s.dataset.model && s.querySelector('.modelwrap iframe');
+    let canvas; try { canvas = f && f.contentDocument.querySelector('canvas'); } catch (e) { return null; }
+    if (!canvas) return null;
+    if (!frameVideo || frameVideo.__src !== canvas) {
+      frameVideo = document.createElement('video'); frameVideo.muted = true; frameVideo.playsInline = true;
+      frameVideo.srcObject = canvas.captureStream(6); frameVideo.__src = canvas; frameVideo.play().catch(() => {});
+    }
+    if (frameVideo.readyState < 2 || !frameVideo.videoWidth) return null;
+    const w = Math.min(maxW, frameVideo.videoWidth), h = Math.round(w * frameVideo.videoHeight / frameVideo.videoWidth);
+    frameCanvas = frameCanvas || document.createElement('canvas');
+    frameCanvas.width = w; frameCanvas.height = h;
+    frameCanvas.getContext('2d').drawImage(frameVideo, 0, 0, w, h);
+    return frameCanvas.toDataURL('image/jpeg', q);
+  }
+  function modelCmdAll(m) {
+    const s = slides[cur]; const f = s && s.dataset.model && s.querySelector('.modelwrap iframe');
+    let doc, win; try { doc = f.contentDocument; win = f.contentWindow; } catch (e) { return false; }
+    if (!doc) return false;
+    if (m.t === 'close') return modelCloseAll(doc);
+    if (m.t === 'key') { modelKey(win, m.code, !!m.down); return true; }
+    return modelCmd(m);
   }
   function unmountModel(root) { root.querySelectorAll('.modelwrap iframe').forEach((f) => { f.src = 'about:blank'; f.remove(); }); }
 
@@ -155,22 +202,14 @@
   }
   document.querySelectorAll('.film').forEach((f) => players[f.dataset.filmId] = makePlayer(f));
 
-  // ---------- 第8頁：整理參數計算式（自動短暫顯示，點「整理參數」可再看） ----------
-  let calcTimers = [];
-  const CALC_SEC = 12;
-  function calcShow(root, sec = CALC_SEC) {
-    const pop = root.querySelector('.calcpop'); if (!pop) return;
-    calcTimers.forEach(clearTimeout); calcTimers = [];
-    pop.style.setProperty('--calc', sec + 's');
-    pop.classList.remove('show'); void pop.offsetWidth; pop.classList.add('show');
-    calcTimers.push(setTimeout(() => pop.classList.remove('show'), sec * 1000));
-  }
-  function calcHide(root) { calcTimers.forEach(clearTimeout); calcTimers = []; const p = root.querySelector('.calcpop'); if (p) p.classList.remove('show'); }
+  // ---------- 第5頁：AI 輔助整理參數計算式（點擊開啟／關閉，手機遙控亦可） ----------
+  const calcPop = (root) => root && root.querySelector('.calcpop');
+  function calcShow(root) { const p = calcPop(root); if (p) { p.classList.add('show'); emit(); } }
+  function calcHide(root) { const p = calcPop(root); if (p && p.classList.contains('show')) { p.classList.remove('show'); emit(); } }
+  function calcToggle(root) { const p = calcPop(root); if (p) (p.classList.contains('show') ? calcHide(root) : calcShow(root)); }
   document.querySelectorAll('.slide[data-calc]').forEach((root) => {
-    const pop = root.querySelector('.calcpop');
-    if (pop && !pop.querySelector('.timer')) pop.insertAdjacentHTML('beforeend', '<div class="timer"><i></i></div>');
-    root.querySelector('.calc-trigger').addEventListener('click', () => (pop.classList.contains('show') ? calcHide(root) : calcShow(root)));
-    pop.addEventListener('click', () => calcHide(root));
+    root.querySelector('.calc-trigger').addEventListener('click', () => calcToggle(root));
+    calcPop(root).addEventListener('click', () => calcHide(root));
   });
   // 工具說明頁的影片
   const slideVideo = (s) => s && s.dataset.video ? s.querySelector('video') : null;
@@ -199,7 +238,6 @@
     if (s.dataset.autoStory) story(s);
     if (s.dataset.carousel) carousel(s); else clearInterval(carTimer);
     if (s.dataset.model) mountModel(s);
-    if (s.dataset.calc) calcTimers.push(setTimeout(() => { if (slides[cur] === s) calcShow(s); }, 3200));
     const sv = slideVideo(s); if (sv) { sv.currentTime = 0; setTimeout(() => { if (slides[cur] === s) sv.play().catch(() => {}); }, 900); }
     if (s.dataset.film) { const p = players[s.dataset.film]; p.reset(); setTimeout(() => { if (slides[cur] === s) p.play(); }, 700); }
     hud.querySelector('.sec').textContent = s.dataset.sec || '';
@@ -227,6 +265,7 @@
       case 'notes': notes.classList.toggle('show'); emit(); break;
       case 'help': help.classList.toggle('show'); emit(); break;
       case 'close': help.classList.remove('show'); notes.classList.remove('show'); emit(); break;
+      case 'calc': calcToggle(slides[cur]); break;
       case 'motion': document.body.classList.toggle('reduced'); emit(); break;
       case 'full': document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {}); break;
     }
@@ -261,6 +300,6 @@
   const fromHash = () => Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1);
   addEventListener("hashchange", () => { if (fromHash() !== cur) go(fromHash()); });
   go(fromHash());
-  const state = () => { const f = curFilm(), v = slideVideo(slides[cur]); return { h: cur, total: slides.length, step, steps: stepsOf(slides[cur]), film: !!(f || v), playing: f ? !f.paused : v ? !v.paused : false, cc: f ? !f.el.classList.contains('nocc') : false, notes: notes.classList.contains('show'), help: help.classList.contains('show'), reduced: document.body.classList.contains('reduced'), model: slides[cur].dataset.model === '8771' ? 'risk' : slides[cur].dataset.model === '8772' ? 'audit' : null }; };
-  window.DECK = { go, next, prev, act, state, modelCmd, players, get cur() { return cur; }, slides };
+  const state = () => { const f = curFilm(), v = slideVideo(slides[cur]); return { h: cur, total: slides.length, step, steps: stepsOf(slides[cur]), film: !!(f || v), playing: f ? !f.paused : v ? !v.paused : false, cc: f ? !f.el.classList.contains('nocc') : false, notes: notes.classList.contains('show'), help: help.classList.contains('show'), reduced: document.body.classList.contains('reduced'), calc: !!slides[cur].dataset.calc, calcOpen: !!(calcPop(slides[cur]) && calcPop(slides[cur]).classList.contains('show')), model: slides[cur].dataset.model === '8771' ? 'risk' : slides[cur].dataset.model === '8772' ? 'audit' : null }; };
+  window.DECK = { go, next, prev, act, state, modelCmd: modelCmdAll, modelFrame, players, get cur() { return cur; }, slides };
 })();
