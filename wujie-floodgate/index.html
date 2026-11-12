@@ -3,16 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>五結防潮閘門改善工程｜從工程查核到 AI 風險驗證</title>
+<title>運用 AI 技術開發 3D 開源等查核工具模組情形｜宜蘭縣審計室</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="viewport"><div id="stage">
 
-<!-- ============ 1 封面 ============ -->
-<section class="slide" id="s-cover" data-sec="封面" data-notes="主席、各位長官、同仁好。今天以宜蘭縣政府辦理的「五結防潮閘門改善工程」為例，說明我們如何從施工品質查核出發，運用 AI 與 3D 模型擴大風險洞察，再經專家驗證，最後形成審核通知。
-・核心敘事：現場查核 → AI → 專家 → 審計判斷 → 審核通知">
+<section class="slide" id="s-cover" data-sec="封面" data-notes="主席、各位長官、同仁好。宜蘭縣審計室今天報告的題目是「運用 AI 技術開發 3D 開源等查核工具模組情形」。我們以五結防潮閘門改善工程為例，介紹三項自製工具：3D GIS 淹水模組、手機遠端協助平台，以及施工品質缺失檢測助手。
+・右上角 QR 可用手機遙控簡報">
   <div class="qrcard an fade" style="--d:1.2s"><div class="qrbox" data-size="200"></div><div class="qrtxt">手機掃碼<br>遙控簡報</div></div>
   <div class="bgimg kenburns" style="background-image:url(img/birdseye.jpg);--kb:24s"></div>
   <div class="shade"></div>
@@ -23,8 +22,9 @@
     <circle class="pulse" cx="1640" cy="640" r="12" fill="none" stroke="#f2b84b" stroke-width="3"/>
   </svg>
   <div class="t1">
-    <div class="sub an" style="--d:.5s">預警性審計 × AI 分析 × 專家諮詢 × 審核通知</div>
-    <h1 class="an" style="--d:.9s">五結防潮閘門改善工程<small>從工程查核到 AI 風險驗證</small></h1>
+    <div class="sub an" style="--d:.5s">以五結防潮閘門改善工程為例</div>
+    <h1 class="an h1v4" style="--d:.9s">運用 AI 技術開發<br>3D 開源等查核工具模組情形</h1>
+    <div class="toolchips an" style="--d:1.4s"><span>3D GIS 淹水模組</span><span>手機遠端協助平台</span><span>施工品質缺失檢測助手</span></div>
   </div>
   <div class="meta an" style="--d:1.6s">
     <b>審計部臺灣省宜蘭縣審計室</b><br>
@@ -32,192 +32,83 @@
   </div>
 </section>
 
-<!-- ============ 2 故事線 ============ -->
-<section class="slide" id="s-story" data-sec="故事線" data-auto-story="1" data-notes="今天的報告不依行政文件順序，而是以案例紀錄的方式，沿著九個節點說明：為什麼查、工程是什麼、有哪些風險、現場發現什麼、如何導入 AI、專家怎麼驗證、如何形成審計判斷、審核通知提出什麼，以及希望促成的改善。重點不是展示 AI，而是說明審計人員如何用 AI 擴大風險洞察。">
-  <div class="pad">
-    <div class="kicker an"><span class="no">01</span>STORYLINE</div>
-    <h2 class="title an" style="--d:.15s">從一個工地，追問到整條河的<em>防洪韌性</em></h2>
+<section class="slide" id="s-intro" data-sec="引言" data-notes="工程查核常面對三個挑戰：資料龐雜、時間有限；數據表格散在不同版本，亟待消化梳理；還要從零散疑點，聯想出深入的查核方向與意見雛型。因此，宜蘭縣審計室嘗試善用 AI 提升查核效率。接下來由工具開發者報告三項工具。">
+  <div class="pad"><div class="kicker an"><span class="no">一</span>引言｜AUDIT CHALLENGE</div>
+    <h2 class="title an" style="--d:.15s">查核挑戰：<em>資料龐雜、時間有限</em></h2></div>
+  <div class="chal">
+    <div class="card cc an" style="--d:.3s"><div class="ci">📚</div><h3>資料龐雜、時間有限</h3><p>規劃期中、期末、基本設計成果與審查紀錄，動輒數百頁，查核期間有限</p></div>
+    <div class="card cc an" style="--d:.55s"><div class="ci">📊</div><h3>數據表格亟待梳理</h3><p>流量、水位、堤頂、經費散在不同版本與附錄，需要逐一比對</p></div>
+    <div class="card cc an" style="--d:.8s"><div class="ci">💡</div><h3>意見雛型需要深入聯想</h3><p>由零散疑點串成查核方向，形成可追溯的審計意見雛型</p></div>
   </div>
-  <div class="story">
-    <svg width="1620" height="200" style="position:absolute;left:0;top:0" fill="none">
-      <path class="draw" style="--len:1800;--dur:4.4s;--d:.4s" d="M0 55 H1620" stroke="#1d8f9a" stroke-width="4"/>
-    </svg>
-    <div class="node" style="left:0"><div class="dot">1</div><b>為什麼查</b><span>風險訊號</span></div>
-    <div class="node" style="left:12.5%"><div class="dot">2</div><b>工程是什麼</b><span>規模與功能</span></div>
-    <div class="node" style="left:25%"><div class="dot">3</div><b>有哪些風險</b><span>規劃・經濟・系統</span></div>
-    <div class="node" style="left:37.5%"><div class="dot">4</div><b>現場發現</b><span>計價・品管・施工</span></div>
-    <div class="node" style="left:50%"><div class="dot">5</div><b>導入 AI</b><span>3D 風險篩檢</span></div>
-    <div class="node" style="left:62.5%"><div class="dot">6</div><b>專家驗證</b><span>Human in the Loop</span></div>
-    <div class="node" style="left:75%"><div class="dot">7</div><b>審計判斷</b><span>證據分級</span></div>
-    <div class="node gold" style="left:87.5%"><div class="dot">8</div><b>審核通知</b><span>三大改善方向</span></div>
-    <div class="node gold" style="left:100%"><div class="dot">9</div><b>促成改善</b><span>長期防洪禦潮</span></div>
-  </div>
-  <div class="position-note an" style="--d:4.8s;bottom:120px">不是為了展示 AI，而是說明審計人員如何以 AI 擴大風險洞察，再經專家驗證，形成可落實的改善建議</div>
+  <svg class="chalarrow" width="1920" height="140" fill="none"><path class="draw" style="--len:400;--d:1.2s;--dur:1s" d="M960 10 V110 M920 75 L960 115 L1000 75" stroke="#f2b84b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="aibig an zoom" style="--d:1.8s">善用 <b>AI</b> 提升查核效率</div>
+  <div class="three-tools an" style="--d:2.3s"><span class="lbl">接下來報告三項自製工具</span><span>3D GIS 淹水模組</span><span>手機遠端協助平台</span><span>施工品質缺失檢測助手</span></div>
 </section>
 
-<!-- ============ 3 調查緣起 ============ -->
-<section class="slide" id="s-why" data-sec="調查緣起" data-notes="本案是依115年度查核工作計畫，從公共工程雲端服務網篩選決標金額1,000萬元以上工程選出。這個工程決標12億7,752萬餘元，變更設計後增至16億119萬餘元，工期展延至116年11月10日。更值得注意的是，開工以來監造專技人員及專職品管人員更迭達9人次，不利品質控管。我們在115年8月17、18日實地查核，當時實際進度50.378%，略超前預定。">
-  <div class="pad">
-    <div class="kicker an"><span class="no">02</span>WHY THIS PROJECT</div>
-    <h2 class="title an" style="--d:.15s">調查緣起：大型水利工程出現<em>多重風險訊號</em></h2>
+<section class="slide" id="s-tools" data-sec="引言" data-notes="我們用到的工具各有分工：本部 Copilot 負責協作，像文件摘要、會議彙整與意見草擬；Claude 負責程式開發，包括長文件比對與 3D 模型撰寫；Python 負責資料庫與公式驗算；GIS 與 Three.js 負責 3D 展示。資安上，我們堅持資料分級、脫敏去識別、最小揭露、人工檢查與權限控管。Copilot 與 Claude 分屬不同工具，最後判斷仍由專業與審計人員完成。">
+  <div class="pad"><div class="kicker an"><span class="no">一</span>引言｜TOOLS & SECURITY</div>
+    <h2 class="title an" style="--d:.15s">工具、技能及<em>資安防護</em></h2></div>
+  <div class="toolgrid">
+    <div class="card tg an left" style="--d:.3s"><b>Copilot</b><span class="role">協作</span><p>本部 Copilot：文件摘要、會議彙整、意見草擬</p></div>
+    <div class="card tg an left" style="--d:.45s"><b>Claude</b><span class="role">程式開發</span><p>長文件逐版比對、程式與 3D 模型撰寫</p></div>
+    <div class="card tg an left" style="--d:.6s"><b>Python</b><span class="role">驗算</span><p>資料庫、公式驗算、比對表</p></div>
+    <div class="card tg an left" style="--d:.75s"><b>GIS／Three.js</b><span class="role">展示</span><p>NLSC 圖資、DTM 地形、3D 互動場景</p></div>
   </div>
-  <div class="grid3">
-    <div class="card stat an" style="--d:.4s"><div class="k">決標金額 → 變更後經費</div><div class="v"><span class="count" data-to="16.01" data-dec="2">0</span><small>億元</small></div><div class="d">決標 12億7,752萬餘元（112年9月13日，最有利標）<br>變更設計後增至 16億119萬餘元</div></div>
-    <div class="card stat warn an" style="--d:.6s"><div class="k">監造專技及專職品管人員更迭</div><div class="v"><span class="count" data-to="9">0</span><small>人次</small></div><div class="d">自113年2月16日開工起累計<br>不利工程品質控管</div></div>
-    <div class="card stat teal an" style="--d:.8s"><div class="k">實際進度（115年8月17日查核日）</div><div class="v"><span class="count" data-to="50.378" data-dec="3">0</span><small>%</small></div><div class="d">預定 48.097%，超前 2.281 個百分點<br>（工期已變更追加 90 天）</div></div>
+  <div class="secbox an right" style="--d:.9s">
+    <h3>🔒 資安防護</h3>
+    <ol><li><b>資料分級</b>機敏與公開資料分開處理</li><li><b>脫敏去識別</b>個資、人名不上傳、不公開</li><li><b>最小揭露</b>只提供完成任務所需資料</li><li><b>人工檢查</b>AI 產出逐項複核後才採用</li><li><b>權限控管</b>金鑰不寫入程式庫，連線憑證短效</li></ol>
   </div>
-  <svg class="timeline" viewBox="0 0 1680 150" fill="none">
-    <path class="draw" style="--len:1700;--dur:2.6s;--d:1s" d="M20 60 H1660" stroke="#3fd0c9" stroke-width="4"/>
-    <g font-size="22" fill="#a9c1cb" font-family="Microsoft JhengHei">
-      <g class="an fade" style="--d:1.2s"><circle cx="20" cy="60" r="11" fill="#3fd0c9"/><text x="20" y="112" text-anchor="start">113.2.16 開工</text></g>
-      <g class="an fade" style="--d:1.8s"><circle cx="860" cy="60" r="13" fill="#f2b84b"/><text x="860" y="30" text-anchor="middle" fill="#f2b84b" font-weight="700">115.8.17–18 實地查核</text><text x="860" y="112" text-anchor="middle">第2圍堰區全套管工程施工中</text></g>
-      <g class="an fade" style="--d:2.4s"><circle cx="1380" cy="60" r="9" fill="#6f8b97"/><text x="1380" y="30" text-anchor="middle" fill="#6f8b97">116.8.7 原預計完工</text></g>
-      <g class="an fade" style="--d:2.9s"><circle cx="1660" cy="60" r="11" fill="#ff6b5e"/><text x="1660" y="112" text-anchor="end" fill="#ff6b5e">116.11.10 展延後完工</text></g>
-    </g>
-  </svg>
+  <div class="position-note an" style="--d:1.4s;bottom:110px">Copilot 與 Claude 分屬不同工具，各司其職；<b style="color:#f2b84b">最後判斷仍由專業與審計人員完成</b></div>
 </section>
 
-<!-- ============ 4 工程介紹 ============ -->
-<section class="slide" id="s-project" data-sec="工程介紹" data-notes="五結防潮閘門位於冬山河出海口，既有閘門使用近50年，結構老舊、水密性不佳。本工程拆除既有36門，新建排洪閘門4扇、調節閘門2扇及船閘2扇，閘址往上游移約20公尺。計畫總經費22億7,000萬元，由經濟部分3期核定補助。防洪標準是10年重現期洪水設計、25年洪水不溢堤，防洪檢討的目標年是2070年。">
-  <div class="pad">
-    <div class="kicker an"><span class="no">03</span>THE PROJECT</div>
-    <h2 class="title an" style="--d:.15s">冬山河出海口：守住<em>防洪禦潮</em>的最後一道門</h2>
+<section class="slide" id="s-reports" data-sec="五結案例" data-notes="第一個案例是五結防潮閘門改善工程。我們運用 AI 併同檢視規劃期中、規劃期末與基本設計成果三份報告，相互勾稽，追蹤審查意見的落實情形。例如設計流量先後採用 6 種標準，最後以現況 Q25 一千零八十八 cms 作為目標年 2070 年的依據，但沒有比較各方案的益本比；工區外 1K+600 堤防，機關回復日後再加高，經費尚未納編；抽水站減排 25 cms，也沒有失效的量化評估。由此發現共同性缺失，並洞察完工後的系統性風險。">
+  <div class="pad"><div class="kicker an"><span class="no">二</span>五結防潮閘門案例｜REPORT CROSS-CHECK</div>
+    <h2 class="title an" style="--d:.15s">三份報告勾稽：追蹤<em>審查意見落實</em></h2></div>
+  <div class="rtl">
+    <div class="rnode an" style="--d:.3s"><b>規劃期中</b><span>Q10 846／設計採 922 cms</span></div>
+    <i class="an fade" style="--d:.5s">→</i>
+    <div class="rnode an" style="--d:.55s"><b>規劃期末</b><span>Q10 856 cms（未核定）</span></div>
+    <i class="an fade" style="--d:.75s">→</i>
+    <div class="rnode an" style="--d:.8s"><b>基本設計成果</b><span>Q10 775 cms（核定）</span></div>
+    <i class="an fade" style="--d:1s">→</i>
+    <div class="rnode hot an" style="--d:1.05s"><b>目標年 2070</b><span>Q10＝現況 Q25＝1,088 cms</span></div>
   </div>
-  <div class="mapbox an zoom" style="--d:.3s">
-    <img src="img/location.jpg" alt="五結防潮閘門位置圖">
-    <div class="lbl an" style="--d:1.2s;left:470px;top:250px;border-color:#f2b84b">五結防潮閘門</div>
-    <div class="lbl an" style="--d:1.5s;left:120px;top:450px">冬山河</div>
-    <div class="lbl an" style="--d:1.7s;left:820px;top:120px;border-color:#2c7fb8">太平洋</div>
-    <div class="lbl an" style="--d:1.9s;left:250px;top:560px;border-color:#a99cff">清水抽水站</div>
-  </div>
-  <figure class="inset an right" style="--d:2.4s;left:640px;top:690px;width:440px">
-    <img src="img/birdseye.jpg" alt="工程模擬鳥瞰"><figcaption>完工模擬鳥瞰</figcaption>
-  </figure>
-  <div class="facts">
-    <div class="fact an right" style="--d:.6s"><b class="num">36→8</b><span>拆除既有閘門 36 門；新建排洪閘門 4、調節閘門 2、船閘 2 扇</span></div>
-    <div class="fact an right" style="--d:.8s"><b class="num">20 m</b><span>閘址調整至原址上游約 20 公尺</span></div>
-    <div class="fact an right" style="--d:1s"><b class="num">22.7億</b><span>計畫總經費；經濟部 107、111、113 年分 3 期核定補助</span></div>
-    <div class="fact an right" style="--d:1.2s"><b class="num">Q10/Q25</b><span>防洪標準：10 年重現期洪水設計、25 年洪水不溢堤；防洪檢討目標年 <b style="color:#f2b84b;font-family:inherit;font-size:inherit;min-width:0">2070 年</b></span></div>
-    <div class="fact an right" style="--d:1.4s"><b class="num">50 年</b><span>預計使用年限；兼顧防洪禦潮、生態與觀光</span></div>
-  </div>
+  <table class="trk"><thead><tr><th style="width:150px">議題</th><th>審查意見／報告事項</th><th>機關回復</th><th style="width:250px">落實情形</th></tr></thead><tbody>
+<tr class="an left" style="--d:1s"><td class="tp">設計流量</td><td>Q10 計畫洪水量設計值先後採 6 種不同標準</td><td>保守採現況 Q25（1,088 cms）作為目標年 2070 堤防保護能力評估依據</td><td><span class="st mid">部分落實<br>未比較各方案益本比</span></td></tr>
+<tr class="an left" style="--d:1.35s"><td class="tp">外水位</td><td>要求比較較高外水位 EL2.89 m 之影響</td><td>設計仍採外水位 EL2.66 m</td><td><span class="st tbd">待確認</span></td></tr>
+<tr class="an left" style="--d:1.7s"><td class="tp">堤頂高</td><td>工區外 1K+600 堤頂與目標年洪水位之出水高</td><td>日後視洪水量增加幅度，再辦理堤岸加高</td><td><span class="st bad">未落實<br>加高經費未納編</span></td></tr>
+<tr class="an left" style="--d:2.05s"><td class="tp">抽排依賴</td><td>關閘期間兩岸抽水站須減排 25 cms</td><td>報告未見抽水站失效之量化評估與備援</td><td><span class="st bad">未落實</span></td></tr>
+  </tbody></table>
+  <div class="find an" style="--d:2.6s">→ 發現共同性缺失，洞察完工後的<b>系統性風險</b></div>
 </section>
 
-<!-- ============ 5 工程風險 ============ -->
-<section class="slide" id="s-risk" data-sec="工程風險" data-notes="我們發現真正的問題不只在施工品質，而在整個防洪體系。第一是規劃風險：Q10 設計流量前後用過6種標準，最後保守採1,088 cms 作為目標年2070年的 Q10。第二是經濟風險：益本比只有0.69。第三是系統風險：工區外1K+600周邊堤防，目標年需要 EL3.42公尺，現況只有3.20公尺，加高經費未納編。第四是極端情境：關閘期間要靠兩岸抽水站減排25 cms，卻沒有失效時的量化評估與備援。下方補充三個名詞：Q10 是10年重現期距洪水，每年約有10%機率發生，區域排水以通過 Q10 作為設計標準；益本比是總效益除以總成本，大於1才表示計畫可行，本案0.69代表每投入1元只換得約0.69元效益；冬山河屬宜蘭縣管區域排水，治理標準是通過 Q10、Q25 不溢堤，本案目標年2070年所需堤頂高，是10年重現期距洪水位再加0.5公尺。
-・三則名詞說明約在進頁 2.5 秒後出現">
-  <div class="pad">
-    <div class="kicker an"><span class="no">04</span>RISK MAP</div>
-    <h2 class="title an" style="--d:.15s">真正的問題，<em>不只在施工品質</em></h2>
+<section class="slide" id="s-check" data-calc="1" data-sec="五結案例" data-notes="依據報告發現的疑點，我們向宜蘭縣政府調取水理分析、計算書與工程圖說，建成勾稽資料庫。接著以水利工程技師的觀點，用 Python 直接讀取資料庫驗算：目標年 2070 年施作後，1K+600 洪水位 EL2.92 公尺，出水高只有 0.28 公尺，未達 0.5 公尺標準，需要的堤頂是 EL3.42 公尺。益本比 0.69、抽水站減排 25 cms 也都重新核對。歷年雨量、附近新建物、NLSC 圖資與 DTM 列為補充檢核條件。下方說明 Q10、益本比與冬山河的治理標準。
+・約 3 秒後自動顯示「Q25 合理性」完整計算式 12 秒；點按鈕可再開啟
+・Python 為公式驗算與差值檢核，不等同正式水理模式演算">
+  <div class="pad"><div class="kicker an"><span class="no">二</span>五結防潮閘門案例｜DATA & ENGINEER CHECK</div>
+    <h2 class="title an" style="--d:.15s">調件建庫，<em>技師觀點 × Python 驗算</em></h2></div>
+  <div class="dbcol an left" style="--d:.3s">
+    <h4>向宜蘭縣政府調件</h4>
+    <div class="docs"><span>水理分析</span><span>計算書（含結構）</span><span>工程圖說</span></div>
+    <h4 style="margin-top:14px">勾稽資料庫（SQLite）</h4>
+    <div class="tbls"><span>reports</span><span>review_comments</span><span>agency_replies</span><span>design_scenarios</span><span>hydrology_inputs</span><span>hydraulics_inputs</span><span>drawings</span><span>measurements</span><span>assumptions</span><span>expert_reviews</span><span>audit_findings</span><span>sources</span></div>
+    <h4 style="margin-top:14px">補充檢核條件</h4>
+    <div class="cand"><span>歷年雨量</span><span>附近新建物與工程</span><span>NLSC 圖資</span><span>20 m DTM</span></div>
   </div>
-  <div class="riskmap r2">
-    <svg width="1920" height="430" style="position:absolute;inset:0" fill="none" stroke-width="3">
-      <path class="draw" style="--len:500;--d:.5s;--dur:1.2s" d="M850 170 C 760 150, 720 110, 700 80" stroke="#a99cff"/>
-      <path class="draw" style="--len:500;--d:.7s;--dur:1.2s" d="M1070 170 C 1160 150, 1200 110, 1220 80" stroke="#f2b84b"/>
-      <path class="draw" style="--len:500;--d:.9s;--dur:1.2s" d="M850 250 C 760 270, 720 310, 700 330" stroke="#ff6b5e"/>
-      <path class="draw" style="--len:500;--d:1.1s;--dur:1.2s" d="M1070 250 C 1160 270, 1200 310, 1220 330" stroke="#3fd0c9"/>
-    </svg>
-    <div class="hub an zoom" style="--d:.2s">防洪體系<br>是否可靠？</div>
-    <div class="card riskcard an left" style="--d:.9s;left:120px;top:0;border-color:rgba(169,156,255,.5)"><h3 style="color:#a99cff">規劃風險 <i>PLAN</i></h3><p>Q10 設計流量先後採 <b>6 種</b>標準，最終保守採 1,088 cms 作為目標年（<b>2070 年</b>）Q10</p></div>
-    <div class="card riskcard an right" style="--d:1.1s;right:120px;top:0;border-color:rgba(242,184,75,.5)"><h3 style="color:#f2b84b">經濟風險 <i>B/C</i></h3><p>總成本 13.78 億元、總效益 9.46 億元，益本比 <b>0.69</b>，未比較不同流量方案</p></div>
-    <div class="card riskcard an left" style="--d:1.3s;left:120px;top:228px;border-color:rgba(255,107,94,.5)"><h3 style="color:#ff6b5e">系統風險 <i>LEVEE</i></h3><p>工區外堤防（1K+600 周邊）堤頂 EL3.20 m，目標年（2070 年）需 EL3.42 m，加高經費<b>未納編</b></p></div>
-    <div class="card riskcard an right" style="--d:1.5s;right:120px;top:228px;border-color:rgba(63,208,201,.5)"><h3 style="color:#3fd0c9">極端情境 <i>PUMP</i></h3><p>關閘期間兩岸抽水站須減排 <b>25 cms</b>；未見故障、停電、通訊或多機失效之備援</p></div>
+  <div class="pyrun an right" style="--d:.5s">
+    <div class="pyh"><span>●</span><span>●</span><span>●</span><b>verify.py｜Python 3.12 × pandas</b><button class="calc-trigger">Q25 合理性計算式</button></div>
+    <pre class="code"><span class="c"># 讀取資料庫，堤頂高檢核：Z_req = h(Q10) + 0.50；Δh = Z − h</span>
+lv = q(<span class="k">"SELECT scenario, q_cms, state, level_el_m FROM hydraulics_inputs WHERE section='1K+600'"</span>)
+lv[<span class="k">"出水高"</span>]   = crest − lv.level_el_m
+lv[<span class="k">"需求堤頂"</span>] = lv.level_el_m + 0.50</pre>
+    <table class="pyout"><thead><tr><th>情境</th><th>工程</th><th>洪水位 EL</th><th>出水高 m</th><th>需求堤頂 EL</th><th>檢核</th></tr></thead><tbody><tr><td>一般治理</td><td>施作前</td><td>2.91</td><td>0.29</td><td>3.41</td><td class="bad">不符</td></tr><tr><td>一般治理</td><td>施作後</td><td>2.79</td><td>0.41</td><td>3.29</td><td class="bad">不符</td></tr><tr><td>目標年（2070）</td><td>施作前</td><td>3.17</td><td>0.03</td><td>3.67</td><td class="bad">不符</td></tr><tr><td>目標年（2070）</td><td>施作後</td><td>2.92</td><td>0.28</td><td>3.42</td><td class="bad">不符</td></tr></tbody></table>
+    <div class="pychk"><span>益本比 <b>0.69</b></span><span>目標年 Q10 ÷ 現況 Q10 <b>1.16</b></span><span>抽水站減排 <b>25 cms</b>（3.2%）</span><span>閘門單寬流量 <b>5.95 cms/m</b></span></div>
+    <div class="pynote">公式驗算與差值檢核，不等同正式水理模式演算</div>
   </div>
-  <div class="layers r2 an" style="--d:2s"><span>單項施工品質</span><span class="arr">→</span><span>工程設計合理性</span><span class="arr">→</span><span class="hl">整體防洪系統韌性</span></div>
-  <div class="defs">
-    <div class="def an" style="--d:2.4s"><h4><b>Q10</b>是什麼？為何作為設計基準</h4><p>Q10 為 <b>10 年重現期距</b>洪水，即每年發生機率約 <b>1/10（10%）</b>的洪峰流量。區域排水以「通過 Q10 計畫洪水量」為設計標準，兼顧防洪效益與工程經濟，故以 Q10 作為閘門抗洪能力的設計基準。</p></div>
-    <div class="def an" style="--d:2.7s"><h4><b>益本比</b>是什麼？小於 1 為何有風險</h4><p>益本比＝計畫<b>總效益</b>（如減少淹水損失）÷<b>總成本</b>，兩者以現值比較。<b>大於 1</b> 方表示計畫可行；<b>小於 1</b> 代表投入多於可得效益，本案 9.46÷13.78＝<b>0.69</b>，每投入 1 元僅換得約 0.69 元效益，若未比較替代方案，恐有資源配置不經濟之風險。</p></div>
-    <div class="def an" style="--d:3s"><h4><b>冬山河</b>的治理標準</h4><p>冬山河屬<b>宜蘭縣管區域排水</b>，治理標準為「<b>通過 Q10 洪水、Q25 洪水不溢堤</b>」。本案基本設計所載目標年（<b>2070 年</b>）所需計畫堤頂高＝<b>10 年重現期距洪水位＋0.5 m</b>；以 1K+600 為例，EL2.92＋0.50＝<b>EL3.42 m</b>。</p></div>
-  </div>
-</section>
-
-<!-- ============ 6A 現場查核：照片 ============ -->
-<section class="slide" id="s-site" data-sec="現場查核" data-carousel="1" data-notes="現場查核發現4項施工缺失：管理橋營建廢棄物未清理、施工平臺電線連接處破損、鋼筋未加保護生銹嚴重、板模固定鐵件未剪除。這次我們運用自製的「施工品質缺失檢測助手」，拍照後由 AI 框選疑似缺失、判別類型，紅框就是 APP 當時回傳的結果，再由審計人員依契約與規範複核認定。另外，部分工項位於高空處或涉水處，審計人員無法直達，我們用自製的「手機遠端協助平台」，請現場人員以手機拍攝、由審計人員遠端圈選指示要看的位置。兩個工具在簡報最後會詳細說明。
-・紅框為 APP 實際回傳座標；第4張（突出鐵件）未經 APP 分析，無紅框
-・照片右側縮圖可點選；每5秒自動輪播">
-  <div class="pad">
-    <div class="kicker an"><span class="no">05</span>FIELD AUDIT</div>
-    <h2 class="title an" style="--d:.15s">現場查核：<em>AI 協助判別缺失</em></h2>
-  </div>
-  <div class="carousel c2 an fade" style="--d:.3s">
-    <figure class="on"><div class="phbg" style="background-image:url(img/defect-1.jpg)"></div><div class="ph"><img src="img/defect-1.jpg" alt=""><div class="aibox" style="top:35%;left:35%;height:60%;width:65%"><span>工地管理缺失</span></div></div><div class="aitag">🤖 AI 缺失檢測助手判別：施工廢料散落・工地管理缺失</div><figcaption>營建廢棄物未整理清潔<small>管理橋｜圖號 DHST-101｜可能風險：絆倒、墜落物等工安隱患</small></figcaption></figure>
-    <figure><div class="phbg" style="background-image:url(img/defect-2.jpg)"></div><div class="ph"><img src="img/defect-2.jpg" alt=""><div class="aibox" style="top:36%;left:52%;height:34%;width:4%"><span>電線配線不當</span></div></div><div class="aitag">🤖 AI 缺失檢測助手判別：線纜未受保護・電線配線不當</div><figcaption>電線連接處破損<small>施工平臺｜圖號 DSBR-002｜可能風險：漏電、感電</small></figcaption></figure>
-    <figure><div class="phbg" style="background-image:url(img/defect-3.jpg)"></div><div class="ph"><img src="img/defect-3.jpg" alt=""><div class="aibox" style="top:15%;left:2%;height:80%;width:93%"><span>鋼筋材料生銹</span></div></div><div class="aitag">🤖 AI 缺失檢測助手判別：鋼筋材料生銹與露天堆放</div><figcaption>鋼筋未加保護生銹嚴重<small>右岸鋼筋加工區｜圖號 DHRD-010｜可能風險：影響鋼筋品質與握裹</small></figcaption></figure>
-    <figure><div class="phbg" style="background-image:url(img/defect-4.jpg)"></div><div class="ph"><img src="img/defect-4.jpg" alt=""></div><figcaption>未剪除留有突出鐵件<small>板模固定鐵件｜圖號 DSBR-002｜可能風險：鏽蝕滲水、人員刺傷</small></figcaption></figure>
-  </div>
-  <div class="thumbs t2">
-    <div class="thumb on an right" style="--d:.5s"><img src="img/defect-1.jpg" alt=""><div><b>營建廢棄物</b><span>未整理清潔</span></div></div>
-    <div class="thumb an right" style="--d:.65s"><img src="img/defect-2.jpg" alt=""><div><b>電線連接處</b><span>破損</span></div></div>
-    <div class="thumb an right" style="--d:.8s"><img src="img/defect-3.jpg" alt=""><div><b>鋼筋</b><span>未加保護、生銹嚴重</span></div></div>
-    <div class="thumb an right" style="--d:.95s"><img src="img/defect-4.jpg" alt=""><div><b>板模固定鐵件</b><span>未剪除、突出</span></div></div>
-  </div>
-  <div class="tools2">
-    <div class="tool an" style="--d:1.2s"><div class="ic">📷</div><div><b>施工品質缺失檢測助手（AI 自製）</b><span>拍照上傳即由 AI 框選疑似缺失、判別類型，協助非稽查專業人員快速辨別</span></div></div>
-    <div class="tool an" style="--d:1.5s"><div class="ic">📡</div><div><b>手機遠端協助平台（AI 自製）</b><span>高空處、涉水處等審計人員無法直達之場域，由現場人員手機拍攝、審計人員遠端圈選指示</span></div></div>
-    <div class="more an fade" style="--d:1.8s">詳細說明<br>見文末 →</div>
-  </div>
-</section>
-
-<!-- ============ 7 查核升級 ============ -->
-<section class="slide" id="s-pivot" data-sec="查核升級" data-notes="這是本案的關鍵轉折。傳統的監督型查核問的是：有沒有依圖施工、有沒有重複計價、品質符不符合契約。但現場缺失讓我們產生新的疑問：設計基準合不合理？完工後防洪效果夠不夠？還有哪些系統性風險沒有被處理？於是我們從現場缺失出發，產生疑問、擴大分析，建立風險假設。
-・按 → 逐步顯示下方四個環節">
-  <div class="pad">
-    <div class="kicker an"><span class="no">06</span>THE PIVOT</div>
-    <h2 class="title an" style="--d:.15s">關鍵轉折：從<em>查缺失</em>，走向<em>找風險</em></h2>
-  </div>
-  <div class="versus">
-    <div class="card col an left" style="--d:.3s"><h3>監督型查核</h3><ul>
-      <li>是否依圖施工？</li><li>是否重複計價？</li><li>品質是否符合契約？</li></ul></div>
-    <div class="mid an fade" style="--d:.9s"><svg width="110" height="110" viewBox="0 0 110 110"><path class="draw" style="--len:200;--d:1s;--dur:1s" d="M10 55 H95 M70 28 L97 55 L70 82" stroke="#f2b84b" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="card col ins an right" style="--d:1.2s"><h3>洞察型查核</h3><ul>
-      <li>設計基準（Q10 流量）是否合理？</li><li>完工後防洪效果是否足夠？</li><li>還有哪些系統性風險未被處理？</li></ul></div>
-  </div>
-  <div class="chain"><span data-step="1">現場缺失</span><i data-step="1">→</i><span data-step="2">產生疑問</span><i data-step="2">→</i><span data-step="3">擴大分析</span><i data-step="3">→</i><span data-step="4">建立風險假設</span></div>
-</section>
-
-<!-- ============ 8A 導入 AI ============ -->
-<section class="slide" id="s-ai" data-calc="1" data-sec="AI × 3D" data-notes="我們把基本設計水理成果、20公尺 DTM 數值地形、NLSC 正射影像與官方3D建物，以及工程設計圖說放進同一個空間。AI 協助整理參數、建立情境、比對版本和撰寫程式。以整理參數為例，畫面會短暫顯示「採用現況 Q25、1,088 cms 作為目標年2070年堤防保護能力依據」的合理性評估：目標年 Q10 等於現況 Q25，是現況 Q10 的1.16倍；1K+600 所需堤頂 EL2.92 加 0.5 等於 EL3.42，現況 3.20，出水高只有 0.28 公尺，需加高 0.22 公尺。結論是方向合理，但屬超標保守設計。接著，用 Three.js 建成區域16×16公里、工程細部0.4×0.4公里的模型，輸出工程前後水位比較、堤頂出水高、抽水依賴與可能影響區位。要特別強調：AI 只協助篩檢、比對與視覺化，不取代正式水理計算與專業判斷。
-・計算式約在進頁 3 秒後自動顯示 12 秒；點「整理參數」可再開啟，點計算式可關閉
-・粒子流動僅為視覺效果，不代表流速">
-  <div class="pad">
-    <div class="kicker an"><span class="no">07</span>AI × 3D</div>
-    <h2 class="title an" style="--d:.15s">導入 AI：把報告裡的數字，放回<em>真實地形</em></h2>
-  </div>
-  <div class="pipe">
-    <svg width="1920" height="640" style="position:absolute;inset:0" fill="none">
-      <defs><linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#3fd0c9"/><stop offset=".5" stop-color="#a99cff"/><stop offset="1" stop-color="#f2b84b"/></linearGradient></defs>
-      <path id="flowpath" class="draw" style="--len:1500;--d:.6s;--dur:2.2s" d="M500 250 C 600 250, 620 250, 720 250 M1000 250 C 1100 250, 1120 250, 1220 250" stroke="url(#pg)" stroke-width="3" stroke-dasharray="8 10"/>
-      <g class="an fade" style="--d:2s">
-        <circle r="7" fill="#3fd0c9"><animateMotion dur="1.8s" repeatCount="indefinite" path="M500 250 H720"/></circle>
-        <circle r="7" fill="#3fd0c9"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite" path="M500 250 H720"/></circle>
-        <circle r="7" fill="#f2b84b"><animateMotion dur="1.8s" repeatCount="indefinite" path="M1000 250 H1220"/></circle>
-        <circle r="7" fill="#f2b84b"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite" path="M1000 250 H1220"/></circle>
-      </g>
-    </svg>
-    <div class="pcol" style="left:120px">
-      <h4 class="an" style="--d:.3s">資料輸入</h4>
-      <div class="pitem an left" style="--d:.4s">基本設計水理成果<small>工程前後 1K+600 水位</small></div>
-      <div class="pitem an left" style="--d:.5s">2025 版 20 m DTM<small>EPSG:3826／TWVD2001</small></div>
-      <div class="pitem an left" style="--d:.6s">NLSC 正射影像與 3D 建物<small>官方 3D Tiles 線上介接</small></div>
-      <div class="pitem an left" style="--d:.7s">工程設計圖說<small>閘門、堤防、道路配置</small></div>
-    </div>
-    <div class="pcol ai" style="left:770px;width:230px">
-      <h4 class="an" style="--d:.9s">AI 輔助</h4>
-      <div class="pitem an zoom calc-trigger" style="--d:1s">整理參數<small>點我看計算式</small></div>
-      <div class="pitem an zoom" style="--d:1.15s">建立情境</div>
-      <div class="pitem an zoom" style="--d:1.3s">比對版本</div>
-      <div class="pitem an zoom" style="--d:1.45s">撰寫程式</div>
-    </div>
-    <div class="pcol" style="left:1050px;width:170px">
-      <h4 class="an" style="--d:1.6s;color:#a9c1cb">3D 模擬</h4>
-      <div class="pitem an zoom" style="--d:1.7s;text-align:center">Three.js<small>16×16 km<br>0.4×0.4 km</small></div>
-    </div>
-    <div class="pcol out" style="left:1290px;width:510px">
-      <h4 class="an" style="--d:1.9s">風險輸出</h4>
-      <div class="pitem an right" style="--d:2s">工程前後 1K+600 水位比較</div>
-      <div class="pitem an right" style="--d:2.15s">堤頂出水高與 0.50 m 原則差距</div>
-      <div class="pitem an right" style="--d:2.3s">抽水站依賴與閘門失效情境</div>
-      <div class="pitem an right" style="--d:2.45s">可能影響區位（建物 X／Y 篩檢）</div>
-    </div>
+  <div class="defs d5">
+    <div class="def an" style="--d:1.6s"><h4><b>Q10</b>為何作為設計基準</h4><p>10 年重現期距洪水，每年發生機率約 <b>1/10</b>；區域排水以「通過 Q10 計畫洪水量」為設計標準，兼顧防洪效益與工程經濟。</p></div>
+    <div class="def an" style="--d:1.85s"><h4><b>益本比</b>小於 1 的風險</h4><p>總效益 ÷ 總成本，<b>大於 1</b> 方表示計畫可行；本案 <b>0.69</b>，每投入 1 元換得約 0.69 元效益，未比較替代方案即有資源配置不經濟之風險。</p></div>
+    <div class="def an" style="--d:2.1s"><h4><b>冬山河</b>治理標準</h4><p>宜蘭縣管區域排水：「<b>通過 Q10、Q25 不溢堤</b>」；目標年（<b>2070 年</b>）所需計畫堤頂高＝10 年重現期距洪水位＋0.5 m。</p></div>
   </div>
   <div class="calcpop" aria-live="polite">
     <div class="ch">AI 輔助整理參數｜「採用現況 Q25（1,088 cms）作為目標年（2070）堤防保護能力依據」之合理性評估</div>
@@ -233,97 +124,54 @@
       <div class="cbox judge">
         <div class="jt">評估結論</div>
         <div class="jv">方向合理，惟屬<b>「超標保守設計」</b></div>
-        <div class="jok">合理：規劃階段既定假設；現況 Q10→Q25 增幅 1.16 倍（＋16%），與氣候變遷短延時降雨增幅（＋10～20%）量級相符；演算鏈完整</div>
+        <div class="jok">合理：規劃階段既定原則；現況 Q10→Q25 增幅 1.16 倍（＋16%），與氣候變遷短延時降雨增幅（＋10～20%）量級相符；演算鏈完整</div>
         <div class="jng">待檢討：現況 Q25 與目標年 Q10 統計意涵不同；等於將治理標準由 Q10 提升至 Q25，須經核定並反映經費；1K+600 即暴露此矛盾</div>
       </div>
     </div>
   </div>
-  <div class="position-note an" style="--d:2.8s">AI 模型定位：協助風險篩檢、資料交叉比對及視覺化 —— <b style="color:#f2b84b">不取代正式水理計算與專業判斷</b></div>
 </section>
 
-<!-- ============ 8B 主模型即時操作 ============ -->
-<section class="slide" id="s-live1" data-sec="AI × 3D" data-model="8771" data-model-path="/model/" data-model-rel="models/risk/model/" data-fallback="media/shots/risk-1088-before.jpg" data-notes="這是實際執行的模型。以目標年2070年 Q10 1,088 cms 為例，施作前1K+600水位 EL3.17公尺，施作後 EL2.92公尺；現況堤頂 EL3.20公尺，出水高只剩0.28公尺。請注意，這是靜態篩檢，不是一維或二維非恆定流水理模式，紅色建物也不等於實際受災戶數；750 cms 是關閘操作歷程峰，不能跟775直接相減算效益。
-・操作：右側快捷列點 1088，再點「前」「後」切換；可用「閘門近景」「垂直俯視」
-・換頁前先點模型外任一處，鍵盤才會回到簡報
-・官方3D建物須連網；斷線時建物不顯示">
-  <div class="modelhead"><div class="kicker an"><span class="no">07</span>LIVE MODEL｜3D 淹水風險互動模型</div></div>
-  <div class="modelwrap an fade" style="--d:.2s"><div class="fallback" data-msg="模型載入中…（離線時顯示預錄畫面）"></div><span class="live">LIVE｜Three.js</span></div>
-  <div class="modelside">
-    <div class="card an right" style="--d:.4s;padding:20px 22px">
-      <table class="sctable">
-        <tr><th>Q10 情境</th><th>洪峰</th><th>施作前</th><th>施作後</th></tr>
-        <tr><td class="n">一般治理 2020</td><td>775</td><td>2.91</td><td>2.79</td></tr>
-        <tr><td class="n">天然現況 2020</td><td>938</td><td>3.05</td><td>2.86*</td></tr>
-        <tr class="hl"><td class="n">目標年 2070</td><td>1,088</td><td>3.17</td><td>2.92</td></tr>
-        <tr><td class="n">關閘禦潮</td><td>750</td><td>—</td><td>2.46†</td></tr>
-      </table>
-      <div class="hint" style="font-size:16px;margin-top:10px;color:#6f8b97">單位：cms、EL m（1K+600）。* 線性篩檢內插。† 操作歷程最高內水，非 1K+600，不得與 775 直接計算改善效益。堤頂 EL3.20 m。</div>
-    </div>
-    <div class="hint an right" style="--d:.6s">操作：右側快捷列 <b>775／750／1088</b> 切流量，<b>前／後</b> 切工程施作前後；拖曳旋轉、滾輪縮放。</div>
-  </div>
-</section>
-
-<!-- ============ 影片 A ============ -->
-<section class="slide" id="s-filmA" data-sec="影片A" data-film="a" data-notes="（播放影片，無需口述。）接下來用一段影片，說明模型是怎麼一步步做出來的。
+<section class="slide" id="s-filmA" data-sec="五結案例" data-film="a" data-notes="（播放影片，無需口述。）
 ・進頁自動播放；空白鍵暫停、C 字幕、R 從頭">
   <div class="film paused" data-film-id="a">
-    <div class="ftitle"><b>影片 A</b>從施工查核疑問，到 AI × 3D 風險驗證</div>
+    <div class="ftitle"><b>影片 A</b>從報告交叉查核，到可操作的 3D GIS 模型</div>
     <div class="chap"><div class="c1"></div><div class="c2"></div></div>
 
     <div class="scene" data-scene="a1">
-      <div class="shotimg kenburns" style="background-image:url(img/site-aerial.jpg);--kb:14s"></div>
-      <div class="shade" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 46%,rgba(0,0,0,.1),rgba(3,10,15,.78) 70%)"></div>
-      <span class="real" style="left:60px;top:100px">實景｜115.8.17 工區空拍</span>
-      <svg style="position:absolute;inset:0" viewBox="0 0 1920 1080" fill="none">
-        <g font-family="Microsoft JhengHei" font-weight="800" text-anchor="middle">
-          <g class="an zoom" style="--d:1.2s"><circle cx="960" cy="480" r="150" stroke="#eaf4f7" stroke-width="4"/><text x="960" y="490" font-size="38" fill="#fff">施工品質</text></g>
-          <g class="an zoom" style="--d:4s"><circle cx="960" cy="480" r="270" stroke="#f2b84b" stroke-width="4" stroke-dasharray="14 10"/><text x="960" y="232" font-size="38" fill="#f2b84b">設計合理性</text></g>
-          <g class="an zoom" style="--d:7s"><circle cx="960" cy="480" r="400" stroke="#3fd0c9" stroke-width="5"/><text x="960" y="102" font-size="40" fill="#3fd0c9">系統韌性</text></g>
-        </g>
-      </svg>
+      <div class="rcol">
+        <div class="rcard an left" style="--d:.8s"><b>規劃期中</b><span>Q10 846／922 cms</span></div>
+        <div class="rcard an left" style="--d:1.8s"><b>規劃期末</b><span>Q10 856 cms</span></div>
+        <div class="rcard an left" style="--d:2.8s"><b>基本設計成果</b><span>Q10 775 cms｜目標年 1,088 cms</span></div>
+      </div>
+      <svg style="position:absolute;left:560px;top:250px" width="260" height="560" fill="none"><path class="draw" style="--len:900;--d:3.6s;--dur:3s" d="M0 60 C 130 60, 130 120, 260 120 M0 270 C 130 270, 130 250, 260 250 M0 480 C 130 480, 130 380, 260 380 M0 480 C 130 480, 130 510, 260 510" stroke="#3fd0c9" stroke-width="3" stroke-dasharray="6 8"/></svg>
+      <div class="tcol">
+        <div class="kicker an" style="--d:3.4s">審查意見追蹤（原意見 → 回復 → 落實）</div>
+          <div class="trow an right" style="--d:4s"><b>設計流量</b><span>Q10 計畫洪水量設計值先後採 6 種不同標準</span><em class="">部分落實</em></div>
+          <div class="trow an right" style="--d:7.2s"><b>外水位</b><span>要求比較較高外水位 EL2.89 m 之影響</span><em class="">待確認</em></div>
+          <div class="trow an right" style="--d:10.4s"><b>堤頂高</b><span>工區外 1K+600 堤頂與目標年洪水位之出水高</span><em class="bad">未落實</em></div>
+          <div class="trow an right" style="--d:13.600000000000001s"><b>抽排依賴</b><span>關閘期間兩岸抽水站須減排 25 cms</span><em class="bad">未落實</em></div>
+      </div>
     </div>
 
     <div class="scene" data-scene="a2">
-      <div style="position:absolute;left:100px;top:170px;width:820px" class="chipcol">
-        <div class="kicker an">分工：AI 加速、專業判斷</div>
-        <div class="chip an left" style="--d:.4s;font-size:30px;padding:20px 24px">① 資料整理<small>報告表列值、口徑逐項建檔</small></div>
-        <div class="chip an left" style="--d:1.6s;font-size:30px;padding:20px 24px">② 地形網格<small>20 m DTM → 40 m 分析格網、EPSG:3826</small></div>
-        <div class="chip an left" style="--d:2.8s;font-size:30px;padding:20px 24px">③ 三維渲染<small>Three.js／WebGL 場景、閘門與堤防物件</small></div>
-        <div class="chip an left" style="--d:4s;font-size:30px;padding:20px 24px">④ 驗證與報告<small>資料測試、來源與限制、Word 說明書</small></div>
+      <div class="reqcol">
+        <div class="kicker an">向宜蘭縣政府調件</div>
+        <div class="doc an left" style="--d:.8s">📄 水理分析</div>
+        <div class="doc an left" style="--d:1.6s">📄 計算書（含結構計算書）</div>
+        <div class="doc an left" style="--d:2.4s">📄 工程圖說</div>
+        <div class="doc an left" style="--d:3.2s">📄 閘門與抽水站操作資料</div>
       </div>
-      <div class="glass an right" style="--d:1s;left:1000px;top:170px;width:820px">
-        <div class="kicker" style="font-size:20px;margin-bottom:12px">主模型原始碼（ZIP 實際檔案）</div>
-        <div class="code">
-public/model/<br>
-├ index.html <span class="c">// 模型頁面與工具列</span><br>
-├ assets/<span class="k">app.js</span> <span class="c">// Three.js 場景主體（IIFE）</span><br>
-├ assets/model-data.js <span class="c">// WUJIE_MODEL_DATA</span><br>
-├ assets/regional-data.js <span class="c">// 16×16 km 區域資料</span><br>
-├ assets/flow-event.js <span class="c">// 水位歷程計算（UMD）</span><br>
-├ data/<span class="k">scenarios.json</span> <span class="c">// 情境、出處、限制</span><br>
-└ tests/*.test.mjs <span class="c">// 4 通過／1 失敗*</span>
-        </div>
-        <div style="font-size:17px;color:#6f8b97;margin-top:12px">* 失敗項為伺服器端渲染未編譯（缺 dist/server），非模型資料錯誤。</div>
+      <svg style="position:absolute;left:740px;top:420px" width="300" height="80" fill="none"><path class="draw" style="--len:400;--d:4s;--dur:1.4s" d="M10 40 H270 M240 15 L275 40 L240 65" stroke="#f2b84b" stroke-width="6" stroke-linecap="round"/></svg>
+      <div class="dbbox an zoom" style="--d:5s">
+        <div class="kicker">勾稽資料庫</div>
+        <div class="tbls big"><span>reports</span><span>review_comments</span><span>agency_replies</span><span>design_scenarios</span><span>hydrology_inputs</span><span>hydraulics_inputs</span><span>drawings</span><span>measurements</span><span>assumptions</span><span>expert_reviews</span><span>audit_findings</span><span>sources</span></div>
+        <div class="dbf an fade" style="--d:8s">每筆紀錄：文件｜版本｜狀態</div>
       </div>
     </div>
 
-    <div class="scene" data-scene="a3">
-      <span class="demo" style="left:60px;top:100px">流程重建示意</span>
-      <div class="a3grid" style="position:absolute;left:90px;right:90px;top:200px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px">
-        <div class="chipcol an" style="--d:.3s"><div class="kicker">水理與水文</div><div class="chip ok">基本設計水理成果<small>工程前後 1K+600 水位</small></div><div class="chip need">原始水理模式輸入輸出<small>SOBEK 等可稽核檔案、校正驗證</small></div></div>
-        <div class="chipcol an" style="--d:1.2s"><div class="kicker">斷面與高程</div><div class="chip ok">1K+600 堤頂 EL3.20 m<small>基本設計 4.11 河道水理分析</small></div><div class="chip need">實測斷面與水準測量<small>堤頂、河床、門檻高程</small></div></div>
-        <div class="chipcol an" style="--d:2.1s"><div class="kicker">閘門與抽排操作</div><div class="chip ok">關閘與閘門失效情境<small>關閘約 6 小時</small></div><div class="chip need">抽水站操作與故障演練紀錄<small>減排 25 cms 實際執行</small></div></div>
-        <div class="chipcol an" style="--d:3s"><div class="kicker">審查與經濟</div><div class="chip ok">基本設計審查紀錄<small>6 種 Q10 設計值</small></div><div class="chip need">益本比計算明細<small>折現率、年限、替代方案、敏感度</small></div></div>
-      </div>
-      <svg style="position:absolute;left:0;top:700px" width="1920" height="200" fill="none">
-        <path class="draw" style="--len:1800;--d:4s;--dur:2.5s" d="M200 40 C 600 160, 1300 160, 1720 40" stroke="#3fd0c9" stroke-width="3" stroke-dasharray="6 10"/>
-        <text class="an fade" style="--d:5.5s" x="960" y="170" text-anchor="middle" font-size="30" fill="#eaf4f7" font-family="Microsoft JhengHei" font-weight="700">每一個數字都要回到正式成果與原始紀錄</text>
-      </svg>
-    </div>
-
-    <div class="scene" data-scene="a4">
+<div class="scene" data-scene="a3">
       <span class="demo" style="left:60px;top:100px">示意歷線（依報告情境標示，非實測）</span>
-      <svg style="position:absolute;left:80px;top:150px" width="1150" height="700" viewBox="0 0 1150 700" fill="none" font-family="Microsoft JhengHei">
+      <svg style="position:absolute;left:80px;top:150px" width="1000" height="610" viewBox="0 0 1150 700" fill="none" font-family="Microsoft JhengHei">
         <rect class="an fade" style="--d:2.5s" x="290" y="40" width="190" height="560" fill="rgba(255,107,94,.12)"/>
         <rect class="an fade" style="--d:3.2s" x="480" y="40" width="570" height="560" fill="rgba(63,208,201,.08)"/>
         <text class="an fade" style="--d:2.5s" x="385" y="76" fill="#ff6b5e" font-size="24" text-anchor="middle" font-weight="700">關閘約 6 小時</text>
@@ -338,58 +186,47 @@ public/model/<br>
         <g class="an fade" style="--d:4.4s"><path d="M720 560 V470" stroke="#a99cff" stroke-width="5" marker-end="url(#ar)"/><text x="740" y="560" fill="#a99cff" font-size="24">抽水站減排 25 cms</text></g>
         <defs><marker id="ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#a99cff"/></marker></defs>
       </svg>
-      <div class="chipcol" style="position:absolute;left:1290px;right:80px;top:170px">
-        <div class="kicker an" style="--d:5s">三種口徑，不可混算</div>
-        <div class="chip an right" style="--d:5.6s;font-size:26px"><b class="num" style="color:#f2b84b">750 cms</b>　關閘期間高地洪峰<small>新建閘門禦潮操作</small></div>
-        <div class="chip an right" style="--d:6.6s;font-size:26px"><b class="num" style="color:#3fd0c9">775 cms</b>　通過閘址 Q10 計畫洪水量<small>一般治理計畫洪水量</small></div>
-        <div class="chip an right" style="--d:7.6s;font-size:26px"><b class="num" style="color:#ff6b5e">1,088 cms</b>　目標年（2070 年）Q10<small>以現況 Q25 保守採計</small></div>
+      <div class="pyfilm an right" style="--d:9s">
+        <div class="pyh"><span>●</span><span>●</span><span>●</span><b>Python 驗算（實際執行結果）</b></div>
+        <table class="pyout"><thead><tr><th>情境</th><th>工程</th><th>洪水位</th><th>出水高</th><th>檢核</th></tr></thead><tbody><tr><td>一般治理</td><td>施作前</td><td>2.91</td><td>0.29</td><td class="bad">不符</td></tr><tr><td>一般治理</td><td>施作後</td><td>2.79</td><td>0.41</td><td class="bad">不符</td></tr><tr><td>目標年（2070）</td><td>施作前</td><td>3.17</td><td>0.03</td><td class="bad">不符</td></tr><tr><td>目標年（2070）</td><td>施作後</td><td>2.92</td><td>0.28</td><td class="bad">不符</td></tr></tbody></table>
+        <div class="pyeq an fade" style="--d:16s">Z<sub>req</sub>＝2.92＋0.50＝<b>EL3.42 m</b>　現況 EL3.20 m　<b class="bad">不足 0.22 m</b></div>
+      </div>
+    </div>
+
+    <div class="scene" data-scene="a4">
+      <div class="shotimg kenburns" style="background-image:url(media/shots/risk-00-start.jpg);--kb:16s;transform-origin:62% 50%"></div>
+      <div class="xfade" style="background-image:url(media/shots/risk-1088-before.jpg);--d:16s;--xd:1.2s"></div>
+      <div class="xfade" style="background-image:url(media/shots/risk-1088-after.jpg);--d:28s;--xd:1.2s"></div>
+      <span class="real" style="left:470px;top:100px">實際運行畫面｜主模型</span>
+      <div class="glass an right" style="--d:1.5s;right:80px;top:200px;width:540px">
+        <div class="kicker" style="font-size:20px;margin-bottom:10px">場景規格</div>
+        <div class="chipcol">
+          <div class="chip">NLSC 正射影像＋三維建物</div>
+          <div class="chip">20 m DTM → 40 m 分析格網</div>
+          <div class="chip">Three.js／WebGL 互動場景</div>
+          <div class="chip">區域 16×16 km｜工程細部 0.4×0.4 km</div>
+        </div>
+      </div>
+      <div class="glass an fade" style="--d:15.5s;right:80px;top:640px;width:540px;height:200px">
+        <div style="position:absolute;inset:22px 28px">
+          <div class="rdi" style="--d:16s"><div class="kicker" style="font-size:20px;color:#ff6b5e">目標年（2070）Q10 1,088 cms</div><div class="num" style="font-size:64px;font-weight:700">施作前 EL3.17</div></div>
+          <div class="rdi" style="--d:28s"><div class="kicker" style="font-size:20px;color:#ff6b5e">目標年（2070）Q10 1,088 cms</div><div class="num" style="font-size:64px;font-weight:700;color:#f2b84b">施作後 EL2.92</div></div>
+        </div>
       </div>
     </div>
 
     <div class="scene" data-scene="a5">
-      <div class="shotimg kenburns" style="background-image:url(media/shots/risk-00-start.jpg);--kb:14s;transform-origin:62% 50%"></div>
-      <span class="real" style="left:60px;top:100px">實際運行畫面｜主模型本機執行</span>
-      <div class="glass an right" style="--d:1.5s;right:80px;top:200px;width:560px">
-        <div class="kicker" style="font-size:20px;margin-bottom:10px">場景規格</div>
-        <div class="chipcol">
-          <div class="chip">區域 16×16 km（256 km²）<small>以改善閘門設計軸線中點為中心</small></div>
-          <div class="chip">工程細部 0.4×0.4 km<small>閘門、堤防、道路、橋梁</small></div>
-          <div class="chip">EPSG:3826／TWVD2001<small>20 m DTM、40 m 分析格網</small></div>
-          <div class="chip">NLSC 宜蘭縣分棟 3D Tiles<small>依視角線上載入，不封裝官方 GLB</small></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="scene" data-scene="a6">
-      <div class="shotimg" style="background-image:url(media/shots/risk-775-before.jpg)"></div>
-      <div class="xfade" style="background-image:url(media/shots/risk-775-after.jpg);--d:3s;--xd:1s"></div>
-      <div class="xfade" style="background-image:url(media/shots/risk-1088-before.jpg);--d:6s;--xd:1s"></div>
-      <div class="xfade" style="background-image:url(media/shots/risk-1088-after.jpg);--d:9s;--xd:1s"></div>
-      <span class="real" style="left:470px;top:100px">實際運行畫面｜情境切換</span>
-      <div class="glass" style="right:80px;top:300px;width:470px;height:250px">
-        
-        <div style="position:absolute;inset:24px 30px" class="rd">
-          <div class="rdi" style="--d:0s"><div class="kicker" style="font-size:20px">Q10 一般治理 775 cms</div><div class="num" style="font-size:72px;font-weight:700">施作前 EL2.91</div></div>
-          <div class="rdi" style="--d:3s"><div class="kicker" style="font-size:20px">Q10 一般治理 775 cms</div><div class="num" style="font-size:72px;font-weight:700;color:#3fd0c9">施作後 EL2.79</div></div>
-          <div class="rdi" style="--d:6s"><div class="kicker" style="font-size:20px;color:#ff6b5e">目標年（2070）Q10 1,088 cms</div><div class="num" style="font-size:72px;font-weight:700">施作前 EL3.17</div></div>
-          <div class="rdi" style="--d:9s"><div class="kicker" style="font-size:20px;color:#ff6b5e">目標年（2070）Q10 1,088 cms</div><div class="num" style="font-size:72px;font-weight:700;color:#f2b84b">施作後 EL2.92</div></div>
-        </div>
-      </div>
-      <div class="an zoom" style="--d:7.5s;position:absolute;right:80px;top:590px;width:470px;padding:16px 20px;border:4px solid #ff6b5e;border-radius:14px;color:#ff6b5e;font-size:30px;font-weight:900;text-align:center;background:rgba(40,5,5,.8);transform:rotate(-3deg)">靜態風險篩檢<br><span style="font-size:20px;font-weight:600">SCREENING ONLY｜非正式水理求解</span></div>
-    </div>
-
-    <div class="scene" data-scene="a7">
-      <div style="position:absolute;left:100px;top:170px;width:1000px" class="chipcol">
-        <div class="kicker an">封存：來源・版本・限制</div>
-        <div class="chip an left" style="--d:.5s">每個水位都附出處<small>例：1,088 cms 為報告列值；938 cms 施作後為篩檢內插（明示）</small></div>
-        <div class="chip an left" style="--d:1.3s">版本可追溯<small>主模型 20260904-q10-operation-v11；查核模型 2026-08-30 證據包</small></div>
-        <div class="chip an left" style="--d:2.1s">限制寫進畫面<small>靜態篩檢；建物 X／Y 為部分範圍，不等於受災戶數</small></div>
-        <div class="chip an left" style="--d:2.9s">測試誠實揭露<small>淹水模型 4 通過／1 失敗；查核模型 0 通過／2 失敗（測試與現行資料結構不一致）</small></div>
+      <div style="position:absolute;left:100px;top:180px;width:1000px" class="chipcol">
+        <div class="kicker an">版本與計算限制</div>
+        <div class="chip an left" style="--d:.6s">空間篩檢，不取代正式水理模式<small>依設計標準切換流量與工程前後，比較水位與周邊區位</small></div>
+        <div class="chip an left" style="--d:1.6s">每個水位對應正式文件數值<small>報告列值與算術推導分開標示</small></div>
+        <div class="chip an left" style="--d:2.6s">版本固定<small>主模型 20260904-q10-operation-v11</small></div>
+        <div class="chip an left" style="--d:3.6s">建物以「X／Y 部分範圍」呈現<small>不等於受災戶數</small></div>
       </div>
       <svg style="position:absolute;left:1150px;top:200px" width="680" height="640" fill="none">
-        <path class="draw" style="--len:900;--d:3.6s;--dur:2s" d="M40 80 C 300 80, 340 300, 600 320 M40 320 H600 M40 560 C 300 560, 340 340, 600 320" stroke="#3fd0c9" stroke-width="4"/>
-        <circle class="an zoom" style="--d:5.4s" cx="600" cy="320" r="34" fill="#f2b84b"/>
-        <text class="an fade" style="--d:5.8s" x="420" y="420" fill="#f2b84b" font-size="30" font-family="Microsoft JhengHei" font-weight="800" text-anchor="middle">可信的審計輔助證據</text>
+        <path class="draw" style="--len:900;--d:5s;--dur:2s" d="M40 80 C 300 80, 340 300, 600 320 M40 320 H600 M40 560 C 300 560, 340 340, 600 320" stroke="#3fd0c9" stroke-width="4"/>
+        <circle class="an zoom" style="--d:7s" cx="600" cy="320" r="34" fill="#f2b84b"/>
+        <text class="an fade" style="--d:7.5s" x="420" y="420" fill="#f2b84b" font-size="32" font-family="Microsoft JhengHei" font-weight="800" text-anchor="middle">可追溯的風險線索</text>
       </svg>
     </div>
 
@@ -399,63 +236,59 @@ public/model/<br>
   </div>
 </section>
 
-<!-- ============ 9A 專家諮詢 ============ -->
-<section class="slide" id="s-expert" data-sec="專家諮詢" data-notes="AI 不是答案。我們請水利專家檢視問題設定。專家指出：把現況 Q25 直接當未來 Q10 的論證偏弱；既然採1,088 cms 高標準，堤防就必須全段加高，卻沒有編列預算；閘門通洪750對計畫775 cms 的缺口要靠抽水站補，經濟合理性值得檢討。前三項已納入審核通知。另外專家提到曼寧 N 值前後不一、未以實測事件律定，因需要原始模式檔案查證，目前列為待補證。專家也建議模擬應聚焦保護標準，我們據此修正了模型的呈現方式。
-・專家所稱抽水站約8億元、占閘門造價61.5%，未列入審核通知，口述時請註明為專家意見">
+<section class="slide" id="s-live1" data-sec="五結案例" data-model="8771" data-model-path="/model/" data-model-rel="models/risk/model/" data-fallback="media/shots/risk-1088-before.jpg" data-notes="這是實際執行的 3D GIS 淹水模組，依目前的設計標準進行模擬。以目標年 2070 年 Q10 一千零八十八 cms 為例，施作前 1K+600 水位 EL3.17 公尺，施作後 EL2.92 公尺；現況堤頂 EL3.20 公尺，出水高只剩 0.28 公尺。模型是空間篩檢，不取代正式水理模式。
+・手機遙控：模型操作區可切 775／750／1088、施作前後、年份、視角，拖曳旋轉、縮放
+・滑鼠操作模型後，點模型外任一處即恢復換頁鍵">
+  <div class="modelhead"><div class="kicker an"><span class="no">二</span>3D GIS 淹水模組｜LIVE MODEL</div></div>
+  <div class="modelwrap an fade" style="--d:.2s"><div class="fallback" data-msg="模型載入中…（離線時顯示預錄畫面）"></div><span class="live">LIVE｜Three.js</span></div>
+  <div class="modelside">
+    <div class="card an right" style="--d:.4s;padding:20px 22px">
+      <table class="sctable">
+        <tr><th>Q10 情境</th><th>洪峰</th><th>施作前</th><th>施作後</th></tr>
+        <tr><td class="n">一般治理 2020</td><td>775</td><td>2.91</td><td>2.79</td></tr>
+        <tr class="hl"><td class="n">目標年 2070</td><td>1,088</td><td>3.17</td><td>2.92</td></tr>
+        <tr><td class="n">關閘禦潮</td><td>750</td><td>—</td><td>2.46†</td></tr>
+      </table>
+      <div class="hint" style="font-size:16px;margin-top:10px;color:#6f8b97">單位：cms、EL m（1K+600）。† 操作歷程最高內水，非 1K+600，不得與 775 直接計算改善效益。堤頂 EL3.20 m。</div>
+    </div>
+    <div class="hint an right" style="--d:.6s">操作：右側快捷列 <b>775／750／1088</b> 切流量，<b>前／後</b> 切工程施作前後；拖曳旋轉、滾輪縮放。</div>
+  </div>
+</section>
+
+<section class="slide" id="s-expert" data-sec="五結案例" data-notes="模擬結果交給水利專家諮詢。專家指出：設計流量依據偏弱、堤防必須全段加高，以及閘門通洪 750 對計畫 775 cms 的缺口需仰賴抽水站，這三項已納入審核通知；水理參數未律定驗證，列為待補證；並建議模擬聚焦保護標準。證據依 A 直接佐證、B 可重現推導、C 輔助判釋、D 待補證分級，不混用。">
   <div class="pad">
-    <div class="kicker an"><span class="no">08</span>HUMAN IN THE LOOP</div>
+    <div class="kicker an"><span class="no">二</span>專家諮詢｜HUMAN IN THE LOOP</div>
     <h2 class="title an" style="--d:.15s">AI 不是答案：讓<em>專家</em>檢驗問題設定</h2>
   </div>
-  <svg class="loop" viewBox="0 0 760 620" fill="none" font-family="Microsoft JhengHei" font-weight="700" text-anchor="middle">
+  <svg class="loop l8" viewBox="0 0 760 620" fill="none" font-family="Microsoft JhengHei" font-weight="700" text-anchor="middle">
     <circle class="draw" style="--len:1300;--d:.5s;--dur:2.4s" cx="380" cy="300" r="200" stroke="#1d8f9a" stroke-width="5" stroke-dasharray="1300"/>
-    <g class="an zoom" style="--d:.6s"><circle cx="380" cy="100" r="78" fill="#1a1740" stroke="#a99cff" stroke-width="3"/><text x="380" y="92" font-size="28" fill="#a99cff">AI</text><text x="380" y="126" font-size="22" fill="#eaf4f7">提出風險假設</text></g>
+    <g class="an zoom" style="--d:.6s"><circle cx="380" cy="100" r="78" fill="#1a1740" stroke="#a99cff" stroke-width="3"/><text x="380" y="92" font-size="28" fill="#a99cff">AI</text><text x="380" y="126" font-size="22" fill="#eaf4f7">提出風險疑點</text></g>
     <g class="an zoom" style="--d:1.2s"><circle cx="580" cy="300" r="78" fill="#0f2f2d" stroke="#3fd0c9" stroke-width="3"/><text x="580" y="292" font-size="28" fill="#3fd0c9">專家</text><text x="580" y="326" font-size="22" fill="#eaf4f7">檢驗參數設定</text></g>
     <g class="an zoom" style="--d:1.8s"><circle cx="380" cy="500" r="78" fill="#2f2510" stroke="#f2b84b" stroke-width="3"/><text x="380" y="492" font-size="28" fill="#f2b84b">審計</text><text x="380" y="526" font-size="22" fill="#eaf4f7">形成判斷</text></g>
     <g class="an zoom" style="--d:2.4s"><circle cx="180" cy="300" r="78" fill="#13242e" stroke="#a9c1cb" stroke-width="3"/><text x="180" y="292" font-size="28" fill="#a9c1cb">修正</text><text x="180" y="326" font-size="22" fill="#eaf4f7">模型解讀</text></g>
     <text class="an fade" style="--d:3s" x="380" y="310" font-size="26" fill="#eaf4f7">交叉驗證</text>
   </svg>
-  <div class="experts">
+  <div class="experts e8">
     <div class="ex an right" style="--d:.8s"><b>設計流量依據偏弱 <span class="tag a">已納入通知</span></b><p>現況 Q25（1,088 cms）直接轉為未來 Q10，缺乏趨勢分析或 CDTR 氣候情境支撐</p></div>
     <div class="ex an right" style="--d:1.1s"><b>堤防須全段加高 <span class="tag a">已納入通知</span></b><p>採 1,088 cms（目標年 2070）高標準，卻未編列配套堤防加高預算，形成計畫完整性缺口</p></div>
     <div class="ex an right" style="--d:1.4s"><b>閘門通洪 750 vs 計畫 775 cms <span class="tag a">已納入通知</span></b><p>25 cms 缺口仰賴抽水站，專家質疑配置之經濟合理性</p></div>
     <div class="ex an right" style="--d:1.7s"><b>水理參數未律定驗證 <span class="tag d">待補證</span></b><p>曼寧 N 值前後不一、未以實測颱風事件律定，需原始模式檔案查證</p></div>
     <div class="ex an right" style="--d:2s"><b>模擬應聚焦保護標準 <span class="tag c">修正模型</span></b><p>超出計畫保護標準即會淹水為客觀事實；應強調僅建閘門、未加高堤防時之風險</p></div>
   </div>
-</section>
-
-<!-- ============ 9B 查核證據模型 ============ -->
-<section class="slide" id="s-live2" data-sec="專家諮詢" data-model="8772" data-model-path="/model/" data-model-rel="models/audit/model/" data-fallback="media/shots/audit-view-1-斜視.jpg" data-notes="第二個模型把五個風險查核點放到工區現場：目標年內外水條件、1K+600堤岸安全餘裕、極端洪潮越波、閘門多門失效，以及閘門與抽水站聯合操作。每個查核點都依 A 到 D 分級標示證據強度：A 是正式文件，B 是可重現推導，C 是空間判釋，D 是待補證、不得表述為已證實成果。
-・操作：上方視角按鈕；點「？1～？5」或「風險查核點明細」
-・多門失效水位 2.46/2.69/3.10/3.70 m 為設計情境，不代表現場預報">
-  <div class="modelhead"><div class="kicker an"><span class="no">08</span>LIVE MODEL｜查核證據 3D 模型・五個風險查核點</div></div>
-  <div class="modelwrap an fade" style="--d:.2s"><div class="fallback" data-msg="模型載入中…（離線時顯示預錄畫面）"></div><span class="live">LIVE｜Three.js</span></div>
-  <div class="modelside">
-    <div class="card an right" style="--d:.4s;padding:18px 20px">
-      <div class="kicker" style="font-size:18px;margin-bottom:10px">證據分級（查核模型定義）</div>
-      <div class="grades" style="grid-template-columns:1fr 1fr">
-        <div class="grade" style="color:#6fd38f"><b>A</b><span>直接佐證</span><small>正式文件頁碼、表號、圖號</small></div>
-        <div class="grade" style="color:#3fd0c9"><b>B</b><span>可重現推導</span><small>由 A 級資料經公開算式推導</small></div>
-        <div class="grade" style="color:#f2b84b"><b>C</b><span>輔助判釋</span><small>影像、模型量體與空間關聯</small></div>
-        <div class="grade" style="color:#ff6b5e"><b>D</b><span>限制／待補證</span><small>不得表述為已證實成果</small></div>
-      </div>
-    </div>
-    <div class="hint an right" style="--d:.6s;font-size:19px;line-height:1.7">
-      <b>AUD-01</b> 目標年（2070）內外水條件一致性<br>
-      <b>AUD-02</b> 1K+600 局部堤岸安全餘裕不足<br>
-      <b>AUD-03</b> 極端洪潮複合越波與界面<br>
-      <b>AUD-04</b> 閘門多門失效與共同原因失效<br>
-      <b>AUD-05</b> 閘門與抽水站聯合操作依賴
-    </div>
+  <div class="grades g8">
+    <div class="grade an" style="--d:2.4s;color:#6fd38f"><b>A</b><span>直接佐證</span><small>正式文件之數值、圖表</small></div>
+    <div class="grade an" style="--d:2.55s;color:#3fd0c9"><b>B</b><span>可重現推導</span><small>由 A 級資料以公開算式推導</small></div>
+    <div class="grade an" style="--d:2.7s;color:#f2b84b"><b>C</b><span>輔助判釋</span><small>影像、模型量體與空間關聯</small></div>
+    <div class="grade an" style="--d:2.85s;color:#ff6b5e"><b>D</b><span>待補證</span><small>不得表述為已證實成果</small></div>
   </div>
 </section>
 
-<!-- ============ 影片 B ============ -->
-<section class="slide" id="s-filmB" data-sec="影片B" data-film="b" data-notes="（播放影片，無需口述。）接著用影片說明，模型成果如何經過專家檢驗與證據分級，轉成審計意見與審核通知。">
+<section class="slide" id="s-filmB" data-sec="五結案例" data-film="b" data-notes="（播放影片，無需口述。）">
   <div class="film paused" data-film-id="b">
-    <div class="ftitle"><b>影片 B</b>由模型成果到審核通知</div>
+    <div class="ftitle"><b>影片 B</b>從模型查核線索，到可採用的審計建議</div>
     <div class="chap"><div class="c1"></div><div class="c2"></div></div>
 
-    <div class="scene" data-scene="b1">
+<div class="scene" data-scene="b1">
       <div class="shotimg kenburns" style="background-image:url(media/shots/audit-view-1-斜視.jpg);--kb:14s"></div>
       <span class="real" style="left:60px;top:100px">實際運行畫面｜查核證據模型</span>
       <div class="glass an right" style="--d:1.5s;right:70px;top:170px;width:640px">
@@ -471,7 +304,7 @@ public/model/<br>
       </div>
     </div>
 
-    <div class="scene" data-scene="b2">
+<div class="scene" data-scene="b2">
       <div style="position:absolute;left:100px;right:100px;top:160px">
         <div class="kicker an">專家諮詢矩陣（會議紀錄）</div>
         <table class="an" style="--d:.4s;width:100%;margin-top:22px;border-collapse:separate;border-spacing:0 14px;font-size:32px">
@@ -485,46 +318,23 @@ public/model/<br>
       </div>
     </div>
 
-    <div class="scene" data-scene="b3">
-      <div style="position:absolute;left:100px;top:160px;right:100px">
-        <div class="kicker an">證據效力分級</div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:22px;align-items:end">
-          <div class="card an" style="--d:.6s;height:400px;border-color:#6fd38f"><div class="num" style="font-size:80px;color:#6fd38f;font-weight:700">A</div><div style="font-size:30px;font-weight:800">正式文件</div><div style="font-size:22px;color:#a9c1cb;margin-top:10px">目標年（2070）施作後 EL2.92 m</div></div>
-          <div class="card an" style="--d:2s;height:400px;border-color:#3fd0c9"><div class="num" style="font-size:80px;color:#3fd0c9;font-weight:700">B</div><div style="font-size:30px;font-weight:800">算術推導</div><div class="num" style="font-size:24px;color:#a9c1cb;margin-top:10px">2.92＋0.50−3.20<br>＝0.22 m 不足</div></div>
-          <div class="card an" style="--d:3.4s;height:400px;border-color:#f2b84b"><div class="num" style="font-size:80px;color:#f2b84b;font-weight:700">C</div><div style="font-size:30px;font-weight:800">空間判釋</div><div style="font-size:22px;color:#a9c1cb;margin-top:10px">3D 模型代表位置、界面關聯</div></div>
-          <div class="card an" style="--d:7s;height:400px;border-color:#ff6b5e;position:relative"><div class="num" style="font-size:80px;color:#ff6b5e;font-weight:700">D</div><div style="font-size:30px;font-weight:800">待補證</div><div style="font-size:22px;color:#a9c1cb;margin-top:10px">實際淹水戶數、受災金額</div>
-            <svg class="an fade" style="--d:8s;position:absolute;inset:0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M6 94 L94 6" stroke="#ff6b5e" stroke-width="2.4"/></svg></div>
-        </div>
-        <div class="an" style="--d:8.6s;margin-top:40px;text-align:center;font-size:38px;font-weight:900;color:#ff6b5e">✕ 不得宣稱「模型證實一定淹水」</div>
-      </div>
-    </div>
-
-    <div class="scene" data-scene="b4">
+<div class="scene" data-scene="b3">
       <div style="position:absolute;left:80px;top:160px;width:860px;height:640px;border-radius:18px;overflow:hidden">
         <div class="shotimg" style="background-image:url(media/shots/risk-1088-before.jpg);filter:saturate(.6) brightness(.7)"></div>
         <div style="position:absolute;left:24px;top:20px;font-size:34px;font-weight:900;color:#ff6b5e">修正前</div>
-        <div class="glass an" style="--d:1s;left:24px;bottom:24px;right:24px;font-size:24px;line-height:1.6">呈現大規模溢淹範圍與受災房屋棟數<br><span style="color:#6f8b97;font-size:20px">易被誤讀為淹水預報或受災戶數</span></div>
+        <div class="glass an" style="--d:1s;left:24px;bottom:24px;right:24px;font-size:24px;line-height:1.6">呈現大規模溢淹範圍與受災房屋棟數<br><span style="color:#6f8b97;font-size:20px">易被誤讀為受災結論</span></div>
       </div>
       <svg class="an fade" style="--d:2s;position:absolute;left:950px;top:440px" width="80" height="80"><path d="M10 40 H66 M46 18 L68 40 L46 62" stroke="#f2b84b" stroke-width="6" fill="none"/></svg>
       <div class="chipcol" style="position:absolute;left:1040px;right:80px;top:170px">
         <div class="kicker an" style="--d:2.4s;color:#3fd0c9;font-size:34px">修正後</div>
-        <div class="chip an right" style="--d:3s">聚焦 Q10 情境，保留目標年（2070）1,088 cms<small>移除 Q25／Q50／Q100 模組（v11）</small></div>
-        <div class="chip an right" style="--d:4s">建物以「X／Y 部分範圍」表示<small>不等於全區總數、戶數或產權數</small></div>
-        <div class="chip an right" style="--d:5s">每個水位標註報告頁碼與品質碼<small>OFFICIAL_REPORTED／SCREENING_ESTIMATE</small></div>
-        <div class="chip an right" style="--d:6s">750 與 775 不同口徑，禁止直接相減求效益</div>
+        <div class="chip an right" style="--d:3s">聚焦目標年（2070）Q10 1,088 cms<small>保留 775、750 與 1,088 三種 Q10 情境</small></div>
+        <div class="chip an right" style="--d:5s">正式文件、算術推導、空間判釋分開標示<small>A／B／C／D 證據分級</small></div>
+        <div class="chip an right" style="--d:7s">建物以「X／Y 部分範圍」呈現<small>不等於全區總數或受災戶數</small></div>
+        <div class="chip an right" style="--d:9s">750 與 775 不同口徑，不直接相減求效益</div>
       </div>
     </div>
 
-    <div class="scene" data-scene="b5">
-      <div style="position:absolute;left:100px;right:100px;top:200px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center">
-        <div class="an zoom" style="--d:.5s"><div class="num" style="font-size:190px;font-weight:700;color:#f2b84b;line-height:1">0.69</div><div style="font-size:38px;font-weight:800;margin-top:14px">經濟效益</div><div style="font-size:24px;color:#a9c1cb;margin-top:12px">機關文件列值</div></div>
-        <div class="an zoom" style="--d:2.2s"><div class="num" style="font-size:190px;font-weight:700;color:#ff6b5e;line-height:1">0.22<small style="font-size:70px">m</small></div><div style="font-size:38px;font-weight:800;margin-top:14px">堤岸安全餘裕</div><div style="font-size:24px;color:#a9c1cb;margin-top:12px">2.92＋0.50−3.20 算術差</div></div>
-        <div class="an zoom" style="--d:3.9s"><div class="num" style="font-size:190px;font-weight:700;color:#3fd0c9;line-height:1">25<small style="font-size:70px">cms</small></div><div style="font-size:38px;font-weight:800;margin-top:14px">抽水站依賴</div><div style="font-size:24px;color:#a9c1cb;margin-top:12px">775−750 正式文件差值</div></div>
-      </div>
-      <div class="an" style="--d:6.5s;position:absolute;left:0;right:0;top:720px;text-align:center;font-size:30px;color:#eaf4f7">三個數字皆來自機關文件，<b style="color:#f2b84b">不是模型自行算出</b>；模型負責定位與呈現</div>
-    </div>
-
-    <div class="scene" data-scene="b6">
+<div class="scene" data-scene="b4">
       <div style="position:absolute;left:80px;right:80px;top:180px">
         <div class="kicker an">審計意見四段式（以 1K+600 堤防為例）</div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:24px">
@@ -536,16 +346,15 @@ public/model/<br>
       </div>
     </div>
 
-    <div class="scene" data-scene="b7">
+<div class="scene" data-scene="b5">
       <svg style="position:absolute;left:0;top:240px" width="1920" height="420" fill="none" font-family="Microsoft JhengHei" text-anchor="middle">
-        <path class="draw" style="--len:1500;--d:.4s;--dur:4s" d="M260 160 H1660" stroke="#3fd0c9" stroke-width="4"/>
-        <g class="an zoom" style="--d:.5s"><rect x="140" y="90" width="240" height="140" rx="18" fill="#0d202d" stroke="#3fd0c9" stroke-width="2"/><text x="260" y="152" font-size="30" fill="#eaf4f7" font-weight="800">工作底稿</text><text x="260" y="192" font-size="20" fill="#6f8b97">查核人員</text></g>
-        <g class="an zoom" style="--d:1.8s"><rect x="560" y="90" width="240" height="140" rx="18" fill="#0d202d" stroke="#3fd0c9" stroke-width="2"/><text x="680" y="152" font-size="30" fill="#eaf4f7" font-weight="800">調查報告</text><text x="680" y="192" font-size="20" fill="#6f8b97">擬議處理意見</text></g>
-        <g class="an zoom" style="--d:3.1s"><rect x="980" y="90" width="240" height="140" rx="18" fill="#0d202d" stroke="#3fd0c9" stroke-width="2"/><text x="1100" y="152" font-size="30" fill="#eaf4f7" font-weight="800">內部複核</text><text x="1100" y="192" font-size="20" fill="#6f8b97">主任核定</text></g>
-        <g class="an zoom" style="--d:4.4s"><rect x="1400" y="70" width="280" height="180" rx="18" fill="#2f2510" stroke="#f2b84b" stroke-width="3"/><text x="1540" y="148" font-size="36" fill="#f2b84b" font-weight="900">審核通知</text><text x="1540" y="192" font-size="20" fill="#eaf4f7">建議事項＋查明處理 4 項</text></g>
-        <text class="an fade" style="--d:6s" x="960" y="370" font-size="34" fill="#eaf4f7" font-weight="800">強化經濟性・強化完整性・強化韌性</text>
+        <path class="draw" style="--len:1500;--d:.2s;--dur:3.6s" d="M260 160 H1660" stroke="#3fd0c9" stroke-width="4"/>
+        <g class="an zoom" style="--d:.3s"><rect x="140" y="90" width="240" height="140" rx="18" fill="#0d202d" stroke="#3fd0c9" stroke-width="2"/><text x="260" y="152" font-size="30" fill="#eaf4f7" font-weight="800">工作底稿</text><text x="260" y="192" font-size="20" fill="#6f8b97">查核人員</text></g>
+        <g class="an zoom" style="--d:1.5s"><rect x="560" y="90" width="240" height="140" rx="18" fill="#0d202d" stroke="#3fd0c9" stroke-width="2"/><text x="680" y="152" font-size="30" fill="#eaf4f7" font-weight="800">調查報告</text><text x="680" y="192" font-size="20" fill="#6f8b97">擬議處理意見</text></g>
+        <g class="an zoom" style="--d:2.7s"><rect x="980" y="90" width="240" height="140" rx="18" fill="#0d202d" stroke="#3fd0c9" stroke-width="2"/><text x="1100" y="152" font-size="30" fill="#eaf4f7" font-weight="800">內部複核</text><text x="1100" y="192" font-size="20" fill="#6f8b97">主任核定</text></g>
+        <g class="an zoom" style="--d:3.9s"><rect x="1400" y="70" width="280" height="180" rx="18" fill="#2f2510" stroke="#f2b84b" stroke-width="3"/><text x="1540" y="148" font-size="36" fill="#f2b84b" font-weight="900">審核通知</text><text x="1540" y="192" font-size="20" fill="#eaf4f7">建議事項＋查明處理 4 項</text></g>
+        <text class="an fade" style="--d:5s" x="960" y="370" font-size="34" fill="#eaf4f7" font-weight="800">強化經濟性・強化完整性・強化韌性</text>
       </svg>
-      <div class="an fade" style="--d:6.5s;position:absolute;right:80px;top:170px;font-size:18px;color:#6f8b97">依「審核通知（主任核定）」文件；發文字號未列入簡報素材</div>
     </div>
 
     <div class="sub"></div>
@@ -554,113 +363,136 @@ public/model/<br>
   </div>
 </section>
 
-<!-- ============ 10 驗證結果 ============ -->
-<section class="slide" id="s-numbers" data-sec="驗證結果" data-notes="最後收斂成三個數字。0.69：規劃期末報告的益本比，總成本13.78億元、總效益9.46億元，低於可行門檻1。0.22公尺：目標年2070年洪水位 EL2.92加上0.5公尺出水高，需要 EL3.42，現況只有 EL3.20。25 cms：775減750，關閘期間要靠兩岸抽水站減排。三個數字都來自機關文件，模型負責定位與呈現。工程本體改善，不等於整體防洪系統風險已被解除。
-・0.22 m 為1K+600局部斷面值，非全河段">
-  <div class="pad">
-    <div class="kicker an"><span class="no">09</span>KEY FINDINGS</div>
-    <h2 class="title an" style="--d:.15s">驗證結果：<em>三個關鍵數字</em></h2>
-  </div>
-  <div class="three">
-    <div class="card big c1 an" style="--d:.3s">
-      <div class="bn"><span class="count" data-to="0.69" data-dec="2">0</span></div>
-      <h3>益本比偏低</h3>
-      <svg class="viz" viewBox="0 0 480 150" fill="none" font-family="Microsoft JhengHei">
-        <text x="0" y="34" font-size="20" fill="#a9c1cb">總成本</text><rect class="an left" style="--d:.9s" x="90" y="14" width="390" height="30" rx="6" fill="#f2b84b" opacity=".85"/><text x="470" y="36" font-size="20" fill="#2a1a00" text-anchor="end" font-weight="700">13.78 億</text>
-        <text x="0" y="84" font-size="20" fill="#a9c1cb">總效益</text><rect class="an left" style="--d:1.2s" x="90" y="64" width="268" height="30" rx="6" fill="#6fd38f" opacity=".85"/><text x="350" y="86" font-size="20" fill="#06210f" text-anchor="end" font-weight="700">9.46 億</text>
-        <line x1="90" x2="480" y1="122" y2="122" stroke="#6f8b97" stroke-dasharray="4 5"/><text x="480" y="146" font-size="18" fill="#6f8b97" text-anchor="end">益本比 &gt; 1 方表示計畫可行</text>
-      </svg>
-      <div class="how"><b>口徑：</b>總效益 9.46 億元 ÷ 總成本 13.78 億元；益本比大於 1 方表示計畫可行。<span class="tag a" style="font-size:16px">A 級</span></div>
+<section class="slide" id="s-live2" data-sec="五結案例" data-model="8772" data-model-path="/model/" data-model-rel="models/audit/model/" data-fallback="media/shots/audit-view-1-斜視.jpg" data-notes="納入專家意見後的 3D 成果模組，把五個風險查核點放回現場。三個關鍵風險：益本比 0.69、目標年堤頂不足 0.22 公尺、關閘期間依賴抽水站減排 25 cms。審核通知據此提出三項建議：強化經濟性、強化完整性、強化韌性。
+・手機遙控：可切六種視角，點「？1～？5」開啟查核點分析卡">
+  <div class="modelhead"><div class="kicker an"><span class="no">二</span>3D GIS 成果模組｜AUDIT EVIDENCE MODEL</div></div>
+  <div class="modelwrap an fade" style="--d:.2s"><div class="fallback" data-msg="模型載入中…（離線時顯示預錄畫面）"></div><span class="live">LIVE｜Three.js</span></div>
+  <div class="modelside">
+    <div class="card an right" style="--d:.4s;padding:16px 20px">
+      <div class="kicker" style="font-size:18px;margin-bottom:8px">關鍵風險</div>
+      <div class="krow"><b class="num" style="color:#f2b84b">0.69</b><span>益本比偏低</span></div>
+      <div class="krow"><b class="num" style="color:#ff6b5e">0.22 m</b><span>1K+600 堤頂不足（目標年 2070）</span></div>
+      <div class="krow"><b class="num" style="color:#3fd0c9">25 cms</b><span>關閘期間依賴抽水站減排</span></div>
     </div>
-    <div class="card big c2 an" style="--d:.5s">
-      <div class="bn"><span class="count" data-to="0.22" data-dec="2">0</span><small>m</small></div>
-      <h3>堤防高程缺口</h3>
-      <svg class="viz" viewBox="0 0 480 150" fill="none" font-family="Microsoft JhengHei">
-        <path d="M0 140 L120 40 L230 40 L360 140" fill="#3a4b55" opacity=".9"/>
-        <path class="an fade" style="--d:1.2s" d="M120 22 L230 22" stroke="#ff6b5e" stroke-width="3" stroke-dasharray="6 5"/>
-        <rect class="an fade" style="--d:1s" x="230" y="70" width="250" height="80" fill="#2c7fb8" opacity=".55"/>
-        <text x="380" y="62" font-size="18" fill="#7fc0ff" text-anchor="middle">洪水位 EL2.92</text>
-        <text x="175" y="70" font-size="18" fill="#eaf4f7" text-anchor="middle">現況 EL3.20</text>
-        <text class="an fade" style="--d:1.2s" x="175" y="16" font-size="18" fill="#ff6b5e" text-anchor="middle">需求 EL3.42</text>
-      </svg>
-      <div class="how"><b>口徑：</b>目標年（2070 年）1,088 cms 洪水位 EL2.92＋出水高 0.50 m，與 1K+600 現況堤頂 EL3.20 m 相減；局部斷面值。<span class="tag a" style="font-size:16px">A</span> <span class="tag b" style="font-size:16px">B 級</span></div>
+    <div class="card an right" style="--d:.6s;padding:16px 20px">
+      <div class="kicker" style="font-size:18px;margin-bottom:8px">審核通知三項建議</div>
+      <div class="rec"><b style="color:#f2b84b">強化經濟性</b>比較不同流量方案之成本效益</div>
+      <div class="rec"><b style="color:#ff6b5e">強化完整性</b>併同研謀 1K+600 周邊堤防加高</div>
+      <div class="rec"><b style="color:#3fd0c9">強化韌性</b>量化抽水站失效極限情形並研謀因應</div>
     </div>
-    <div class="card big c3 an" style="--d:.7s">
-      <div class="bn"><span class="count" data-to="25">0</span><small>cms</small></div>
-      <h3>抽水功能依賴</h3>
-      <svg class="viz" viewBox="0 0 480 150" fill="none" font-family="Microsoft JhengHei">
-        <rect class="an left" style="--d:.9s" x="0" y="20" width="440" height="34" rx="6" fill="#3fd0c9" opacity=".75"/><text x="10" y="44" font-size="19" fill="#052026" font-weight="700">計畫洪水量 775 cms</text>
-        <rect class="an left" style="--d:1.1s" x="0" y="70" width="426" height="34" rx="6" fill="#2c7fb8" opacity=".75"/><text x="10" y="94" font-size="19" fill="#eaf4f7" font-weight="700">關閘期間高地洪峰 750</text>
-        <rect class="an fade" style="--d:1.5s" x="426" y="70" width="14" height="34" fill="#ff6b5e"/><text x="480" y="140" font-size="18" fill="#ff6b5e" text-anchor="end">差額由兩岸抽水站減排</text>
-      </svg>
-      <div class="how"><b>口徑：</b>通過閘址計畫洪水量 775 cms 與關閘期間高地洪峰 750 cms 之差；未見抽水站失效之量化評估。<span class="tag a" style="font-size:16px">A</span> <span class="tag b" style="font-size:16px">B 級</span></div>
-    </div>
+    <div class="hint an right" style="--d:.8s;font-size:18px;line-height:1.6"><b>AUD-01～05</b>：內外水條件｜堤岸安全餘裕｜極端越波｜閘門多門失效｜抽水站聯合操作</div>
   </div>
-  <div class="bottomline an" style="--d:2s">工程本體改善，<em>不等於</em>整體防洪系統風險已被解除</div>
 </section>
 
-<!-- ============ 11 審核通知 ============ -->
-<section class="slide" id="s-notice" data-sec="審核通知" data-notes="審核通知提出三大方向：強化經濟性，比較不同流量方案的成本效益；強化完整性，併同研謀1K+600周邊堤防加高；強化韌性，量化抽水站故障、停電等極限情形並研謀因應。另請機關查明處理人行道鋪面、土方重複計算與估驗、品管人員未長駐及4項現場缺失。">
+<section class="slide" id="s-remote" data-sec="遠端協助" data-notes="第二項工具是手機遠端協助平台。現場人員用手機開網頁取得 4 位數代碼，審計人員輸入後即可看到現場鏡頭，雙向語音與文字溝通，並直接在畫面上圈選、加箭頭，指定要拍的部位，照片回傳存證。安全上採 4 位數配對與短效連線憑證，金鑰不放在程式庫。
+・右下 QR 可直接開啟平台">
+  <div class="pad"><div class="kicker an"><span class="no">三</span>手機遠端協助平台 APP｜HOW IT WORKS</div>
+    <h2 class="title an" style="--d:.15s">手機遠端協助平台：<em>共享畫面 × 遠距標記</em></h2></div>
+  <div class="rmflow">
+    <div class="rmend an left" style="--d:.3s"><div class="ri">📱</div><b>現場人員</b><span>手機開網頁<br>取得 4 位數代碼<br>分享鏡頭畫面</span></div>
+    <svg class="rmsvg" width="760" height="360" viewBox="0 0 760 360" fill="none" font-family="Microsoft JhengHei" font-weight="700">
+      <path class="draw" style="--len:700;--d:.8s;--dur:1.4s" d="M20 110 H740" stroke="#3fd0c9" stroke-width="5"/>
+      <path class="draw" style="--len:700;--d:1.6s;--dur:1.4s" d="M740 250 H20" stroke="#f2b84b" stroke-width="5"/>
+      <g class="an fade" style="--d:1s"><circle r="9" fill="#3fd0c9"><animateMotion dur="2s" repeatCount="indefinite" path="M20 110 H740"/></circle></g>
+      <g class="an fade" style="--d:1.8s"><circle r="9" fill="#f2b84b"><animateMotion dur="2s" repeatCount="indefinite" path="M740 250 H20"/></circle></g>
+      <text class="an fade" style="--d:1.2s" x="380" y="88" text-anchor="middle" font-size="28" fill="#3fd0c9">即時現場影像・語音</text>
+      <text class="an fade" style="--d:2s" x="380" y="300" text-anchor="middle" font-size="28" fill="#f2b84b">圈選・箭頭標記・文字指示</text>
+    </svg>
+    <div class="rmend an right" style="--d:.5s"><div class="ri">🧑‍💼</div><b>審計人員</b><span>輸入代碼連線<br>在畫面上標記<br>指定要拍的部位</span></div>
+  </div>
+  <div class="rmfeat">
+    <div class="card an" style="--d:2.4s"><b>共享畫面</b><p>手機鏡頭即時影像，雙向語音與文字訊息</p></div>
+    <div class="card an" style="--d:2.6s"><b>遠距標記</b><p>審計人員圈選、加箭頭，現場人員依標記查看</p></div>
+    <div class="card an" style="--d:2.8s"><b>回傳存證</b><p>依指示拍攝缺失部位，照片回傳供查核</p></div>
+    <div class="card an" style="--d:3s"><b>安全</b><p>4 位數配對、短效連線憑證，金鑰不放程式庫</p></div>
+  </div>
+  <div class="appqr rq an" style="--d:3.3s"><div class="qrlink" data-url="https://ymguan3-boop.github.io/original-tools/mobile-remote-assist/" data-size="140"></div><div><b>手機遠端協助平台</b><span>手機掃碼即可開啟，免安裝</span></div></div>
+</section>
+
+<section class="slide" id="s-high" data-sec="遠端協助" data-notes="在五結防潮閘門，部分結構物位於高處，審計人員無法直達，由現場人員登高以手機分享畫面，審計人員遠端圈選缺失部位，再依標記拍攝回傳。
+・待補：遠端協助平台拍攝之五結高處照片">
+  <div class="pad"><div class="kicker an"><span class="no">三</span>手機遠端協助平台 APP｜WUJIE FIELD USE</div>
+    <h2 class="title an" style="--d:.15s">五結防潮閘門：<em>結構物高處缺失</em>遠端查看</h2></div>
+  <div class="hgrid">
+    <div class="hold2 an" style="--d:.3s"><b>高處缺失照片 1</b><span>請提供遠端協助平台拍攝之五結現場照片</span></div>
+    <div class="hold2 an" style="--d:.45s"><b>高處缺失照片 2</b><span>（照片到位後替換本框）</span></div>
+    <div class="hold2 an" style="--d:.6s"><b>高處缺失照片 3</b><span>（照片到位後替換本框）</span></div>
+  </div>
+  <div class="hsteps an" style="--d:.9s"><span>現場人員登高處以手機分享畫面</span><i>→</i><span>審計人員遠端圈選缺失部位</span><i>→</i><span>依標記拍攝並回傳</span></div>
+</section>
+
+<section class="slide" id="s-filmC" data-sec="遠端協助" data-video="1" data-notes="（播放影片，無需口述。）">
+  <div class="fullvid"><video src="media/films/C.mp4" poster="media/films/c1.jpg" preload="metadata" playsinline controls></video>
+  <div class="vtitle"><b>影片 C</b>手機遠端協助平台｜南山消防分隊辦公廳舍新建工程</div></div>
+</section>
+
+<section class="slide" id="s-site" data-sec="缺失助手" data-carousel="1" data-notes="第三項工具是施工品質缺失檢測助手。現場拍照或上傳照片，AI 會框選疑似缺失、判別類型，並提出原因與改善對策，作為審核意見的草稿，最後由審計人員依契約與規範複核認定。紅框就是 APP 對五結現場照片實際回傳的結果。
+・第4張（突出鐵件）未經 APP 分析，無紅框">
   <div class="pad">
-    <div class="kicker an"><span class="no">10</span>AUDIT NOTICE</div>
-    <h2 class="title an" style="--d:.15s">審核通知：<em>三大改善方向</em></h2>
+    <div class="kicker an"><span class="no">四</span>施工品質缺失檢測助手｜FIELD QC ASSISTANT</div>
+    <h2 class="title an" style="--d:.15s">現場拍照，<em>及時回饋審核意見</em></h2>
   </div>
-  <div class="notice3">
-    <div class="card dir e an" style="--d:.3s"><div class="ic">ECONOMY</div><h3>強化經濟性</h3><p>嗣後辦理相關工程，強化經濟可行性評估；比較不同計畫洪水量方案之成本與效益，擇定最佳方案</p><div class="ev">證據：益本比 0.69；6 種 Q10 設計值未比較益本比</div></div>
-    <div class="card dir i an" style="--d:.55s"><div class="ic">INTEGRITY</div><h3>強化完整性</h3><p>併同本工程研謀施工範圍外堤防（1K+600 周邊）加高作業，避免局部改善後仍留系統弱點</p><div class="ev">證據：目標年（2070 年）堤頂需求 EL3.42，現況 EL3.20，不足 0.22 m</div></div>
-    <div class="card dir r an" style="--d:.8s"><div class="ic">RESILIENCE</div><h3>強化韌性</h3><p>對兩岸抽水站遭遇洪災或功能減損等極限情形，先行量化評估並研謀因應措施</p><div class="ev">證據：關閘期間須減排 25 cms；未見故障、停電、通訊失效備援</div></div>
+  <div class="carousel c2 an fade" style="--d:.3s">
+    <figure class="on"><div class="phbg" style="background-image:url(img/defect-1.jpg)"></div><div class="ph"><img src="img/defect-1.jpg" alt=""><div class="aibox" style="top:35%;left:35%;height:60%;width:65%"><span>工地管理缺失</span></div></div><div class="aitag">🤖 AI 缺失檢測助手判別：施工廢料散落・工地管理缺失</div><figcaption>營建廢棄物未整理清潔<small>管理橋｜圖號 DHST-101｜風險：絆倒、墜落物等工安隱患</small></figcaption></figure>
+    <figure><div class="phbg" style="background-image:url(img/defect-2.jpg)"></div><div class="ph"><img src="img/defect-2.jpg" alt=""><div class="aibox" style="top:36%;left:52%;height:34%;width:4%"><span>電線配線不當</span></div></div><div class="aitag">🤖 AI 缺失檢測助手判別：線纜未受保護・電線配線不當</div><figcaption>電線連接處破損<small>施工平臺｜圖號 DSBR-002｜風險：漏電、感電</small></figcaption></figure>
+    <figure><div class="phbg" style="background-image:url(img/defect-3.jpg)"></div><div class="ph"><img src="img/defect-3.jpg" alt=""><div class="aibox" style="top:15%;left:2%;height:80%;width:93%"><span>鋼筋材料生銹</span></div></div><div class="aitag">🤖 AI 缺失檢測助手判別：鋼筋材料生銹與露天堆放</div><figcaption>鋼筋未加保護生銹嚴重<small>右岸鋼筋加工區｜圖號 DHRD-010｜風險：影響鋼筋品質與握裹</small></figcaption></figure>
+    <figure><div class="phbg" style="background-image:url(img/defect-4.jpg)"></div><div class="ph"><img src="img/defect-4.jpg" alt=""></div><figcaption>未剪除留有突出鐵件<small>板模固定鐵件｜圖號 DSBR-002｜風險：鏽蝕滲水、人員刺傷</small></figcaption></figure>
   </div>
-  <div class="check4 an" style="--d:1.3s"><b>另請查明處理：</b><span>人行道鋪面圖說與工項不符</span><span>土方重複計算／估驗不符</span><span>品管人員未長駐</span><span>4 項現場施工缺失</span></div>
-</section>
-
-<!-- ============ 施工品質缺失檢測助手 APP ============ -->
-<section class="slide" id="s-app1" data-sec="AI 自製工具" data-video="1" data-notes="最後說明兩個我們自製的 AI 工具。第一個是施工品質缺失檢測助手：用手機瀏覽器開網頁就能用，不必安裝。拍照或上傳照片，AI 會在照片上框出疑似缺失，並列出缺失類型、可能原因、承包廠商缺失評估與改善對策；模型忙碌時會自動改用下一個免費影像模型。即使沒有工程查核背景，也能快速掌握現場疑點。不過 AI 結果只是輔助，最後仍需專業人員依規範複核。
-・進頁自動播放介紹影片（約80秒）；空白鍵暫停、R 從頭
-・右下 QR 可直接開啟 APP；需自備 OpenRouter 金鑰">
-  <div class="pad">
-    <div class="kicker an"><span class="no">11</span>AI TOOL ①</div>
-    <h2 class="title an" style="--d:.15s">施工品質缺失檢測助手 APP</h2>
+  <div class="thumbs t2">
+    <div class="thumb on an right" style="--d:.5s"><img src="img/defect-1.jpg" alt=""><div><b>營建廢棄物</b><span>未整理清潔</span></div></div>
+    <div class="thumb an right" style="--d:.65s"><img src="img/defect-2.jpg" alt=""><div><b>電線連接處</b><span>破損</span></div></div>
+    <div class="thumb an right" style="--d:.8s"><img src="img/defect-3.jpg" alt=""><div><b>鋼筋</b><span>未加保護、生銹嚴重</span></div></div>
+    <div class="thumb an right" style="--d:.95s"><img src="img/defect-4.jpg" alt=""><div><b>板模固定鐵件</b><span>未剪除、突出</span></div></div>
   </div>
-  <div class="appvid an fade" style="--d:.3s"><video src="media/apps/defect-app.mp4" poster="media/apps/defect-app.jpg" preload="metadata" playsinline controls></video><span class="vlabel">介紹影片｜含實際操作畫面</span></div>
-  <div class="appside">
-    <div class="appitem an right" style="--d:0.5s"><b>拍照或上傳</b>手機瀏覽器開啟網頁即可使用，不需安裝 App</div>
-    <div class="appitem an right" style="--d:0.65s"><b>AI 框選疑似缺失</b>在原始照片上框出位置，列出缺失類型與態樣</div>
-    <div class="appitem an right" style="--d:0.8s"><b>完整分析</b>可能原因、承包廠商缺失評估（尺寸不符、用料不符、施工不良、工地管理缺失）與改善對策</div>
-    <div class="appitem an right" style="--d:0.95s"><b>自動選用免費影像模型</b>模型忙碌時自動改用下一個</div>
-    <div class="appuse an right" style="--d:1.1s"><b>本案應用</b>現場缺失照片經 AI 框選疑似缺失，再由審計人員依契約與規範複核認定；AI 結果僅為輔助</div>
-    <div class="appqr an right" style="--d:1.2999999999999998s"><div class="qrlink" data-url="https://ymguan3-boop.github.io/original-tools/construction-qc/" data-size="150"></div><div><b>施工品質缺失檢測助手</b><span>手機掃碼即可開啟，免安裝</span></div></div>
+  <div class="qcflow">
+    <span class="an" style="--d:1.2s">📷 拍照／上傳</span><i class="an fade" style="--d:1.3s">→</i>
+    <span class="an" style="--d:1.4s">🤖 AI 辨識框選</span><i class="an fade" style="--d:1.5s">→</i>
+    <span class="an" style="--d:1.6s">📝 意見建議草稿</span><i class="an fade" style="--d:1.7s">→</i>
+    <span class="hl an" style="--d:1.8s">🧑‍💼 審計人員複核認定</span>
+    <div class="appqr qq an" style="--d:2s"><div class="qrlink" data-url="https://ymguan3-boop.github.io/original-tools/construction-qc/" data-size="110"></div><div><b>施工品質缺失檢測助手</b><span>掃碼開啟，免安裝</span></div></div>
   </div>
 </section>
 
-<!-- ============ 手機遠端協助平台 ============ -->
-<section class="slide" id="s-app2" data-sec="AI 自製工具" data-video="1" data-notes="第二個是手機遠端協助平台。現場人員用手機開網頁取得4位數代碼，審計人員輸入後就能看到現場鏡頭，並且雙向語音、文字溝通，還能直接在畫面上圈選、畫箭頭，指定要拍的部位。本案部分工項位在高空或涉水處，審計人員無法直達，就是用這個平台請現場人員協助拍攝查看。影片是南山消防分隊辦公廳舍新建工程的實際操作示範。
-・進頁自動播放示範影片（約75秒）；影片為南山消防分隊案，非五結案畫面">
-  <div class="pad">
-    <div class="kicker an"><span class="no">12</span>AI TOOL ②</div>
-    <h2 class="title an" style="--d:.15s">手機遠端協助平台</h2>
-  </div>
-  <div class="appvid an fade" style="--d:.3s"><video src="media/apps/remote-assist.mp4" poster="media/apps/remote-assist.jpg" preload="metadata" playsinline controls></video><span class="vlabel">示範影片｜南山消防分隊辦公廳舍新建工程實際操作</span></div>
-  <div class="appside">
-    <div class="appitem an right" style="--d:0.5s"><b>4 位數配對</b>現場人員手機開網頁取得代碼，審計人員輸入即可連線</div>
-    <div class="appitem an right" style="--d:0.65s"><b>即時現場畫面</b>分享手機鏡頭，雙向語音與文字訊息</div>
-    <div class="appitem an right" style="--d:0.8s"><b>畫面即時標記</b>審計人員在畫面上圈選、加箭頭，指定要拍攝的部位</div>
-    <div class="appitem an right" style="--d:0.95s"><b>縮短往返</b>先遠端看清現場，再精準安排必要的現地查證</div>
-    <div class="appuse an right" style="--d:1.1s"><b>本案應用</b>部分工項位於高空處或涉水處，審計人員無法直達，改由現場人員手機拍攝、審計人員遠端指示查看缺失</div>
-    <div class="appqr an right" style="--d:1.2999999999999998s"><div class="qrlink" data-url="https://ymguan3-boop.github.io/original-tools/mobile-remote-assist/" data-size="150"></div><div><b>手機遠端協助平台</b><span>手機掃碼即可開啟，免安裝</span></div></div>
-  </div>
+<section class="slide" id="s-filmD" data-sec="缺失助手" data-video="1" data-notes="（播放影片，無需口述。）
+・片中 Copilot 上架畫面待提供截圖後替換">
+  <div class="fullvid"><video src="media/films/D.mp4" poster="media/films/d1.jpg" preload="metadata" playsinline controls></video>
+  <div class="vtitle"><b>影片 D</b>施工品質缺失檢測助手｜實際操作</div></div>
 </section>
 
-<!-- ============ 12 結語 ============ -->
-<section class="slide" id="s-end" data-sec="結語" data-notes="AI 讓風險被看見，專業讓證據可被信賴，審計讓改善真正發生。預警性審計的價值，不只在指出缺失，更在協助機關提前辨識並處理尚未發生的系統性風險。報告完畢，謝謝。">
+<section class="slide" id="s-compare" data-sec="結語" data-notes="整理三項工具：3D GIS 淹水模組適用於大型水利工程的規劃設計審查；手機遠端協助平台用在高處、涉水等難以直達的地方；施工品質缺失檢測助手用於現場抽查的照片初篩。三者都做好資安控管，也都清楚定位：不取代正式水理模式、不取代必要的現地查證，AI 結果須人工複核。">
+  <div class="pad"><div class="kicker an"><span class="no">五</span>結語｜THREE TOOLS</div>
+    <h2 class="title an" style="--d:.15s">三項工具：<em>何時用、如何控管</em></h2></div>
+  <table class="cmp3 an" style="--d:.3s"><thead><tr><th></th><th>🗺️ 3D GIS 淹水模組</th><th>📱 手機遠端協助平台</th><th>📷 施工品質缺失檢測助手</th></tr></thead><tbody>
+    <tr><td>用途</td><td>規劃設計審查、防洪風險空間篩檢</td><td>高處、涉水等難以直達處遠距查看</td><td>現場照片快速辨識疑似缺失</td></tr>
+    <tr><td>何時用</td><td>大型水利工程、多版報告需交叉比對</td><td>現場人員在場，審計人員無法直達</td><td>現場抽查、照片初篩</td></tr>
+    <tr><td>資安控管</td><td>機關資料分級使用，原始報告不上公開網頁</td><td>4 位數配對、短效憑證，金鑰不放程式庫</td><td>金鑰僅存使用者瀏覽器，照片僅於分析時傳送</td></tr>
+    <tr><td>定位</td><td>不取代正式水理模式</td><td>不取代必要之現地查證</td><td>AI 結果須人工複核</td></tr>
+  </tbody></table>
+</section>
+
+<section class="slide" id="s-karpathy" data-sec="結語" data-notes="前特斯拉 AI 總監、OpenAI 共同創辦成員 Andrej Karpathy 說過：「最熱門的新程式語言是英文」。在大型語言模型的時代，軟體開發進入 Software 3.0、vibe coding 的新階段。今天介紹的報告勾稽、Python 驗算、3D GIS 模型、遠端協助平台與缺失檢測助手，都是用自然語言與 AI 對話完成的。AI 時代，人人都是開發者，只要有想法、願意對話，就能把點子變成工具。">
+  <div class="pad"><div class="kicker an"><span class="no">五</span>結語｜EVERYONE CAN BUILD</div></div>
+  <div class="quote an" style="--d:.3s">
+    <div class="qm">“</div>
+    <div class="qen">The hottest new programming language is English.</div>
+    <div class="qzh">最熱門的新程式語言是英文</div>
+    <div class="qby">— Andrej Karpathy｜前特斯拉 AI 總監、OpenAI 共同創辦成員</div>
+  </div>
+  <div class="sw3 an" style="--d:1.2s">Software 3.0／Vibe Coding：<b>用自然語言描述需求，AI 協助寫出程式</b></div>
+  <div class="everyone an zoom" style="--d:1.8s">AI 時代，<em>人人都是開發者</em><small>只要有想法、願意對話，就能把點子變成工具</small></div>
+  <div class="cases an" style="--d:2.4s"><span>報告勾稽</span><span>資料庫＋Python 驗算</span><span>3D GIS 淹水模組</span><span>查核證據模型</span><span>手機遠端協助平台</span><span>施工品質缺失檢測助手</span><span>旁白影片與字幕</span></div>
+</section>
+
+<section class="slide" id="s-end" data-sec="結語" data-notes="最後以一句話作結：AI 擴大查核視野，專業守住證據底線，審計推動公共治理。宜蘭縣審計室的分享，希望達到拋磚引玉的效果，謝謝大家，歡迎交流指教。">
   <div class="qrcard an fade" style="--d:.8s"><div class="qrbox" data-size="200"></div><div class="qrtxt">手機掃碼<br>遙控簡報</div></div>
   <div class="bgimg" style="background-image:url(img/site-aerial.jpg)"></div>
   <div class="shade"></div>
   <div class="three-lines">
-    <p class="an" style="--d:.6s"><b>AI</b> 讓風險被看見</p>
-    <p class="an" style="--d:1.6s"><b>專業</b> 讓證據可被信賴</p>
-    <p class="an" style="--d:2.6s"><b>審計</b> 讓改善真正發生</p>
+    <p class="an" style="--d:.6s"><b>AI</b> 擴大查核視野</p>
+    <p class="an" style="--d:1.6s"><b>專業</b> 守住證據底線</p>
+    <p class="an" style="--d:2.6s"><b>審計</b> 推動公共治理</p>
   </div>
-  <div class="closing an" style="--d:3.8s">預警性審計的價值，不只在指出缺失<br>更在協助機關提前辨識並處理尚未發生的系統性風險</div>
+  <div class="closing an" style="--d:3.8s">宜蘭縣審計室分享，拋磚引玉<br>歡迎交流指教</div>
 </section>
 
 <div id="hud"><span id="hostconn">📱 手機未連線</span><span class="sec"></span><span class="pg num"></span><div class="bar"><i></i></div><span>H 說明</span></div>
