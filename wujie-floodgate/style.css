@@ -705,3 +705,8 @@ table.cmp3 tr:last-child td:not(:first-child) { color: #f5d9a6; background: rgba
 .aspects.film3 .asp { min-height: 0; }
 .evleft { top: 296px; height: 570px; }
 .evright { top: 290px; }
+
+/* 18 頁：Copilot 上架圖移至右下 */
+#s-site .copilot { top: 760px; right: 120px; width: 560px; }
+
+#s-site .copilot { top: 776px; }
